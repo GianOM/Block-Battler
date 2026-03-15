@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://br5df0oqi0lb4"]
+
+[ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
+[ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="1_j7h28"]
+[ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Function_Block__SCRIPT.gd" id="1_jtpx1"]
+
+[node name="Combat_UI_Root" type="Control" unique_id=632087552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player_Combat_Input" type="Node" parent="." unique_id=920619228]
+script = ExtResource("1_1k6pa")
+
+[node name="Block_Lists" type="Control" parent="." unique_id=1326448696]
+layout_mode = 1
+anchor_right = 0.22933334
+anchor_bottom = 1.0073704
+offset_right = -0.3200035
+offset_bottom = 0.040000916
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Block_Lists" unique_id=106744607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Block_Lists" unique_id=1499070682]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05500003
+anchor_right = 0.945
+anchor_bottom = 0.07875001
+offset_left = -0.2000122
+offset_right = 0.19999695
+offset_bottom = 0.31999207
+grow_horizontal = 2
+theme_override_constants/separation = 80
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Functions_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=968430617]
+layout_mode = 2
+text = "Functions"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Block_Lists/HBoxContainer/Functions_Title" unique_id=2059949490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.36800003
+anchor_top = 1.7830001
+anchor_right = 1.368
+anchor_bottom = 42.609
+offset_left = -0.031999588
+offset_top = -0.009002686
+offset_right = 0.03199768
+offset_bottom = -0.007019043
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Function_Block" type="Control" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=782154092]
+z_index = 128
+custom_minimum_size = Vector2(132, 100)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("1_jtpx1")
+
+[node name="FBlock_TEXTURE" type="TextureRect" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" unique_id=1796011857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_j7h28")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
+layout_mode = 2
+text = "Variables"
+
+[node name="Lists_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=835656984]
+layout_mode = 2
+text = "Lists"
+
+[node name="Block_Canvas" type="Control" parent="." unique_id=1247735256]
+layout_mode = 1
+anchor_left = 0.22900002
+anchor_right = 1.0001667
+anchor_bottom = 0.41525927
+offset_left = 0.3199768
+offset_right = -0.32006836
+offset_bottom = -0.480011
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_entered_area"]
+[connection signal="mouse_exited" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_exited_area"]
