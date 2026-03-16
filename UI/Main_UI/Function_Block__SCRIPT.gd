@@ -1,10 +1,11 @@
-extends Control
+class_name Function_Block extends Control
 
 enum Block_State{
 	AVAILABLE,
 	BLOCKED,
 	DRAGGABLE,
 	DRAGGING,
+	DROPABLE
 	
 }
 
@@ -24,29 +25,45 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	if current_state == Block_State.DRAGGING:
+	if (current_state == Block_State.DRAGGING) or (current_state == Block_State.DROPABLE):
 		
 		#Centraliza e nao deixa sair da tela
 		f_block_texture.global_position = (get_global_mouse_position() - (size/2)).clamp(Vector2.ZERO, get_viewport().get_visible_rect().size - (size))
+		
+		
+		
+func Set_Block_Dropable():
+	current_state = Block_State.DROPABLE
 
 
 
 func _on_Player_PRESSED_Left_Click():
 	
-	if current_state == Block_State.DRAGGABLE:
+	
+	
+	if current_state == Block_State.DRAGGABLE and (JOGADOR.current_Function_Dragging_Block == null):
 		current_state = Block_State.DRAGGING
+		
+		JOGADOR.current_Function_Dragging_Block = self
 		
 		print("Mouse DRAGGING")
 		
 func _on_Player_RELEASED_Left_Click():
 	
 	
+	
+	JOGADOR.current_Function_Dragging_Block = null
+	
 	if current_state == Block_State.DRAGGING:
-		current_state = Block_State.DRAGGABLE
 		
+		current_state = Block_State.DRAGGABLE
 		f_block_texture.position = Vector2.ZERO
 		
-		print("Mouse FINISHED DRAGGIN")
+		
+	elif current_state == Block_State.DROPABLE:
+		
+		current_state = Block_State.DRAGGABLE
+		
 
 
 func _on_mouse_entered_area():

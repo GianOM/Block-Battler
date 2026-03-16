@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
 [ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="1_j7h28"]
 [ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Function_Block__SCRIPT.gd" id="1_jtpx1"]
+[ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
+bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
 
 [node name="Combat_UI_Root" type="Control" unique_id=632087552]
 layout_mode = 3
@@ -101,7 +105,18 @@ offset_left = 0.3199768
 offset_right = -0.32006836
 offset_bottom = -0.480011
 mouse_filter = 2
+script = ExtResource("4_yeubn")
 metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Block_Canvas" unique_id=1580935855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k6pa")
 
 [connection signal="mouse_entered" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_entered_area"]
 [connection signal="mouse_exited" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_exited_area"]
