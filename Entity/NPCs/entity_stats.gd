@@ -20,7 +20,7 @@ func set_hp(value: int):
 func set_shield(value: int):
 	shield = clampi(value, 0, 999)
 	changes_in_stats.emit()
-	
+
 func take_damage(damage: int):
 	if damage <= 0:
 		return
