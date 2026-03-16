@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bwed0118amt63"]
+
+[ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Function_Block__SCRIPT.gd" id="1_10ivv"]
+[ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="2_si617"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubn"]
+size = Vector2(132, 101)
+
+[node name="Function_Block" type="Control" unique_id=919133198]
+custom_minimum_size = Vector2(132, 100)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_10ivv")
+
+[node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_si617")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Mouse_Detection_Area" type="Area2D" parent="FBlock_TEXTURE" unique_id=2002274141]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Mouse_Detection_Area" unique_id=1384878594]
+position = Vector2(66, 50.5)
+shape = SubResource("RectangleShape2D_yeubn")
+
+[connection signal="mouse_entered" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_entered_area"]
+[connection signal="mouse_exited" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_exited_area"]

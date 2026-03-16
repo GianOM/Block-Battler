@@ -13,6 +13,9 @@ enum Block_State{
 
 var current_state: Block_State = Block_State.ONLIST
 
+
+var is_mouse_on_Canvas: bool = false
+
 func _ready() -> void:
 	
 	
@@ -21,11 +24,14 @@ func _ready() -> void:
 	JOGADOR.Left_Click_Pressed.connect(_on_Player_PRESSED_Left_Click)
 	JOGADOR.Left_Click_Released.connect(_on_Player_RELEASED_Left_Click)
 	
+	JOGADOR.Player_Mouse_Entered_Canvas.connect(Set_Block_Dropable)
+	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
 	
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	
-	print(name + " -> " + Block_State.keys()[current_state])
+	#print(name + " -> " + Block_State.keys()[current_state])
 	
 	if (current_state == Block_State.DRAGGING) or (current_state == Block_State.DROPABLE):
 		#																				Centraliza e nao deixa sair da tela
@@ -34,10 +40,20 @@ func _physics_process(delta: float) -> void:
 		
 		
 func Set_Block_Dropable():
-	current_state = Block_State.DROPABLE
+	
+	is_mouse_on_Canvas = true
+	
+	if current_state == Block_State.DRAGGING:
+		current_state = Block_State.DROPABLE
+		
+		
 	
 func Set_Block_Dragging():
-	current_state = Block_State.DRAGGING
+	
+	is_mouse_on_Canvas = false
+	
+	if current_state == Block_State.DROPABLE:
+		current_state = Block_State.DRAGGING
 
 
 
@@ -55,8 +71,15 @@ func _on_Player_PRESSED_Left_Click():
 		
 	elif (current_state == Block_State.ONCANVAS):
 		
-		current_state = Block_State.DROPABLE
-		JOGADOR.current_Function_Dragging_Block = self
+		if is_mouse_on_Canvas:
+		
+			current_state = Block_State.DROPABLE
+			JOGADOR.current_Function_Dragging_Block = self
+			
+		else:
+			
+			current_state = Block_State.DRAGGING
+			JOGADOR.current_Function_Dragging_Block = self
 		
 		
 func _on_Player_RELEASED_Left_Click():

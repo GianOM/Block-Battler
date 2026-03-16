@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://br5df0oqi0lb4"]
 
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
-[ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="1_j7h28"]
-[ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Function_Block__SCRIPT.gd" id="1_jtpx1"]
+[ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Function_Block__SCENE.tscn" id="3_1k6pa"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
 bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubn"]
-size = Vector2(132, 101)
 
 [node name="Combat_UI_Root" type="Control" unique_id=632087552]
 y_sort_enabled = true
@@ -96,32 +92,13 @@ offset_right = 0.03199768
 offset_bottom = -0.007019043
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 4
+theme_override_constants/separation = 25
 
-[node name="Function_Block" type="Control" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=782154092]
-custom_minimum_size = Vector2(132, 100)
+[node name="Function_Block" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=919133198 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
-mouse_filter = 2
-script = ExtResource("1_jtpx1")
 
-[node name="FBlock_TEXTURE" type="TextureRect" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" unique_id=1796011857]
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("1_j7h28")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Mouse_Detection_Area" type="Area2D" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE" unique_id=1608581958]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE/Mouse_Detection_Area" unique_id=1016180519]
-position = Vector2(66, 50.5)
-shape = SubResource("RectangleShape2D_yeubn")
+[node name="Function_Block2" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1223105320 instance=ExtResource("3_1k6pa")]
+layout_mode = 2
 
 [node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
 layout_mode = 2
@@ -133,5 +110,3 @@ text = "Lists"
 
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
-[connection signal="mouse_entered" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE/Mouse_Detection_Area" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_entered_area"]
-[connection signal="mouse_exited" from="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block/FBlock_TEXTURE/Mouse_Detection_Area" to="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer/Function_Block" method="_on_mouse_exited_area"]

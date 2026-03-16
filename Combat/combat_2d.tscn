@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bcxsn3763csl"]
+
+[ext_resource type="Texture2D" uid="uid://bl0px0faeujld" path="res://Assets/combat_background.webp" id="1_mw5lh"]
+
+[node name="Combat2D" type="Node2D" unique_id=2110802663]
+
+[node name="CombatBackground" type="Sprite2D" parent="." unique_id=1101945263]
+texture = ExtResource("1_mw5lh")
+centered = false
+metadata/_edit_lock_ = true
