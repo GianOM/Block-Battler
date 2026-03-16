@@ -1,18 +1,17 @@
 class_name Function_Block extends Control
 
 enum Block_State{
-	AVAILABLE,
-	BLOCKED,
+	ONLIST,
+	ONCANVAS,
 	DRAGGABLE,
 	DRAGGING,
-	DROPABLE
-	
+	DROPABLE,
+	PLACED
 }
 
 @onready var f_block_texture: TextureRect = $FBlock_TEXTURE
 
-
-var current_state: Block_State = Block_State.AVAILABLE
+var current_state: Block_State = Block_State.ONLIST
 
 func _ready() -> void:
 	
@@ -25,32 +24,42 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	
+	print(name + " -> " + Block_State.keys()[current_state])
+	
 	if (current_state == Block_State.DRAGGING) or (current_state == Block_State.DROPABLE):
-		
-		#Centraliza e nao deixa sair da tela
+		#																				Centraliza e nao deixa sair da tela
 		f_block_texture.global_position = (get_global_mouse_position() - (size/2)).clamp(Vector2.ZERO, get_viewport().get_visible_rect().size - (size))
 		
 		
 		
 func Set_Block_Dropable():
 	current_state = Block_State.DROPABLE
+	
+func Set_Block_Dragging():
+	current_state = Block_State.DRAGGING
 
 
 
 func _on_Player_PRESSED_Left_Click():
 	
+	# Significa que ele ja esta carregando um bloco por vez
+	if JOGADOR.current_Function_Dragging_Block != null:
+		return
 	
-	
-	if current_state == Block_State.DRAGGABLE and (JOGADOR.current_Function_Dragging_Block == null):
-		current_state = Block_State.DRAGGING
+	if current_state == Block_State.DRAGGABLE:
 		
+		current_state = Block_State.DRAGGING
 		JOGADOR.current_Function_Dragging_Block = self
 		
-		print("Mouse DRAGGING")
+		
+	elif (current_state == Block_State.ONCANVAS):
+		
+		current_state = Block_State.DROPABLE
+		JOGADOR.current_Function_Dragging_Block = self
+		
 		
 func _on_Player_RELEASED_Left_Click():
-	
-	
 	
 	JOGADOR.current_Function_Dragging_Block = null
 	
@@ -62,28 +71,30 @@ func _on_Player_RELEASED_Left_Click():
 		
 	elif current_state == Block_State.DROPABLE:
 		
-		current_state = Block_State.DRAGGABLE
+		current_state = Block_State.ONCANVAS
 		
 
 
 func _on_mouse_entered_area():
 	
 	
-	if current_state == Block_State.AVAILABLE:
+	if (current_state == Block_State.ONLIST):
 	
-		mouse_default_cursor_shape = Control.CURSOR_DRAG
 		current_state = Block_State.DRAGGABLE
 		
-		print("Mouse ON")
+	elif (current_state == Block_State.PLACED):
+		
+		current_state = Block_State.ONCANVAS
 	
 	
 func _on_mouse_exited_area():
 	
 	# Se ele nao esta sendo arrastado, nao tiramos ele do Draggable State
 	if current_state == Block_State.DRAGGABLE:
-	
-	
-		mouse_default_cursor_shape = Control.CURSOR_ARROW
 		
-		current_state = Block_State.AVAILABLE
+		current_state = Block_State.ONLIST
+		
+	elif current_state == Block_State.ONCANVAS:
+	
+		current_state = Block_State.PLACED
 	
