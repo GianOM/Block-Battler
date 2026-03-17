@@ -2,9 +2,23 @@
 
 [ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Function_Block__SCRIPT.gd" id="1_10ivv"]
 [ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="2_si617"]
+[ext_resource type="Script" uid="uid://cw0luhlqu7i0w" path="res://UI/Main_UI/FBlock_Texture__SCRIPT.gd" id="3_p4yei"]
+[ext_resource type="Script" uid="uid://dasvl2e1y5vig" path="res://UI/Main_UI/FBlock_Attachment__SCRIPT.gd" id="3_si617"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubn"]
 size = Vector2(132, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si617"]
+size = Vector2(132, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4yei"]
+size = Vector2(132, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bod48"]
+size = Vector2(51, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ym6i"]
+size = Vector2(51, 101)
 
 [node name="Function_Block" type="Control" unique_id=919133198]
 custom_minimum_size = Vector2(132, 100)
@@ -23,8 +37,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_si617")
-expand_mode = 3
+expand_mode = 2
 stretch_mode = 5
+script = ExtResource("3_p4yei")
 
 [node name="Mouse_Detection_Area" type="Area2D" parent="FBlock_TEXTURE" unique_id=2002274141]
 
@@ -32,5 +47,49 @@ stretch_mode = 5
 position = Vector2(66, 50.5)
 shape = SubResource("RectangleShape2D_yeubn")
 
+[node name="Block_Attachment_Manager" type="Control" parent="FBlock_TEXTURE" unique_id=493003463 node_paths=PackedStringArray("ptr_F_Block")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_si617")
+ptr_F_Block = NodePath("../..")
+
+[node name="UP_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=733406433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/UP_Collision_Area" unique_id=1691704355]
+position = Vector2(0, -75.5)
+shape = SubResource("RectangleShape2D_si617")
+
+[node name="DOWN_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=36968135]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/DOWN_Collision_Area" unique_id=250061133]
+position = Vector2(0, 76)
+shape = SubResource("RectangleShape2D_p4yei")
+
+[node name="LEFT_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=909761492]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/LEFT_Collision_Area" unique_id=1264880729]
+position = Vector2(-91.5, 0.5)
+shape = SubResource("RectangleShape2D_bod48")
+
+[node name="Right_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=1549008157]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/Right_Collision_Area" unique_id=220794032]
+position = Vector2(91.5, 0.5)
+shape = SubResource("RectangleShape2D_0ym6i")
+
 [connection signal="mouse_entered" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_entered_area"]
 [connection signal="mouse_exited" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_exited_area"]
+[connection signal="mouse_entered" from="FBlock_TEXTURE/Block_Attachment_Manager/UP_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_enter_UP_area"]
+[connection signal="mouse_exited" from="FBlock_TEXTURE/Block_Attachment_Manager/UP_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_leave_UP_area"]
+[connection signal="mouse_entered" from="FBlock_TEXTURE/Block_Attachment_Manager/DOWN_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_enter_DOWN_area"]
+[connection signal="mouse_exited" from="FBlock_TEXTURE/Block_Attachment_Manager/DOWN_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_leave_DOWN_area"]
+[connection signal="mouse_entered" from="FBlock_TEXTURE/Block_Attachment_Manager/LEFT_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_enter_LEFT_area"]
+[connection signal="mouse_exited" from="FBlock_TEXTURE/Block_Attachment_Manager/LEFT_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_leave_LEFT_area"]
+[connection signal="mouse_entered" from="FBlock_TEXTURE/Block_Attachment_Manager/Right_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_enter_RIGHT_area"]
+[connection signal="mouse_exited" from="FBlock_TEXTURE/Block_Attachment_Manager/Right_Collision_Area" to="FBlock_TEXTURE/Block_Attachment_Manager" method="_on_mouse_leave_RIGHT_area"]

@@ -6,10 +6,27 @@ enum Block_State{
 	DRAGGABLE,
 	DRAGGING,
 	DROPABLE,
-	PLACED
+	PLACED,
+	ATTACHED
 }
 
+enum Block_Type{
+	ATTACK,
+	DEFENSE,
+	LOOP
+}
+
+@export var my_block_type: Block_Type
+
 @onready var f_block_texture: TextureRect = $FBlock_TEXTURE
+
+@onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
+
+
+var Child_Blocks_List: Array[Function_Block]
+
+
+
 
 var current_state: Block_State = Block_State.ONLIST
 
@@ -18,24 +35,46 @@ var is_mouse_on_Canvas: bool = false
 
 func _ready() -> void:
 	
-	
-	print_tree()
-	
 	JOGADOR.Left_Click_Pressed.connect(_on_Player_PRESSED_Left_Click)
 	JOGADOR.Left_Click_Released.connect(_on_Player_RELEASED_Left_Click)
 	
 	JOGADOR.Player_Mouse_Entered_Canvas.connect(Set_Block_Dropable)
 	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
+	f_block_texture.Set_Correct_Block_Texture(my_block_type)
+	
+	
+
+	
 	
 @warning_ignore("unused_parameter")
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	#print(name + " -> " + Block_State.keys()[current_state])
 	
 	if (current_state == Block_State.DRAGGING) or (current_state == Block_State.DROPABLE):
 		#																				Centraliza e nao deixa sair da tela
 		f_block_texture.global_position = (get_global_mouse_position() - (size/2)).clamp(Vector2.ZERO, get_viewport().get_visible_rect().size - (size))
+		
+		
+		
+		
+		
+		
+func Attach_Function_Block_to_Self(fblock_to_attach: Function_Block):
+	
+	
+	fblock_to_attach.f_block_texture.global_position = f_block_texture.global_position
+	
+	
+	fblock_to_attach.f_block_texture.global_position.y -= size.y * 0.5
+	
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -94,7 +133,19 @@ func _on_Player_RELEASED_Left_Click():
 		
 	elif current_state == Block_State.DROPABLE:
 		
-		current_state = Block_State.ONCANVAS
+		# Se nao estiver nenhum bloco adjacente, so solta
+		if JOGADOR.current_Function_Attach_Block == null:
+			
+			current_state = Block_State.ONCANVAS
+			
+		else:
+			# Se soltarmos proxima a uma regiao de attachment, fazemos o attachment
+			# do atual bloco sendo arrastado ao bloco "attach target"
+			
+			current_state = Block_State.ATTACHED
+			
+			JOGADOR.current_Function_Attach_Block.Attach_Function_Block_to_Self(self)
+			
 		
 
 

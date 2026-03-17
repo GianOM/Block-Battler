@@ -99,6 +99,15 @@ layout_mode = 2
 
 [node name="Function_Block2" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1223105320 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
+my_block_type = 1
+
+[node name="Function_Block3" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1227061683 instance=ExtResource("3_1k6pa")]
+layout_mode = 2
+my_block_type = 2
+
+[node name="Function_Block4" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=2100694183 instance=ExtResource("3_1k6pa")]
+layout_mode = 2
+my_block_type = 2
 
 [node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
 layout_mode = 2

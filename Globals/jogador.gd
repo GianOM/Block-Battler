@@ -19,3 +19,5 @@ signal Player_Mouse_Left_Canvas
 
 
 var current_Function_Dragging_Block: Function_Block = null
+
+var current_Function_Attach_Block: Function_Block = null
