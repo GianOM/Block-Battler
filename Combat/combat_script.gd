@@ -2,31 +2,27 @@ extends Node2D
 
 @onready var entity: Enemy = $EntityUI
 
-var effect
-
-func _on_shield_5_pressed() -> void:
-	if entity:
-		effect = Shield.new()
-		effect.amount = 5
-		effect.execute(entity)
+var shield = Shield.new()
+var damage = Damage.new()
 
 
-func _on_shield_10_pressed() -> void:
-	if entity:
-		effect = Shield.new()
-		effect.amount = 10
-		effect.execute(entity)
 
-
-func _on_dmg_5_pressed() -> void:
-	if entity:
-		effect = Damage.new()
-		effect.amount = 5
-		effect.execute(entity)
-
-
-func _on_dmg_10_pressed() -> void:
-	if entity:
-		effect = Damage.new()
-		effect.amount = 10
-		effect.execute(entity)
+func _ready() -> void:
+	
+	shield.amount = 300
+	shield.execute(entity)
+	
+	
+	COMBATE.Instructions_Push.connect(Task_List)
+	
+	
+func Task_List(instructions_array: Array[String]):
+	
+	for single_task in instructions_array:
+		if single_task.contains("ATT"):
+			
+			damage.amount = 10
+			damage.execute(entity)
+			
+		
+	

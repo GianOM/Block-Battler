@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="6_3f4qh"]
+[ext_resource type="PackedScene" uid="uid://bcxsn3763csl" path="res://Combat/combat_2d.tscn" id="7_tghfc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
 bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
@@ -207,5 +208,24 @@ layout_mode = 2
 text = "E1 - DEF - E1"
 horizontal_alignment = 1
 
+[node name="Turn_Ready_Button" type="Button" parent="." unique_id=7372755]
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 987.0
+offset_right = 1274.0
+offset_bottom = 1037.0
+text = "READY"
+
+[node name="Combat2D" parent="." unique_id=2110802663 instance=ExtResource("7_tghfc")]
+z_index = -1
+position = Vector2(588, 447.99997)
+scale = Vector2(0.58, 0.58)
+
+[node name="shield 5" parent="Combat2D" index="2" unique_id=784089810]
+visible = false
+
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
+[connection signal="pressed" from="Turn_Ready_Button" to="Combat_Stack/Player_Stack_Panel/ScrollContainer/List_of_Player_Instructions" method="Push_Turn_Actions"]
+
+[editable path="Combat2D"]

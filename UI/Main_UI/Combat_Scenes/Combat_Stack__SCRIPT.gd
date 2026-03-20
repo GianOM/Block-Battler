@@ -26,7 +26,6 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	
 	for child_block in Connected_Blocks_Root.Child_Blocks:
 		
-		
 		match child_block.my_block_type:
 			Variables_Block.Block_Type.ENEMY:
 				Instruction_String += "E1"
@@ -37,5 +36,4 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 		
 		
 	list_of_player_instructions.Make_Command_from_Instructions(Instruction_String)
-	print(Instruction_String)
 	

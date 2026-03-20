@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 JOGADOR="*uid://bg6mqy7uhntav"
+COMBATE="*uid://b41dgddiimy4v"
 
 [display]
 
