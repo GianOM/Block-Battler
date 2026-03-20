@@ -23,13 +23,9 @@ enum Block_Type{
 @onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
 
 
-var Child_Blocks_List: Array[Function_Block]
-
-
-
+var Child_Blocks: Array[Universal_Block]
 
 var current_state: Block_State = Block_State.ONLIST
-
 
 var is_mouse_on_Canvas: bool = false
 
@@ -62,33 +58,36 @@ func _process(delta: float) -> void:
 		
 		
 # A entrada é o bloco que esta sendo arrastado
-func Attach_Function_Block_to_Self(fblock_to_attach: Universal_Block):
+func Attach_Function_Block_to_Self(block_to_attach: Universal_Block):
+	
+	Child_Blocks.append(block_to_attach)
 	
 	#Coloca um bloco sobre o outro e mais embaixo so adiciona um offset
-	fblock_to_attach.block_texture.global_position = block_texture.global_position
+	block_to_attach.block_texture.global_position = block_texture.global_position
+	
+	
 	
 	match block_attachment_manager.current_attach_position:
 		Attachment_Manager.Attach_Position.UP:
 			
-			
-			fblock_to_attach.block_texture.global_position.y -= size.y * 0.5
+			block_to_attach.block_texture.global_position.y -= size.y * 0.5
 			
 		Attachment_Manager.Attach_Position.DOWN:
 			
-			fblock_to_attach.block_texture.global_position.y += size.y * 0.5
+			block_to_attach.block_texture.global_position.y += size.y * 0.5
 			
 		Attachment_Manager.Attach_Position.RIGHT:
 			
-			fblock_to_attach.block_texture.global_position.x += (size.x * 0.85)
+			block_to_attach.block_texture.global_position.x += (size.x * 0.85)
 			
 			
 		Attachment_Manager.Attach_Position.LEFT:
 			
-			fblock_to_attach.block_texture.global_position.x -= size.x
+			block_to_attach.block_texture.global_position.x -= size.x
 			
 		
 	
-	
+	JOGADOR.Player_Connected_Blocks.emit(self)
 	
 	
 		

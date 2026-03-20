@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d3jqcet8wnrkw"]
 
-[ext_resource type="Script" uid="uid://b1aj66wybd4w1" path="res://UI/Main_UI/Variable_Block__SCRIPT.gd" id="1_r8pbt"]
+[ext_resource type="Script" uid="uid://b1aj66wybd4w1" path="res://UI/Main_UI/Combat Scripts/Variable_Block__SCRIPT.gd" id="1_r8pbt"]
 [ext_resource type="Texture2D" uid="uid://0aud66o3bf1u" path="res://UI/Main_UI/Combat_UI_Assets/Variables_Blocks_Icons/Enemy_Block.png" id="2_r8pbt"]
-[ext_resource type="Script" uid="uid://7p0q7hv102yq" path="res://UI/Main_UI/VBlock_Texture__SCRIPT.gd" id="3_832bh"]
-[ext_resource type="Script" uid="uid://dasvl2e1y5vig" path="res://UI/Main_UI/FBlock_Attachment__SCRIPT.gd" id="4_dba5a"]
+[ext_resource type="Script" uid="uid://7p0q7hv102yq" path="res://UI/Main_UI/Combat Scripts/VBlock_Texture__SCRIPT.gd" id="3_832bh"]
+[ext_resource type="Script" uid="uid://dasvl2e1y5vig" path="res://UI/Main_UI/Combat Scripts/FBlock_Attachment__SCRIPT.gd" id="4_dba5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubn"]
 size = Vector2(122, 89)
