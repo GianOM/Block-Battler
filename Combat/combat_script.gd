@@ -9,8 +9,8 @@ var damage = Damage.new()
 
 func _ready() -> void:
 	
-	shield.amount = 300
-	shield.execute(entity)
+	#shield.amount = 300
+	#shield.execute(entity)
 	
 	
 	COMBATE.Instructions_Push.connect(Task_List)
@@ -18,8 +18,13 @@ func _ready() -> void:
 	
 func Task_List(instructions_array: Array[String]):
 	
+	
 	for single_task in instructions_array:
 		if single_task.contains("ATT"):
+			
+			
+			if not entity:
+				return
 			
 			damage.amount = 10
 			damage.execute(entity)

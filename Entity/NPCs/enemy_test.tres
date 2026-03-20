@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_22fh8")
-max_hp = 25
+max_hp = 5
 image = ExtResource("1_j83me")
 metadata/_custom_type_script = "uid://btddxnyg84gy2"

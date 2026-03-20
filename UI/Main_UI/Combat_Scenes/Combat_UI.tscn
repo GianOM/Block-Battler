@@ -108,11 +108,10 @@ my_block_type = 1
 
 [node name="Function_Block3" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1227061683 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
-my_block_type = 2
 
 [node name="Function_Block4" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=2100694183 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
-my_block_type = 2
+my_block_type = 1
 
 [node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
 layout_mode = 2
@@ -137,6 +136,13 @@ theme_override_constants/separation = 25
 layout_mode = 2
 
 [node name="Variable_Block2" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=289436907 instance=ExtResource("4_3tk0i")]
+layout_mode = 2
+my_block_type = 1
+
+[node name="Variable_Block3" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=36355877 instance=ExtResource("4_3tk0i")]
+layout_mode = 2
+
+[node name="Variable_Block4" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=955697265 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
 my_block_type = 1
 
@@ -220,9 +226,6 @@ text = "READY"
 z_index = -1
 position = Vector2(588, 447.99997)
 scale = Vector2(0.58, 0.58)
-
-[node name="shield 5" parent="Combat2D" index="2" unique_id=784089810]
-visible = false
 
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
