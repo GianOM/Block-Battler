@@ -3,7 +3,7 @@ class_name Attachment_Manager extends Control
 
 
 # Ponteiro que aponta para o Rott
-@export var ptr_F_Block: Function_Block
+@export var ptr_Root_Block: Universal_Block
 
 
 
@@ -25,10 +25,11 @@ func _on_mouse_enter_UP_area():
 		return
 		
 		
-	JOGADOR.current_Function_Attach_Block = ptr_F_Block
-	
-	
 	current_attach_position = Attach_Position.UP
+	JOGADOR.current_Function_Attach_Block = ptr_Root_Block
+	
+	
+	
 	
 	
 func _on_mouse_leave_UP_area():
@@ -43,9 +44,10 @@ func _on_mouse_enter_DOWN_area():
 	if JOGADOR.current_Function_Dragging_Block == null:
 		return
 		
-	JOGADOR.current_Function_Attach_Block = ptr_F_Block
-	
 	current_attach_position = Attach_Position.DOWN
+	JOGADOR.current_Function_Attach_Block = ptr_Root_Block
+	
+	
 	
 	
 	
@@ -62,9 +64,9 @@ func _on_mouse_enter_LEFT_area():
 	if JOGADOR.current_Function_Dragging_Block == null:
 		return
 		
-	JOGADOR.current_Function_Attach_Block = ptr_F_Block
-	
 	current_attach_position = Attach_Position.LEFT
+	JOGADOR.current_Function_Attach_Block = ptr_Root_Block
+	
 	
 	
 func _on_mouse_leave_LEFT_area():
@@ -80,7 +82,9 @@ func _on_mouse_enter_RIGHT_area():
 	if JOGADOR.current_Function_Dragging_Block == null:
 		return
 		
-	JOGADOR.current_Function_Attach_Block = ptr_F_Block
+		
+	current_attach_position = Attach_Position.RIGHT
+	JOGADOR.current_Function_Attach_Block = ptr_Root_Block
 	
 	
 func _on_mouse_leave_RIGHT_area():
@@ -89,7 +93,6 @@ func _on_mouse_leave_RIGHT_area():
 	current_attach_position = Attach_Position.NONE
 	
 	
-	current_attach_position = Attach_Position.RIGHT
 	
 	
 	

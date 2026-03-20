@@ -1,4 +1,4 @@
-class_name Function_Block extends Universal_Block
+class_name Variables_Block extends Universal_Block
 
 enum Block_State{
 	ONLIST,
@@ -11,16 +11,15 @@ enum Block_State{
 }
 
 enum Block_Type{
-	ATTACK,
-	DEFENSE,
-	LOOP
+	ENEMY,
+	ALLY
 }
 
 @export var my_block_type: Block_Type
 
-@onready var block_texture: TextureRect = $FBlock_TEXTURE
+@onready var block_texture: TextureRect = $VBlock_TEXTURE
 
-@onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
+@onready var block_attachment_manager: Attachment_Manager = $VBlock_TEXTURE/Block_Attachment_Manager
 
 
 var Child_Blocks_List: Array[Function_Block]
@@ -61,35 +60,30 @@ func _process(delta: float) -> void:
 		
 		
 		
-# A entrada é o bloco que esta sendo arrastado
-func Attach_Function_Block_to_Self(fblock_to_attach: Universal_Block):
+func Attach_Function_Block_to_Self(block_to_attach: Universal_Block):
+	
 	
 	#Coloca um bloco sobre o outro e mais embaixo so adiciona um offset
-	fblock_to_attach.block_texture.global_position = block_texture.global_position
+	block_to_attach.block_texture.global_position = block_texture.global_position
 	
 	match block_attachment_manager.current_attach_position:
 		Attachment_Manager.Attach_Position.UP:
 			
 			
-			fblock_to_attach.block_texture.global_position.y -= size.y * 0.5
+			block_to_attach.block_texture.global_position.y -= size.y * 0.5
 			
 		Attachment_Manager.Attach_Position.DOWN:
 			
-			fblock_to_attach.block_texture.global_position.y += size.y * 0.5
+			block_to_attach.block_texture.global_position.y += size.y * 0.5
 			
 		Attachment_Manager.Attach_Position.RIGHT:
 			
-			fblock_to_attach.block_texture.global_position.x += (size.x * 0.85)
+			block_to_attach.block_texture.global_position.x += (size.x * 0.2)
 			
 			
 		Attachment_Manager.Attach_Position.LEFT:
 			
-			fblock_to_attach.block_texture.global_position.x -= size.x
-			
-		
-	
-	
-	
+			block_to_attach.block_texture.global_position.x -= size.x
 	
 		
 		

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d01l83i313sux"]
+
+[ext_resource type="Script" uid="uid://ca52n3145w2xa" path="res://Entity/NPCs/player_ui.gd" id="1_fj03r"]
+[ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="2_0pd4e"]
+[ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
+size = Vector2(320, 340)
+
+[node name="PlayerUI" type="Node2D" unique_id=807532450 groups=["player"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_fj03r")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=332193522]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1799531940]
+shape = SubResource("RectangleShape2D_wejth")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=337189531]
+scale = Vector2(2, 2)
+texture = ExtResource("2_0pd4e")
+
+[node name="StatsUI" parent="." unique_id=314053271 instance=ExtResource("3_ruhvp")]
+offset_top = 206.0
+offset_bottom = 273.0

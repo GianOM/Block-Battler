@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bl0px0faeujld" path="res://Assets/combat_background.webp" id="1_mw5lh"]
 [ext_resource type="Script" uid="uid://boihkyyxjphvk" path="res://Combat/combat_script.gd" id="1_p43ux"]
-[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/NPCs/entity_ui.tscn" id="2_jhj0g"]
+[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/NPCs/enemy_ui.tscn" id="2_jhj0g"]
 [ext_resource type="Resource" uid="uid://klr2blwffyii" path="res://Entity/NPCs/enemy_test.tres" id="3_vbxne"]
 
 [node name="Combat2D" type="Node2D" unique_id=2110802663]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fgtl5i03aaj3"]
 
 [ext_resource type="Texture2D" uid="uid://dpevc13004ix5" path="res://Assets/shield.jpg" id="1_ln25e"]
-[ext_resource type="Script" uid="uid://c1ox1sn20a3t5" path="res://stats_ui.gd" id="1_wixbg"]
+[ext_resource type="Script" uid="uid://c1ox1sn20a3t5" path="res://Entity/stats_ui.gd" id="1_wixbg"]
 [ext_resource type="Texture2D" uid="uid://xa4gy1osondh" path="res://Assets/heart.webp" id="2_wixbg"]
 
 [node name="StatsUI" type="HBoxContainer" unique_id=314053271]
