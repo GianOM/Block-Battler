@@ -7,4 +7,5 @@
 script = ExtResource("1_22fh8")
 max_hp = 5
 image = ExtResource("1_j83me")
+Actions_Stack = Array[String](["E1 - ATT - P1", "E1 - DEF - E1", "E1 - DEF - E1", "E1 - DEF - E1", "E1 - ATT - P1"])
 metadata/_custom_type_script = "uid://btddxnyg84gy2"

@@ -10,8 +10,6 @@ func Make_Command_from_Instructions(instructions_text: String):
 	Temp_Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 	Temp_Label.text = instructions_text
 	
-	#printf("bla bla b");run_something();run_something();run_something();
-	
 	add_child(Temp_Label)
 	
 	

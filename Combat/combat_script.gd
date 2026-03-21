@@ -22,11 +22,13 @@ func Task_List(instructions_array: Array[String]):
 	for single_task in instructions_array:
 		if single_task.contains("ATT"):
 			
+			var Task_Details: PackedStringArray = single_task.split("-")
+			
 			
 			if not entity:
 				return
 			
-			damage.amount = 10
+			damage.amount = int(Task_Details[-1])
 			damage.execute(entity)
 			
 		

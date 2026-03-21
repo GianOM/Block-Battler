@@ -211,6 +211,16 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=1206068237]
 layout_mode = 2
+text = "E1 - DEF - E1 - 10"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=608303755]
+layout_mode = 2
+text = "E1 - DEF - E1"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=1360694538]
+layout_mode = 2
 text = "E1 - DEF - E1"
 horizontal_alignment = 1
 
