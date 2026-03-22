@@ -17,9 +17,9 @@ enum Block_Type{
 }
 
 @export var my_block_type: Block_Type
+@export var Possible_Attachment_Sides: Array[String]
 
 @onready var block_texture: TextureRect = $FBlock_TEXTURE
-
 @onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
 
 
@@ -38,6 +38,8 @@ func _ready() -> void:
 	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
 	block_texture.Set_Correct_Block_Texture(my_block_type)
+	
+	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
 	
 	
 
@@ -89,14 +91,6 @@ func Attach_Function_Block_to_Self(block_to_attach: Universal_Block):
 	
 	JOGADOR.Player_Connected_Blocks.emit(self)
 	
-	
-		
-		
-		
-		
-		
-		
-		
 		
 		
 func Set_Block_Dropable():
@@ -192,4 +186,19 @@ func _on_mouse_exited_area():
 	elif current_state == Block_State.ONCANVAS:
 	
 		current_state = Block_State.PLACED
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+func RESET():
+	
+	current_state = Block_State.ONLIST
+	block_texture.position = Vector2.ZERO
+		
 	

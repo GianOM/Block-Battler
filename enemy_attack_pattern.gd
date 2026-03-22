@@ -1,9 +1,8 @@
 extends VBoxContainer
 
-
-
 ## Adiciona os labels que serao traduzidos em Instrucoes
 func enemy_intention(turn: int, enemy_stats: EnemyStats):
+	
 	if turn >= enemy_stats.attack_pattern.size():
 		
 		turn %= enemy_stats.attack_pattern.size()

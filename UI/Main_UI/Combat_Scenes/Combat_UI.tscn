@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="6_3f4qh"]
+[ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="7_cde58"]
 [ext_resource type="PackedScene" uid="uid://bcxsn3763csl" path="res://Combat/combat_2d.tscn" id="7_tghfc"]
 [ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://combat_manager.gd" id="9_32jgd"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="10_fiujt"]
@@ -74,6 +75,7 @@ anchor_bottom = 1.0073704
 offset_right = -0.32000732
 offset_bottom = 0.040039063
 mouse_filter = 1
+script = ExtResource("7_cde58")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Block_Lists" unique_id=106744607]
@@ -103,7 +105,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "Functions"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Block_Lists/HBoxContainer/Functions_Title" unique_id=2059949490]
+[node name="FBlocks_List" type="VBoxContainer" parent="Block_Lists/HBoxContainer/Functions_Title" unique_id=2059949490]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.19700001
@@ -118,25 +120,29 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="Function_Block" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=919133198 instance=ExtResource("3_1k6pa")]
+[node name="Function_Block" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=919133198 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
 
-[node name="Function_Block2" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1223105320 instance=ExtResource("3_1k6pa")]
+[node name="Function_Block2" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1223105320 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
 
-[node name="Function_Block3" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=1227061683 instance=ExtResource("3_1k6pa")]
+[node name="Function_Block3" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1227061683 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
 
-[node name="Function_Block4" parent="Block_Lists/HBoxContainer/Functions_Title/VBoxContainer" unique_id=2100694183 instance=ExtResource("3_1k6pa")]
+[node name="Function_Block4" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=2100694183 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
 
 [node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
 layout_mode = 2
 text = "Variables"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Block_Lists/HBoxContainer/Variables_Title" unique_id=278223973]
+[node name="VBlocks_List" type="VBoxContainer" parent="Block_Lists/HBoxContainer/Variables_Title" unique_id=278223973]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -151,19 +157,23 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="Variable_Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=12545780 instance=ExtResource("4_3tk0i")]
+[node name="Variable_Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
-[node name="Variable_Block2" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=289436907 instance=ExtResource("4_3tk0i")]
+[node name="Variable_Block2" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=289436907 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
 my_block_type = 1
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
-[node name="Variable_Block3" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=36355877 instance=ExtResource("4_3tk0i")]
+[node name="Variable_Block3" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
-[node name="Variable_Block4" parent="Block_Lists/HBoxContainer/Variables_Title/VBoxContainer2" unique_id=955697265 instance=ExtResource("4_3tk0i")]
+[node name="Variable_Block4" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=955697265 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
 my_block_type = 1
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Combat_Stack" type="Control" parent="." unique_id=1992638281]
 layout_mode = 1
@@ -182,7 +192,7 @@ script = ExtResource("5_uunb2")
 layout_mode = 0
 offset_left = 19.0
 offset_top = 21.0
-offset_right = 306.0
+offset_right = 169.0
 offset_bottom = 599.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Combat_Stack/Player_Stack_Panel" unique_id=1244914441]
@@ -204,7 +214,7 @@ script = ExtResource("6_3f4qh")
 
 [node name="Enemy_Stack_Panel" type="Panel" parent="Combat_Stack" unique_id=349167654]
 layout_mode = 0
-offset_left = 1163.0
+offset_left = 1300.0
 offset_top = 21.0
 offset_right = 1450.0
 offset_bottom = 599.0
@@ -229,9 +239,9 @@ script = ExtResource("10_fiujt")
 [node name="Turn_Ready_Button" type="Button" parent="." unique_id=7372755]
 layout_mode = 0
 offset_left = 1034.0
-offset_top = 987.0
+offset_top = 1011.0
 offset_right = 1274.0
-offset_bottom = 1037.0
+offset_bottom = 1061.0
 text = "READY"
 
 [node name="TurnLabel" type="Label" parent="." unique_id=315547566]
@@ -249,12 +259,10 @@ vertical_alignment = 1
 
 [node name="Combat2D" parent="." unique_id=2110802663 instance=ExtResource("7_tghfc")]
 z_index = -1
-position = Vector2(588, 447.99997)
-scale = Vector2(0.58, 0.58)
+position = Vector2(711, 473)
+scale = Vector2(0.492, 0.492)
 
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
 [connection signal="pressed" from="Turn_Ready_Button" to="." method="_on_turn_ready_button_pressed"]
 [connection signal="Encounter_Enemies_Loaded" from="Combat2D" to="." method="_on_list_of_enemies_set"]
-
-[editable path="Combat2D"]

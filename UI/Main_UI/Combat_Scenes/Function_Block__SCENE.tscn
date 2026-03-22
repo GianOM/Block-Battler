@@ -6,19 +6,19 @@
 [ext_resource type="Script" uid="uid://dasvl2e1y5vig" path="res://UI/Main_UI/Combat Scripts/FBlock_Attachment__SCRIPT.gd" id="4_bel2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubn"]
-size = Vector2(128, 95)
+size = Vector2(130, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si617"]
-size = Vector2(132, 80)
+size = Vector2(132, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4yei"]
-size = Vector2(132, 96)
+size = Vector2(132, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bod48"]
-size = Vector2(98, 101)
+size = Vector2(160, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ym6i"]
-size = Vector2(108, 101)
+size = Vector2(160, 100)
 
 [node name="Function_Block" type="Control" unique_id=919133198]
 custom_minimum_size = Vector2(132, 100)
@@ -44,7 +44,7 @@ script = ExtResource("3_p4yei")
 [node name="Mouse_Detection_Area" type="Area2D" parent="FBlock_TEXTURE" unique_id=2002274141]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Mouse_Detection_Area" unique_id=1384878594]
-position = Vector2(66, 50.5)
+position = Vector2(66, 50)
 shape = SubResource("RectangleShape2D_yeubn")
 
 [node name="Block_Attachment_Manager" type="Control" parent="FBlock_TEXTURE" unique_id=493003463 node_paths=PackedStringArray("ptr_Root_Block")]
@@ -62,25 +62,25 @@ ptr_Root_Block = NodePath("../..")
 [node name="UP_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=733406433]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/UP_Collision_Area" unique_id=1691704355]
-position = Vector2(0, -90)
+position = Vector2(0, -110)
 shape = SubResource("RectangleShape2D_si617")
 
 [node name="DOWN_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=36968135]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/DOWN_Collision_Area" unique_id=250061133]
-position = Vector2(0, 98)
+position = Vector2(0, 110)
 shape = SubResource("RectangleShape2D_p4yei")
 
 [node name="LEFT_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=909761492]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/LEFT_Collision_Area" unique_id=1264880729]
-position = Vector2(-115, 0.5)
+position = Vector2(-146, 0)
 shape = SubResource("RectangleShape2D_bod48")
 
 [node name="Right_Collision_Area" type="Area2D" parent="FBlock_TEXTURE/Block_Attachment_Manager" unique_id=1549008157]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/Right_Collision_Area" unique_id=220794032]
-position = Vector2(120, 0.5)
+position = Vector2(146, 0)
 shape = SubResource("RectangleShape2D_0ym6i")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="FBlock_TEXTURE" unique_id=103245503]

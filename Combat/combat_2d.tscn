@@ -16,13 +16,13 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." unique_id=807532450 instance=ExtResource("2_jhj0g")]
-position = Vector2(1471, 690)
+position = Vector2(1332, 891)
 stats = ExtResource("3_vbxne")
 
 [node name="Enemy2" parent="." unique_id=844260660 instance=ExtResource("2_jhj0g")]
-position = Vector2(1476, 391)
+position = Vector2(1016, 802)
 stats = ExtResource("3_vbxne")
 
 [node name="Player" parent="." unique_id=2092398558 instance=ExtResource("5_cns71")]
-position = Vector2(549, 692)
+position = Vector2(586, 893)
 stats = ExtResource("6_y327u")

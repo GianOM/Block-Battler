@@ -73,7 +73,10 @@ func player_turn():
 	await get_tree().create_timer(1.0).timeout
 	
 	turn_label.hide()
-
+	
+	COMBATE.finished_executing_player_actions.emit()
+	
+	
 func enemy_turn():
 	turn_label.text = "Enemy Turn"
 	turn_label.show()
@@ -102,3 +105,7 @@ func enemy_turn():
 	
 	
 	turn_label.hide()
+	
+	
+	COMBATE.finished_executing_enemy_actions.emit()
+	
