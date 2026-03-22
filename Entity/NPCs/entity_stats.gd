@@ -10,6 +10,7 @@ signal changes_in_stats
 @export_category("Visual Parameters")
 @export var image: Texture
 
+
 var hp: int: set = set_hp
 var shield: int: set = set_shield
 

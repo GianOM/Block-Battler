@@ -4,7 +4,7 @@ extends Node2D
 @export var stats: EntityStats: set = set_entity_stats
 
 @onready var entity_image: Sprite2D = $EntityImage
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var stats_ui: StatsUI = $StatsUI
 
 func set_entity_stats(value: EntityStats):
 	stats = value.create_instance()

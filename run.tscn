@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://oucqgan8c1g1"]
+
+[ext_resource type="Script" uid="uid://dd085wdsme78u" path="res://run.gd" id="1_i0e08"]
+[ext_resource type="PackedScene" uid="uid://br5df0oqi0lb4" path="res://UI/Main_UI/Combat_Scenes/Combat_UI.tscn" id="2_ypx6g"]
+
+[node name="Run" type="Node" unique_id=124170098]
+script = ExtResource("1_i0e08")
+
+[node name="Combat_UI_Root" parent="." unique_id=632087552 instance=ExtResource("2_ypx6g")]
+
+[node name="CurrentScene" type="Node" parent="." unique_id=1343167133]

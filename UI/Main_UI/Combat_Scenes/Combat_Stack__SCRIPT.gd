@@ -18,7 +18,6 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	match Connected_Blocks_Root.my_block_type:
 		
 		Function_Block.Block_Type.ATTACK:
-			
 			Instruction_String += "ATT - "
 			
 		Function_Block.Block_Type.DEFENSE:
@@ -29,9 +28,9 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 		
 		match child_block.my_block_type:
 			Variables_Block.Block_Type.ENEMY:
-				Instruction_String += "E1 - 1"
+				Instruction_String += "E1"
 			Variables_Block.Block_Type.ALLY:
-				Instruction_String += "A1 - 15"
+				Instruction_String += "A1"
 		
 		
 		

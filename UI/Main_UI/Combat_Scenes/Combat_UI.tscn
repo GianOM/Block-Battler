@@ -1,15 +1,28 @@
 [gd_scene format=3 uid="uid://br5df0oqi0lb4"]
 
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
+[ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_ui_root_SCRIPT.gd" id="1_d2bcc"]
+[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_jjm1q"]
 [ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="3_1k6pa"]
+[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/NPCs/enemy_test.tres" id="3_con52"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="4_3tk0i"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="6_3f4qh"]
 [ext_resource type="PackedScene" uid="uid://bcxsn3763csl" path="res://Combat/combat_2d.tscn" id="7_tghfc"]
+[ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://combat_manager.gd" id="9_32jgd"]
+[ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="10_fiujt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
 bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con52"]
+bg_color = Color(0, 0, 0, 0.39607844)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.53333336)
 
 [node name="Combat_UI_Root" type="Control" unique_id=632087552]
 y_sort_enabled = true
@@ -20,6 +33,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_d2bcc")
+character_stats = ExtResource("2_jjm1q")
+enemy_stats = ExtResource("3_con52")
+
+[node name="CombatManager" type="Node" parent="." unique_id=1324377441]
+script = ExtResource("9_32jgd")
 
 [node name="Player_Combat_Input" type="Node" parent="." unique_id=920619228]
 script = ExtResource("1_1k6pa")
@@ -177,6 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="List_of_Player_Instructions" type="VBoxContainer" parent="Combat_Stack/Player_Stack_Panel/ScrollContainer" unique_id=1929398647]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -199,30 +219,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer" unique_id=492225433]
+[node name="EnemyAttackPattern" type="VBoxContainer" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer" unique_id=492225433]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=140523518]
-layout_mode = 2
-text = "E1 - ATT - P1"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=1206068237]
-layout_mode = 2
-text = "E1 - DEF - E1 - 10"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=608303755]
-layout_mode = 2
-text = "E1 - DEF - E1"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="Combat_Stack/Enemy_Stack_Panel/ScrollContainer/VBoxContainer" unique_id=1360694538]
-layout_mode = 2
-text = "E1 - DEF - E1"
-horizontal_alignment = 1
+script = ExtResource("10_fiujt")
 
 [node name="Turn_Ready_Button" type="Button" parent="." unique_id=7372755]
 layout_mode = 0
@@ -232,6 +234,19 @@ offset_right = 1274.0
 offset_bottom = 1037.0
 text = "READY"
 
+[node name="TurnLabel" type="Label" parent="." unique_id=315547566]
+visible = false
+layout_mode = 0
+offset_left = 621.0
+offset_top = 448.0
+offset_right = 1730.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_con52")
+text = "AAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Combat2D" parent="." unique_id=2110802663 instance=ExtResource("7_tghfc")]
 z_index = -1
 position = Vector2(588, 447.99997)
@@ -239,6 +254,7 @@ scale = Vector2(0.58, 0.58)
 
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
-[connection signal="pressed" from="Turn_Ready_Button" to="Combat_Stack/Player_Stack_Panel/ScrollContainer/List_of_Player_Instructions" method="Push_Turn_Actions"]
+[connection signal="pressed" from="Turn_Ready_Button" to="." method="_on_turn_ready_button_pressed"]
+[connection signal="Encounter_Enemies_Loaded" from="Combat2D" to="." method="_on_list_of_enemies_set"]
 
 [editable path="Combat2D"]

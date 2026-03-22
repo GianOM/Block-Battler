@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
 size = Vector2(320, 340)
 
-[node name="EntityUI" type="Node2D" unique_id=807532450]
+[node name="EntityUI" type="Node2D" unique_id=807532450 groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5hg7l")
 

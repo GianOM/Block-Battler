@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="EntityStats" format=3 uid="uid://klr2blwffyii"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://bhl8v5hvbngwb"]
 
-[ext_resource type="Script" uid="uid://btddxnyg84gy2" path="res://Entity/NPCs/entity_stats.gd" id="1_22fh8"]
 [ext_resource type="Texture2D" uid="uid://c3yyeahg2d01f" path="res://Assets/enemyTest.png" id="1_j83me"]
+[ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/NPCs/enemy_stats.gd" id="1_us6vh"]
 
 [resource]
-script = ExtResource("1_22fh8")
-max_hp = 5
+script = ExtResource("1_us6vh")
+attack_pattern = Array[String](["E1 - ATT - P1", "E1 - DEF - E1", "E1 - DEF - E1"])
+max_hp = 20
 image = ExtResource("1_j83me")
-Actions_Stack = Array[String](["E1 - ATT - P1", "E1 - DEF - E1", "E1 - DEF - E1", "E1 - DEF - E1", "E1 - ATT - P1"])
-metadata/_custom_type_script = "uid://btddxnyg84gy2"
+metadata/_custom_type_script = "uid://djmsrr81siihr"

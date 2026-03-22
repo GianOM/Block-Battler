@@ -4,7 +4,7 @@ extends Node2D
 @export var stats: CharacterStats: set = set_character_stats
 
 @onready var player_image: Sprite2D = $PlayerImage
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var stats_ui: StatsUI = $StatsUI
 
 func set_character_stats(value: CharacterStats):
 	stats = value.create_instance()

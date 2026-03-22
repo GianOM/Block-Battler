@@ -12,21 +12,3 @@ func Make_Command_from_Instructions(instructions_text: String):
 	
 	add_child(Temp_Label)
 	
-	
-	
-	
-func Push_Turn_Actions():
-	
-	
-	var Temp_Array : Array[String]
-	
-	
-	
-	for i in range(get_child_count()):
-		
-		Temp_Array.push_back(get_child(i).text)
-		
-		
-	COMBATE.Instructions_Push.emit(Temp_Array)
-	
-	
