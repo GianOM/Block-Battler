@@ -10,26 +10,23 @@ var character: CharacterStats
 var List_of_Enemies: Array[Enemy]
 var turn_count := 0
 
-func _on_list_of_enemies_set(encounter_list_of_enemies: Array[Enemy]):
-	List_of_Enemies = encounter_list_of_enemies
+
+func _ready() -> void:
+	COMBATE.Entities_ID_Loaded.connect(_on_list_of_enemies_set)
+
+func _on_list_of_enemies_set(encounter_list_of_enemies: Dictionary):
+	
+	for entity in encounter_list_of_enemies.values():
+		
+		if entity is Enemy:
+			List_of_Enemies.push_back(entity)
+		
 
 	
 func load_enemy_intentions(enemies: Array[Enemy]):
 	for enemy in enemies:
 		if enemy:
 			enemy_attack_pattern.enemy_intention(turn_count, enemy)
-
-#func Load_All_Enemies_Intentions(encounter_list_of_enemies: Array[Enemy]):
-	#
-	#for individual_enemy in encounter_list_of_enemies:
-		#
-		## Como os inimigos sao inicializados no _ready(), a referencia @onready 
-		## ainda é nula, logo, precisamos da referencia direta
-		#
-		#if individual_enemy != null:
-			#%EnemyAttackPattern.enemy_intention(turn_count, individual_enemy.stats)
-	#
-
 
 func start_battle(character_stats: CharacterStats):
 	character = character_stats
@@ -39,14 +36,12 @@ func start_battle(character_stats: CharacterStats):
 	start_turn()
 
 func start_turn():
-	#Load_All_Enemies_Intentions(List_of_Enemies)
 	load_enemy_intentions(List_of_Enemies)
 	character.shield = 0
 	#TBD reset energy or whatever
 
 #AKA end turn
 func _on_turn_ready_button_pressed() -> void:
-	#COMBATE.player_turn_ended.emit()
 	turn_ready_button.hide()
 	execute_player_actions()
 	turn_count += 1
@@ -82,8 +77,6 @@ func execute_enemy_actions():
 	turn_label.show()
 	
 	
-	#Load_All_Enemies_Intentions(List_of_Enemies)
-	
 	var enemy_actions: Array[String]
 	for i in range(enemy_attack_pattern.get_child_count()):
 		enemy_actions.push_back(enemy_attack_pattern.get_child(i).text)
@@ -98,10 +91,8 @@ func execute_enemy_actions():
 	
 	
 	
-	#enemy_attack_pattern.Clear_All_Instructions()
 	
 	load_enemy_intentions(List_of_Enemies)
-	#Load_All_Enemies_Intentions(List_of_Enemies)
 	
 	
 	turn_label.hide()

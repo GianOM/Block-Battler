@@ -3,6 +3,12 @@ extends Node
 
 
 @warning_ignore("unused_signal")
+signal Entities_ID_Loaded(List_of_Entities: Dictionary)
+
+
+
+
+@warning_ignore("unused_signal")
 signal execute_player_actions(actions: Array[String])
 @warning_ignore("unused_signal")
 signal finished_executing_player_actions

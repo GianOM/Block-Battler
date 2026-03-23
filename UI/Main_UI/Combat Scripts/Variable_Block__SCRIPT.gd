@@ -27,15 +27,10 @@ enum Block_Type{
 
 var Child_Blocks_List: Array[Function_Block]
 
-
-
-
 var current_state: Block_State = Block_State.ONLIST
 
 
 var is_mouse_on_Canvas: bool = false
-
-
 
 
 func _ready() -> void:

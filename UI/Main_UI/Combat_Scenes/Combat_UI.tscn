@@ -269,4 +269,3 @@ scale = Vector2(0.492, 0.492)
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]
 [connection signal="pressed" from="Turn_Ready_Button" to="CombatManager" method="_on_turn_ready_button_pressed"]
-[connection signal="Encounter_Enemies_Loaded" from="Combat2D" to="CombatManager" method="_on_list_of_enemies_set"]

@@ -1,15 +1,18 @@
 class_name EnemyAction
 extends Node
 
-var enemy: Enemy
-var target: Node2D
-var description: String
+var self_id: String
+var allies_target_id: Array[String]
+var enemies_target_id: Array[String]
 
 
-func Setup_Action(action_enemy: Enemy, action_target: Node2D, action_description: String) -> void:
-	enemy = action_enemy
-	target = action_target
-	description = action_description
+
+var action_description: String
+
+
+@warning_ignore("unused_parameter")
+func Setup_Action(ID_SELF: String, ID_ALLIED:Array[String], ID_Enemy: Array[String] ) -> void:
+	pass
 	
 	
 	
@@ -17,5 +20,5 @@ func perform_action():
 	pass
 
 func return_description():
-	return description
+	return action_description
 	

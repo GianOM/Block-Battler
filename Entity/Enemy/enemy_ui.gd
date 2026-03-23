@@ -11,11 +11,6 @@ extends Node2D
 @export var Enemy_Action_Scene: PackedScene
 
 var Attack_Pattern_Node: Node
-
-
-
-
-
 	
 	
 func _ready() -> void:
@@ -24,8 +19,6 @@ func _ready() -> void:
 	add_child(Attack_Pattern_Node)
 	
 	
-	
-
 func set_enemy_stats(value: EnemyStats):
 	stats = value.create_instance()
 	if not stats.changes_in_stats.is_connected(update_stats):
@@ -61,9 +54,14 @@ func give_shield(value: int):
 	
 	
 	
-func Set_Debug_ID_Text(input_text: String):
+func Set_Entity_ID(input_text: String):
 	
 	id_debug_text.text = input_text
 	id_debug_text.show()
+	
+	
+	Attack_Pattern_Node.Set_Self_ID(input_text)
+	
+	
 	
 	
