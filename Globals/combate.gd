@@ -2,8 +2,14 @@ extends Node
 
 
 
+
+var Combat_ID_Dict: Dictionary = {}
+
+
 @warning_ignore("unused_signal")
 signal Entities_ID_Loaded(List_of_Entities: Dictionary)
+
+
 
 
 

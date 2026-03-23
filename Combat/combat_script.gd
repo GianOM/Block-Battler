@@ -40,6 +40,10 @@ func Load_All_Enemies():
 			
 			
 	COMBATE.Entities_ID_Loaded.emit(Combat_Entities_ID)
+	COMBATE.Combat_ID_Dict = Combat_Entities_ID
+	
+	
+	
 	#Entities_ID_Loaded.emit(Combat_Entities_ID)
 	
 	print(Combat_Entities_ID)
@@ -82,17 +86,31 @@ func enemy_turn(actions: Array[String]):
 	
 	print(actions)
 	
+	
 	for i in actions:
 		
 		var action_parameters: PackedStringArray = i.split("-", false)
 		
 		if i.contains("ATT"):
+			
+			
+			var attacking_enemy: Enemy = Combat_Entities_ID[action_parameters[0]]
+			
+			
+			var Temp_Node: EnemyAction = attacking_enemy.Attack_Pattern_Node.get_child(0)
+			
+			Temp_Node.perform_action()
+			
+			
 			var target_player: Player = Combat_Entities_ID[action_parameters[-1]]
 			
 			if not target_player:
 				return
 				
+				
+			#TODO: Adicionar o dano na instrucao ao inves de deixar fixado
 			damage.amount = 10
+			
 			damage.execute(target_player)
 			
 		elif i.contains("DEF"):

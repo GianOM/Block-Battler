@@ -1,24 +1,6 @@
 extends VBoxContainer
 
 ### Adiciona os labels que serao traduzidos em Instrucoes
-#func enemy_intention(turn: int, enemy_stats: EnemyStats):
-	#
-	#if turn >= enemy_stats.attack_pattern.size():
-		#
-		#turn %= enemy_stats.attack_pattern.size()
-		#
-	#for i in enemy_stats.attack_pattern.size():
-		#
-		#if i == turn:
-			#
-			#var Temp_Label: Label = Label.new()
-			#
-			#Temp_Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-			#
-			#Temp_Label.text = enemy_stats.attack_pattern[i]
-			#
-			#add_child(Temp_Label)
-			
 func enemy_intention(turn: int, enemy: Enemy):
 	var enemy_actions: Array[EnemyAction] = enemy.Attack_Pattern_Node.load_actions()
 	#var instanced_action_scene = enemy.stats.action_scene.instantiate()
