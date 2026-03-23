@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bl0px0faeujld" path="res://Assets/combat_background.webp" id="1_mw5lh"]
 [ext_resource type="Script" uid="uid://boihkyyxjphvk" path="res://Combat/combat_script.gd" id="1_p43ux"]
-[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/NPCs/enemy_ui.tscn" id="2_jhj0g"]
-[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/NPCs/enemy_test.tres" id="3_vbxne"]
-[ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/NPCs/player_ui.tscn" id="5_cns71"]
-[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="6_y327u"]
+[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="2_jhj0g"]
+[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="3_vbxne"]
+[ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
 
 [node name="Combat2D" type="Node2D" unique_id=2110802663]
 script = ExtResource("1_p43ux")
@@ -15,6 +14,9 @@ texture = ExtResource("1_mw5lh")
 centered = false
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="." unique_id=2092398558 instance=ExtResource("5_cns71")]
+position = Vector2(586, 893)
+
 [node name="Enemy" parent="." unique_id=807532450 instance=ExtResource("2_jhj0g")]
 position = Vector2(1332, 891)
 stats = ExtResource("3_vbxne")
@@ -22,7 +24,3 @@ stats = ExtResource("3_vbxne")
 [node name="Enemy2" parent="." unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(1016, 802)
 stats = ExtResource("3_vbxne")
-
-[node name="Player" parent="." unique_id=2092398558 instance=ExtResource("5_cns71")]
-position = Vector2(586, 893)
-stats = ExtResource("6_y327u")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d01l83i313sux"]
 
-[ext_resource type="Script" uid="uid://ca52n3145w2xa" path="res://Entity/NPCs/player_ui.gd" id="1_fj03r"]
+[ext_resource type="Script" uid="uid://ca52n3145w2xa" path="res://Entity/Player/player_ui.gd" id="1_fj03r"]
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="2_0pd4e"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
 

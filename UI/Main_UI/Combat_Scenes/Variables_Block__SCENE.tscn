@@ -41,6 +41,26 @@ expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_832bh")
 
+[node name="Block_ID" type="Label" parent="VBlock_TEXTURE" unique_id=707041259]
+visible = false
+z_index = 8
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -47.0
+offset_right = 63.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "P1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Mouse_Detection_Area" type="Area2D" parent="VBlock_TEXTURE" unique_id=2002274141]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VBlock_TEXTURE/Mouse_Detection_Area" unique_id=1384878594]

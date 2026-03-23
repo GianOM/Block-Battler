@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://phoodvnh828l"]
+
+[ext_resource type="Script" uid="uid://cvop5r8de1sai" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.gd" id="1_eprge"]
+[ext_resource type="Script" uid="uid://cc10sc2dkxnri" path="res://Entity/Enemy/TestEnemy/attack.gd" id="1_hocmv"]
+[ext_resource type="Script" uid="uid://cdl1ura48kivc" path="res://Entity/Enemy/TestEnemy/defend.gd" id="2_x56dp"]
+
+[node name="TestEnemyActions" type="Node" unique_id=8148060]
+script = ExtResource("1_eprge")
+
+[node name="Attack" type="Node" parent="." unique_id=308682054]
+script = ExtResource("1_hocmv")
+
+[node name="Defend" type="Node" parent="." unique_id=174290350]
+script = ExtResource("2_x56dp")

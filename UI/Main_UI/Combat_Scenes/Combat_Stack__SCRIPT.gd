@@ -12,25 +12,21 @@ func _ready() -> void:
 	
 func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	
-	var Instruction_String: String = "P1 - "
+	var Instruction_String: String = "P1-"
 	
 	
 	match Connected_Blocks_Root.my_block_type:
 		
 		Function_Block.Block_Type.ATTACK:
-			Instruction_String += "ATT - "
+			Instruction_String += "ATT-"
 			
 		Function_Block.Block_Type.DEFENSE:
-			Instruction_String += "DEF - "
+			Instruction_String += "DEF-"
 	
 	
 	for child_block in Connected_Blocks_Root.Child_Blocks:
 		
-		match child_block.my_block_type:
-			Variables_Block.Block_Type.ENEMY:
-				Instruction_String += "E1"
-			Variables_Block.Block_Type.ALLY:
-				Instruction_String += "A1"
+		Instruction_String += child_block.Block_Target
 		
 		
 		

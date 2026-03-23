@@ -15,12 +15,15 @@ enum Block_Type{
 	ALLY
 }
 
+@export var Block_Target: String
+
 @export var my_block_type: Block_Type
 @export var Possible_Attachment_Sides: Array[String]
 
 @onready var block_texture: TextureRect = $VBlock_TEXTURE
 @onready var block_attachment_manager: Attachment_Manager = $VBlock_TEXTURE/Block_Attachment_Manager
 
+@onready var block_id: Label = $VBlock_TEXTURE/Block_ID
 
 var Child_Blocks_List: Array[Function_Block]
 
@@ -32,6 +35,9 @@ var current_state: Block_State = Block_State.ONLIST
 
 var is_mouse_on_Canvas: bool = false
 
+
+
+
 func _ready() -> void:
 	
 	JOGADOR.Left_Click_Pressed.connect(_on_Player_PRESSED_Left_Click)
@@ -42,6 +48,8 @@ func _ready() -> void:
 	
 	block_texture.Set_Correct_Block_Texture(my_block_type)
 	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
+	
+	Set_Block_ID_Debug(Block_Target)
 	
 	
 	
@@ -189,7 +197,15 @@ func _on_mouse_exited_area():
 		
 		
 		
+func Set_Block_ID_Debug(input_text: String):
+	
+	block_id.text = input_text
+	block_id.show()
+		
+		
 func RESET():
 	current_state = Block_State.ONLIST
 	block_texture.position = Vector2.ZERO
+	
+	Child_Blocks_List.clear()
 	

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://bhl8v5hvbngwb"]
+
+[ext_resource type="PackedScene" uid="uid://phoodvnh828l" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.tscn" id="1_8bwed"]
+[ext_resource type="Texture2D" uid="uid://c3yyeahg2d01f" path="res://Assets/enemyTest.png" id="1_vyv3u"]
+[ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/Enemy/enemy_stats.gd" id="2_8bwed"]
+
+[resource]
+script = ExtResource("2_8bwed")
+attack_pattern = Array[String](["E1 - ATT - P1", "E1 - DEF - E1", "E1 - DEF - E1"])
+action_scene = ExtResource("1_8bwed")
+max_hp = 20
+image = ExtResource("1_vyv3u")
+metadata/_custom_type_script = "uid://djmsrr81siihr"

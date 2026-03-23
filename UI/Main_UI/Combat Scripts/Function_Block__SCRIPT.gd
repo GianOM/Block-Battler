@@ -200,5 +200,7 @@ func RESET():
 	
 	current_state = Block_State.ONLIST
 	block_texture.position = Vector2.ZERO
+	
+	Child_Blocks.clear()
 		
 	
