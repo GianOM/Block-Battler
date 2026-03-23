@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ds7ap8xwpvu38"]
+
+[ext_resource type="Script" uid="uid://05g0a0xlgqs2" path="res://intent_ui.gd" id="1_ap2ar"]
+[ext_resource type="Texture2D" uid="uid://c53pge6r5dv8e" path="res://Assets/sword.jpeg" id="1_d32mu"]
+
+[node name="IntentUI" type="HBoxContainer" unique_id=1127797052]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_right = -105.69995
+offset_bottom = 55.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+theme_override_constants/separation = 0
+script = ExtResource("1_ap2ar")
+
+[node name="IntentIcon" type="TextureRect" parent="." unique_id=1957649688]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("1_d32mu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IntentValue" type="Label" parent="." unique_id=1333376059]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1

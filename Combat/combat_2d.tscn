@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://boihkyyxjphvk" path="res://Combat/combat_script.gd" id="1_p43ux"]
 [ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="2_jhj0g"]
 [ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="3_vbxne"]
+[ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
 
 [node name="Combat2D" type="Node2D" unique_id=2110802663]
@@ -17,10 +18,13 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." unique_id=2092398558 instance=ExtResource("5_cns71")]
 position = Vector2(586, 893)
 
-[node name="Enemy" parent="." unique_id=807532450 instance=ExtResource("2_jhj0g")]
+[node name="EnemyManager" type="Node2D" parent="." unique_id=1038297834]
+script = ExtResource("4_y327u")
+
+[node name="Enemy" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
 position = Vector2(1332, 891)
 stats = ExtResource("3_vbxne")
 
-[node name="Enemy2" parent="." unique_id=844260660 instance=ExtResource("2_jhj0g")]
+[node name="Enemy2" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(1016, 802)
 stats = ExtResource("3_vbxne")

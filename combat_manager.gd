@@ -36,6 +36,7 @@ func start_battle(character_stats: CharacterStats):
 	start_turn()
 
 func start_turn():
+	turn_ready_button.show()
 	load_enemy_intentions(List_of_Enemies)
 	character.shield = 0
 	#TBD reset energy or whatever
@@ -50,8 +51,7 @@ func _on_turn_ready_button_pressed() -> void:
 	await get_tree().create_timer(2.0).timeout
 
 	execute_enemy_actions()
-	turn_ready_button.show()
-	start_turn()
+
 
 func execute_player_actions():
 	turn_label.text = "Player Turn"
@@ -73,6 +73,11 @@ func execute_player_actions():
 	
 	
 func execute_enemy_actions():
+	enemy_attack_pattern.Clear_All_Instructions()
+	for enemy in List_of_Enemies:
+		if not enemy:
+			return
+		enemy.stats.shield = 0
 	turn_label.text = "Enemy Turn"
 	turn_label.show()
 	
@@ -84,7 +89,7 @@ func execute_enemy_actions():
 		
 	COMBATE.execute_enemy_actions.emit(enemy_actions)
 	
-	enemy_attack_pattern.Clear_All_Instructions()
+	#enemy_attack_pattern.Clear_All_Instructions()
 	
 	
 	await get_tree().create_timer(1.0).timeout
@@ -92,7 +97,7 @@ func execute_enemy_actions():
 	
 	
 	
-	load_enemy_intentions(List_of_Enemies)
+	#load_enemy_intentions(List_of_Enemies)
 	
 	
 	turn_label.hide()

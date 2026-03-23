@@ -14,6 +14,7 @@ func _ready() -> void:
 	COMBATE.execute_enemy_actions.connect(enemy_turn)
 	
 	
+	
 func Load_All_Enemies():
 	
 	var Temporary_Enemies: Array[Enemy]
@@ -23,13 +24,14 @@ func Load_All_Enemies():
 		var Temp_Node2D: Node2D = get_child(i)
 		
 		
-		if Temp_Node2D is Enemy:
+		if Temp_Node2D is EnemyManager:
+			for j in Temp_Node2D.get_child_count():
+				Temporary_Enemies.push_back(Temp_Node2D.get_child(j))
+				#print(Temporary_Enemies)
+				var My_String_Name_ID: String = "E" + str(j+1)
+				Combat_Entities_ID[My_String_Name_ID] = Temp_Node2D.get_child(j)
+				Temp_Node2D.get_child(j).Set_Entity_ID(My_String_Name_ID)
 			
-			Temporary_Enemies.push_back(Temp_Node2D)
-			
-			var My_String_Name_ID: String = "E" + str(i)
-			Combat_Entities_ID[My_String_Name_ID] = Temp_Node2D
-			Temp_Node2D.Set_Entity_ID(My_String_Name_ID)
 			
 		elif Temp_Node2D is Player:
 			
@@ -59,7 +61,7 @@ func player_turn(actions: Array[String]):
 		
 		if i.contains("ATT"):
 			
-			var target_enemy: Enemy = Combat_Entities_ID[action_parameters[-1]]
+			var target_enemy = Combat_Entities_ID[action_parameters[-1]]
 			
 			if not target_enemy:
 				return
@@ -107,11 +109,7 @@ func enemy_turn(actions: Array[String]):
 			if not target_player:
 				return
 				
-				
-			#TODO: Adicionar o dano na instrucao ao inves de deixar fixado
-			damage.amount = 10
 			
-			damage.execute(target_player)
 			
 		elif i.contains("DEF"):
 			

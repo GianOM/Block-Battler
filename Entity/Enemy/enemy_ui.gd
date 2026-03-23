@@ -5,13 +5,13 @@ extends Node2D
 
 @onready var entity_image: Sprite2D = $EntityImage
 @onready var stats_ui: StatsUI = $StatsUI
+@onready var intent_ui: IntentUI = $IntentUI
 
 @onready var id_debug_text: Label = $"ID Debug Text"
 
 @export var Enemy_Action_Scene: PackedScene
 
 var Attack_Pattern_Node: Node
-	
 	
 func _ready() -> void:
 	
@@ -26,6 +26,11 @@ func set_enemy_stats(value: EnemyStats):
 		#stats.changes_in_stats.connect(update_action)
 	update_enemy()
 
+func set_intent_ui(value: EnemyAction):
+	var action = value
+	if action:
+		intent_ui.update_intent(action.intent)
+	
 #func update_action():
 	#pass
 
@@ -43,10 +48,15 @@ func update_enemy():
 func take_damage(damage: int):
 	if stats.hp <= 0:
 		return
-	stats.take_damage(damage)
-	if stats.hp <= 0:
-		print("enemy deadge")
-		queue_free()
+	var tween:= create_tween()
+	tween.tween_callback(COMBATE.shake.bind(self, 16, 0.15))
+	tween.tween_callback(stats.take_damage.bind(damage))
+	tween.tween_interval(0.2)
+	tween.finished.connect(
+		func():
+			if stats.hp <= 0:
+				queue_free()
+	)
 
 func give_shield(value: int):
 	stats.shield += clampi(value, 0, 999)

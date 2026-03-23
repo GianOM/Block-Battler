@@ -26,7 +26,13 @@ func update_stats():
 func take_damage(damage: int):
 	if stats.hp <= 0:
 		return
-	stats.take_damage(damage)
-	if stats.hp <= 0:
-		print("player deadge")
-		queue_free()
+	var tween:= create_tween()
+	tween.tween_callback(COMBATE.shake.bind(self, 16, 0.15))
+	tween.tween_callback(stats.take_damage.bind(damage))
+	tween.tween_interval(0.2)
+	tween.finished.connect(
+		func():
+			if stats.hp <= 0:
+				COMBATE.player_died.emit()
+				queue_free()
+	)

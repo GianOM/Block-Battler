@@ -11,6 +11,8 @@ func enemy_intention(turn: int, enemy: Enemy):
 			var label:= Label.new()
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 			
+			enemy.set_intent_ui(enemy_actions[i])
+			
 			var new_text = enemy_actions[i].return_description()
 			label.text = new_text
 			
@@ -18,9 +20,11 @@ func enemy_intention(turn: int, enemy: Enemy):
 
 func Clear_All_Instructions():
 	
-	while get_child_count() > 0:
-		
-		get_child(0).queue_free()
-		await get_tree().process_frame
+	for i in get_child_count():
+		get_child(i).queue_free()
+	#while get_child_count() > 0:
+		#
+		#get_child(0).queue_free()
+		#await get_tree().process_frame
 		
 	

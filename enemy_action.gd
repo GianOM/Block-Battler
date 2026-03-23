@@ -1,6 +1,8 @@
 class_name EnemyAction
 extends Node
 
+@export var intent: Intent
+
 var self_id: String
 var allies_target_id: Array[String]
 var enemies_target_id: Array[String]

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_ui_root_SCRIPT.gd" id="1_d2bcc"]
 [ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_jjm1q"]
 [ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="3_1k6pa"]
-[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="3_con52"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="4_3tk0i"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
@@ -36,7 +35,6 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_d2bcc")
 character_stats = ExtResource("2_jjm1q")
-enemy_stats = ExtResource("3_con52")
 
 [node name="CombatManager" type="Node" parent="." unique_id=1324377441]
 script = ExtResource("9_32jgd")
@@ -157,9 +155,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="Variable_Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("4_3tk0i")]
+[node name="Enemy Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "E2"
+Block_Target = "E1"
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Variable_Block2" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=289436907 instance=ExtResource("4_3tk0i")]
@@ -168,9 +166,9 @@ Block_Target = "P1"
 my_block_type = 1
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
-[node name="Variable_Block3" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("4_3tk0i")]
+[node name="Enemy 2 Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "E3"
+Block_Target = "E2"
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Variable_Block4" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=955697265 instance=ExtResource("4_3tk0i")]

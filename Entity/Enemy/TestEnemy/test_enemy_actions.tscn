@@ -3,12 +3,29 @@
 [ext_resource type="Script" uid="uid://cvop5r8de1sai" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.gd" id="1_eprge"]
 [ext_resource type="Script" uid="uid://cc10sc2dkxnri" path="res://Entity/Enemy/TestEnemy/attack.gd" id="1_hocmv"]
 [ext_resource type="Script" uid="uid://cdl1ura48kivc" path="res://Entity/Enemy/TestEnemy/defend.gd" id="2_x56dp"]
+[ext_resource type="Texture2D" uid="uid://c53pge6r5dv8e" path="res://Assets/sword.jpeg" id="3_v5w71"]
+[ext_resource type="Script" uid="uid://ccy7rh24114ox" path="res://intent.gd" id="4_lgxse"]
+[ext_resource type="Texture2D" uid="uid://dpevc13004ix5" path="res://Assets/shield.jpg" id="6_h5skd"]
+
+[sub_resource type="Resource" id="Resource_ylfet"]
+script = ExtResource("4_lgxse")
+value = "5"
+icon = ExtResource("3_v5w71")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
+
+[sub_resource type="Resource" id="Resource_irqcd"]
+script = ExtResource("4_lgxse")
+value = "5"
+icon = ExtResource("6_h5skd")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
 
 [node name="TestEnemyActions" type="Node" unique_id=8148060]
 script = ExtResource("1_eprge")
 
 [node name="Attack" type="Node" parent="." unique_id=308682054]
 script = ExtResource("1_hocmv")
+intent = SubResource("Resource_ylfet")
 
 [node name="Defend" type="Node" parent="." unique_id=174290350]
 script = ExtResource("2_x56dp")
+intent = SubResource("Resource_irqcd")
