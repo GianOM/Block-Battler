@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="6_3f4qh"]
-[ext_resource type="PackedScene" uid="uid://tmolln28ufc4" path="res://UI/Main_UI/Combat_Scenes/Canvas_Grid_Cell__SCENE.tscn" id="6_cde58"]
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="7_cde58"]
 [ext_resource type="PackedScene" uid="uid://bcxsn3763csl" path="res://Combat/combat_2d.tscn" id="7_tghfc"]
 [ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://combat_manager.gd" id="9_32jgd"]
@@ -58,8 +57,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel" type="Panel" parent="Block_Canvas" unique_id=1580935855]
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.0033783787
+anchor_right = 0.9979731
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -77,11 +77,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
-columns = 11
+columns = 3
 metadata/_edit_use_anchors_ = true
-
-[node name="Canvas Grid Cell" parent="Block_Canvas/Panel/Block_Grid" unique_id=1439344326 instance=ExtResource("6_cde58")]
-layout_mode = 2
 
 [node name="Block_Lists" type="Control" parent="." unique_id=1326448696]
 z_index = 2
