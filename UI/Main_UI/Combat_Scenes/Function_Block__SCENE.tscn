@@ -27,7 +27,7 @@ anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_mmgtr")
 
-[node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245]
+[node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245 node_paths=PackedStringArray("root_F_block")]
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -40,6 +40,19 @@ texture = ExtResource("2_si617")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_p4yei")
+root_F_block = NodePath("..")
+
+[node name="Details Text" type="RichTextLabel" parent="FBlock_TEXTURE" unique_id=103245503]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -27.0
+offset_right = 71.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "ATT - 15"
 
 [node name="Mouse_Detection_Area" type="Area2D" parent="FBlock_TEXTURE" unique_id=2002274141]
 
@@ -82,18 +95,6 @@ shape = SubResource("RectangleShape2D_bod48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FBlock_TEXTURE/Block_Attachment_Manager/Right_Collision_Area" unique_id=220794032]
 position = Vector2(146, 0)
 shape = SubResource("RectangleShape2D_0ym6i")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="FBlock_TEXTURE" unique_id=103245503]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-text = "ATT"
 
 [connection signal="mouse_entered" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_entered_area"]
 [connection signal="mouse_exited" from="FBlock_TEXTURE/Mouse_Detection_Area" to="." method="_on_mouse_exited_area"]

@@ -121,20 +121,24 @@ theme_override_constants/separation = 25
 [node name="Function_Block" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=919133198 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 15
 
 [node name="Function_Block2" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1223105320 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 my_block_type = 1
 Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 10
 
 [node name="Function_Block3" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1227061683 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 12
 
 [node name="Function_Block4" parent="Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=2100694183 instance=ExtResource("3_1k6pa")]
 layout_mode = 2
 my_block_type = 1
 Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 7
 
 [node name="Variables_Title" type="Label" parent="Block_Lists/HBoxContainer" unique_id=1696376482]
 layout_mode = 2

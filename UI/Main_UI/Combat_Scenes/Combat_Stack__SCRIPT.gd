@@ -18,10 +18,10 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	match Connected_Blocks_Root.my_block_type:
 		
 		Function_Block.Block_Type.ATTACK:
-			Instruction_String += "ATT-"
+			Instruction_String += "ATT-" + str(Connected_Blocks_Root.variable_number) + "-"
 			
 		Function_Block.Block_Type.DEFENSE:
-			Instruction_String += "DEF-"
+			Instruction_String += "DEF-" + str(Connected_Blocks_Root.variable_number) + "-"
 	
 	
 	for child_block in Connected_Blocks_Root.Child_Blocks:

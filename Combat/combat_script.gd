@@ -61,13 +61,15 @@ func player_turn(actions: Array[String]):
 		
 		if i.contains("ATT"):
 			
+			# EXEMPLO: P1-ATT-15-E2
+			
 			var target_enemy = Combat_Entities_ID[action_parameters[-1]]
 			
 			if not target_enemy:
 				return
 			
 			
-			damage.amount = 10
+			damage.amount = action_parameters[-2]
 			damage.execute(target_enemy)
 			
 			
@@ -81,7 +83,7 @@ func player_turn(actions: Array[String]):
 				return
 			
 			
-			shield.amount = 5
+			shield.amount = action_parameters[-2]
 			shield.execute(target_player)
 		
 func enemy_turn(actions: Array[String]):

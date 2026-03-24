@@ -19,6 +19,8 @@ enum Block_Type{
 @export var my_block_type: Block_Type
 @export var Possible_Attachment_Sides: Array[String]
 
+@export var variable_number: int
+
 @onready var block_texture: TextureRect = $FBlock_TEXTURE
 @onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
 
