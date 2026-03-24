@@ -25,7 +25,7 @@ enum Block_Type{
 
 @onready var block_id: Label = $VBlock_TEXTURE/Block_ID
 
-var Child_Blocks_List: Array[Function_Block]
+var Parents_Blocks_List: Array[Function_Block]
 
 var current_state: Block_State = Block_State.ONLIST
 
@@ -205,5 +205,5 @@ func RESET():
 	current_state = Block_State.ONLIST
 	block_texture.position = Vector2.ZERO
 	
-	Child_Blocks_List.clear()
+	Parents_Blocks_List.clear()
 	

@@ -163,7 +163,9 @@ func _on_Player_RELEASED_Left_Click():
 			
 			current_state = Block_State.ATTACHED
 			
-			JOGADOR.current_Function_Attach_Block.Attach_Function_Block_to_Self(self)
+			Attach_Function_Block_to_Self(JOGADOR.current_Function_Attach_Block)
+			
+			JOGADOR.Player_Dropped_Block_on_Canvas.emit(self)
 			
 		
 
