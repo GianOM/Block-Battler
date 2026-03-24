@@ -155,6 +155,8 @@ func _on_Player_RELEASED_Left_Click():
 			
 			current_state = Block_State.ONCANVAS
 			
+			JOGADOR.Player_Dropped_Block_on_Canvas.emit(self)
+			
 		else:
 			# Se soltarmos proxima a uma regiao de attachment, fazemos o attachment
 			# do atual bloco sendo arrastado ao bloco "attach target"

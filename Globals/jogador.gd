@@ -19,6 +19,8 @@ signal Player_Mouse_Left_Canvas
 @warning_ignore("unused_signal")
 signal Player_Connected_Blocks(Block_Group: Universal_Block)
 
+@warning_ignore("unused_signal")
+signal Player_Dropped_Block_on_Canvas(Block_on_Canvas: Universal_Block)
 
 
 
