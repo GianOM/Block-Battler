@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://tmolln28ufc4"]
+
+[ext_resource type="Script" uid="uid://q0l0br7iw0cl" path="res://UI/Main_UI/Combat_Scenes/Grid_Cell__SCRIPT.gd" id="1_1f68l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktc87"]
+size = Vector2(128, 96)
+
+[node name="Canvas Grid Cell" type="Panel" unique_id=1439344326]
+custom_minimum_size = Vector2(132, 100)
+mouse_filter = 1
+script = ExtResource("1_1f68l")
+
+[node name="Canvas_Grid_Cell_HITBOX" type="Area2D" parent="." unique_id=297095819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas_Grid_Cell_HITBOX" unique_id=319223667]
+position = Vector2(66, 50)
+shape = SubResource("RectangleShape2D_ktc87")
+
+[connection signal="mouse_entered" from="Canvas_Grid_Cell_HITBOX" to="." method="_on_Mouse_ENTER_Hitbox"]
