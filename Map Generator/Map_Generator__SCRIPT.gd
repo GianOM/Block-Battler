@@ -7,7 +7,7 @@ const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 var List_of_Positions_Walked: Array[Vector2i]
 
 
-@export var number_of_room: int = 40
+@export var number_of_room: int = 45
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
@@ -31,6 +31,7 @@ func _ready() -> void:
 func Clear_All_Room():
 	
 	List_of_Positions_Walked.clear()
+	starter_position = Vector2i.ZERO
 	for individual_room in rooms_root.get_children():
 		individual_room.queue_free()
 	
@@ -91,7 +92,7 @@ func Take_Drunken_Step(input_position: Vector2i) -> Vector2i:
 		3:#RIGHT STEP
 			drunk_position_after_step += input_position - Vector2i(0,1)
 			
-	if (drunk_position_after_step.distance_to(starter_position)) > (float(number_of_room) / 4.0):
+	if (drunk_position_after_step.distance_to(starter_position)) > 15.0:
 		
 		var next_starter_positon_idx: int = RNG.randi_range(0, List_of_Positions_Walked.size() - 1)
 		
