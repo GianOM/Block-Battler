@@ -60,37 +60,34 @@ func _process(delta: float) -> void:
 		
 		
 		
+func Check_Blocks_Compatibility(block_to_test: Universal_Block) -> bool:
+	
+	
+	if self.Possible_Attachment_Sides.has("UP") and block_to_test.Possible_Attachment_Sides.has("DOWN"):
+		return true
+	elif self.Possible_Attachment_Sides.has("DOWN") and block_to_test.Possible_Attachment_Sides.has("UP"):
+		return true
+		
+	elif self.Possible_Attachment_Sides.has("RIGHT") and block_to_test.Possible_Attachment_Sides.has("LEFT"):
+		return true
+	elif self.Possible_Attachment_Sides.has("LEFT") and block_to_test.Possible_Attachment_Sides.has("RIGHT"):
+		return true
+	
+	
+	
+	return false
+		
+		
 # A entrada é o bloco que esta sendo arrastado
 func Attach_Function_Block_to_Self(block_to_attach: Universal_Block):
 	
-	Child_Blocks.append(block_to_attach)
 	
-	#Coloca um bloco sobre o outro e mais embaixo so adiciona um offset
-	#block_to_attach.block_texture.global_position = block_texture.global_position
-	#
-	#
-	#
-	#match block_attachment_manager.current_attach_position:
-		#Attachment_Manager.Attach_Position.UP:
-			#
-			#block_to_attach.block_texture.global_position.y -= size.y * 0.5
-			#
-		#Attachment_Manager.Attach_Position.DOWN:
-			#
-			#block_to_attach.block_texture.global_position.y += size.y * 0.5
-			#
-		#Attachment_Manager.Attach_Position.RIGHT:
-			#
-			#block_to_attach.block_texture.global_position.x += (size.x * 0.85)
-			#
-			#
-		#Attachment_Manager.Attach_Position.LEFT:
-			#
-			#block_to_attach.block_texture.global_position.x -= size.x
-			
+	if Check_Blocks_Compatibility(block_to_attach):
 		
 	
-	JOGADOR.Player_Connected_Blocks.emit(self)
+		Child_Blocks.append(block_to_attach)
+		
+		JOGADOR.Player_Connected_Blocks.emit(self)
 	
 		
 		
