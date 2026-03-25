@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br5df0oqi0lb4"]
 
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
-[ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_ui_root_SCRIPT.gd" id="1_d2bcc"]
+[ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_2d_main.gd" id="1_d2bcc"]
 [ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_jjm1q"]
 [ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="3_1k6pa"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="4_3tk0i"]
@@ -9,8 +9,7 @@
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="5_uunb2"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="6_3f4qh"]
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="7_cde58"]
-[ext_resource type="PackedScene" uid="uid://bcxsn3763csl" path="res://Combat/combat_2d.tscn" id="7_tghfc"]
-[ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://combat_manager.gd" id="9_32jgd"]
+[ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://player_manager.gd" id="9_32jgd"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="10_fiujt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
@@ -277,11 +276,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_con52")
 text = "AAAAAAAA"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Combat2D" parent="." unique_id=2110802663 instance=ExtResource("7_tghfc")]
-z_index = -1
-position = Vector2(711, 473)
-scale = Vector2(0.492, 0.492)
 
 [connection signal="mouse_entered" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="Block_Canvas" to="Block_Canvas" method="_on_Mouse_Leave_Canvas"]

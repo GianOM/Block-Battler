@@ -12,7 +12,8 @@ extends Node2D
 @export var Enemy_Action_Scene: PackedScene
 
 var Attack_Pattern_Node: Node
-	
+
+
 func _ready() -> void:
 	
 	Attack_Pattern_Node = Enemy_Action_Scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
@@ -25,6 +26,13 @@ func set_enemy_stats(value: EnemyStats):
 		stats.changes_in_stats.connect(update_stats)
 		#stats.changes_in_stats.connect(update_action)
 	update_enemy()
+
+func single_enemy_turn():
+	print("tira shield")
+	stats.shield = 0
+	if self.name == "Enemy2":
+		print("breakpoint")
+	COMBATE.enemy_action_stack.emit()
 
 func set_intent_ui(value: EnemyAction):
 	var action = value

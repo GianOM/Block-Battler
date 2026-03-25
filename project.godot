@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Block_Battler"
-run/main_scene="uid://br5df0oqi0lb4"
+run/main_scene="uid://bcxsn3763csl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

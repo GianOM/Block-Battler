@@ -26,10 +26,10 @@ func perform_action():
 	tween.tween_property(enemy_self_ref, "global_position", start, 0.4)
 	
 	tween.finished.connect(
-		func(): COMBATE.enemy_action_completed.emit(enemy_self_ref)
+		func(): 
+			COMBATE.enemy_action_completed.emit(enemy_self_ref)
+			finished_performing_action.emit()
 	)
-	
-	
 	
 @warning_ignore("unused_parameter")
 func Setup_Action(ID_SELF: String, ID_ALLIED:Array[String], ID_Enemy: Array[String] ) -> void:

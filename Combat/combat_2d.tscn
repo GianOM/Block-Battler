@@ -1,24 +1,302 @@
 [gd_scene format=3 uid="uid://bcxsn3763csl"]
 
+[ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_2d_main.gd" id="1_h6p6f"]
 [ext_resource type="Texture2D" uid="uid://bl0px0faeujld" path="res://Assets/combat_background.webp" id="1_mw5lh"]
-[ext_resource type="Script" uid="uid://boihkyyxjphvk" path="res://Combat/combat_script.gd" id="1_p43ux"]
+[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_2lcfi"]
 [ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="2_jhj0g"]
+[ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="2_mi8d4"]
+[ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="3_2lcfi"]
+[ext_resource type="Script" uid="uid://crkp4kmesed5e" path="res://Combat/combat_ui.gd" id="3_cqvpo"]
 [ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="3_vbxne"]
+[ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="4_cqvpo"]
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
+[ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="5_p1jwv"]
+[ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="6_tnmra"]
+[ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
+[ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
+[ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
+[ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://player_manager.gd" id="14_svxjp"]
 
-[node name="Combat2D" type="Node2D" unique_id=2110802663]
-script = ExtResource("1_p43ux")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
+bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con52"]
+bg_color = Color(0, 0, 0, 0.39607844)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.53333336)
+
+[node name="Combat2DMain" type="Node2D" unique_id=2110802663]
+script = ExtResource("1_h6p6f")
+character_stats = ExtResource("2_2lcfi")
+
+[node name="CombatUI" type="Control" parent="." unique_id=632087552]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_cqvpo")
+
+[node name="Player_Combat_Input" type="Node" parent="CombatUI" unique_id=920619228]
+script = ExtResource("2_mi8d4")
+
+[node name="Block_Canvas" type="Control" parent="CombatUI" unique_id=1247735256]
+layout_mode = 1
+anchor_left = 0.22900002
+anchor_right = 1.0001667
+anchor_bottom = 0.41525927
+offset_left = 0.3199768
+offset_right = -0.32006836
+offset_bottom = -0.480011
+mouse_filter = 1
+script = ExtResource("3_2lcfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CombatUI/Block_Canvas" unique_id=1580935855]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0033783787
+anchor_right = 0.9979731
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k6pa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Block_Grid" type="GridContainer" parent="CombatUI/Block_Canvas/Panel" unique_id=57920828]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.8864866
+anchor_bottom = 2.4017856
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Block_Lists" type="Control" parent="CombatUI" unique_id=1326448696]
+z_index = 2
+layout_mode = 1
+anchor_right = 0.22933334
+anchor_bottom = 1.0073704
+offset_right = -0.32000732
+offset_bottom = 0.040039063
+mouse_filter = 1
+script = ExtResource("4_cqvpo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CombatUI/Block_Lists" unique_id=106744607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CombatUI/Block_Lists" unique_id=1499070682]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05500003
+anchor_right = 0.945
+anchor_bottom = 0.07875001
+offset_left = -0.2000122
+offset_right = 0.19999695
+offset_bottom = 0.31999207
+grow_horizontal = 2
+theme_override_constants/separation = 150
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Functions_Title" type="Label" parent="CombatUI/Block_Lists/HBoxContainer" unique_id=968430617]
+layout_mode = 2
+text = "Functions"
+
+[node name="FBlocks_List" type="VBoxContainer" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title" unique_id=2059949490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.19700001
+anchor_top = 1.8260001
+anchor_right = 1.539
+anchor_bottom = 42.609
+offset_left = -0.027998924
+offset_top = 0.0019989014
+offset_right = 0.035995483
+offset_bottom = 0.99298096
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Function_Block" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=919133198 instance=ExtResource("5_p1jwv")]
+layout_mode = 2
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 15
+
+[node name="Function_Block2" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1223105320 instance=ExtResource("5_p1jwv")]
+layout_mode = 2
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 10
+
+[node name="Function_Block3" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1227061683 instance=ExtResource("5_p1jwv")]
+layout_mode = 2
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 12
+
+[node name="Function_Block4" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=2100694183 instance=ExtResource("5_p1jwv")]
+layout_mode = 2
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 7
+
+[node name="Variables_Title" type="Label" parent="CombatUI/Block_Lists/HBoxContainer" unique_id=1696376482]
+layout_mode = 2
+text = "Variables"
+
+[node name="VBlocks_List" type="VBoxContainer" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title" unique_id=278223973]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = 19.0
+offset_right = 66.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Enemy Block" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("6_tnmra")]
+layout_mode = 2
+Block_Target = "E1"
+Possible_Attachment_Sides = Array[String](["LEFT"])
+
+[node name="Variable_Block2" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=289436907 instance=ExtResource("6_tnmra")]
+layout_mode = 2
+Block_Target = "P1"
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["LEFT"])
+
+[node name="Enemy 2 Block" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("6_tnmra")]
+layout_mode = 2
+Block_Target = "E2"
+Possible_Attachment_Sides = Array[String](["LEFT"])
+
+[node name="Variable_Block4" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=955697265 instance=ExtResource("6_tnmra")]
+layout_mode = 2
+Block_Target = "P1"
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["LEFT"])
+
+[node name="Combat_Stack" type="Control" parent="CombatUI" unique_id=1992638281]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1480.0
+offset_top = -632.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("7_7hyad")
+
+[node name="Player_Stack_Panel" type="Panel" parent="CombatUI/Combat_Stack" unique_id=936130517]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 169.0
+offset_bottom = 599.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatUI/Combat_Stack/Player_Stack_Panel" unique_id=1244914441]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020905923
+anchor_top = 0.008650519
+anchor_right = 0.9790941
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List_of_Player_Instructions" type="VBoxContainer" parent="CombatUI/Combat_Stack/Player_Stack_Panel/ScrollContainer" unique_id=1929398647]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("8_2jbda")
+
+[node name="Enemy_Stack_Panel" type="Panel" parent="CombatUI/Combat_Stack" unique_id=349167654]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 21.0
+offset_right = 1450.0
+offset_bottom = 599.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatUI/Combat_Stack/Enemy_Stack_Panel" unique_id=110743091]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020905923
+anchor_top = 0.008650519
+anchor_right = 0.9790941
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyAttackPattern" type="VBoxContainer" parent="CombatUI/Combat_Stack/Enemy_Stack_Panel/ScrollContainer" unique_id=492225433]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("9_drh7v")
+
+[node name="Turn_Ready_Button" type="Button" parent="CombatUI" unique_id=7372755]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 1011.0
+offset_right = 1274.0
+offset_bottom = 1061.0
+text = "READY"
+
+[node name="TurnLabel" type="Label" parent="CombatUI" unique_id=315547566]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 621.0
+offset_top = 448.0
+offset_right = 1730.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_con52")
+text = "AAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CombatBackground" type="Sprite2D" parent="." unique_id=1101945263]
+position = Vector2(592, 419)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_mw5lh")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." unique_id=2092398558 instance=ExtResource("5_cns71")]
-position = Vector2(586, 893)
-
 [node name="EnemyManager" type="Node2D" parent="." unique_id=1038297834]
+position = Vector2(240, 15)
 script = ExtResource("4_y327u")
 
 [node name="Enemy" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
@@ -28,3 +306,12 @@ stats = ExtResource("3_vbxne")
 [node name="Enemy2" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(1016, 802)
 stats = ExtResource("3_vbxne")
+
+[node name="PlayerManager" type="Node2D" parent="." unique_id=931567398]
+script = ExtResource("14_svxjp")
+
+[node name="Player" parent="PlayerManager" unique_id=2092398558 instance=ExtResource("5_cns71")]
+position = Vector2(826, 908)
+
+[connection signal="mouse_entered" from="CombatUI/Block_Canvas" to="CombatUI/Block_Canvas" method="_on_Mouse_Entered_Canvas"]
+[connection signal="mouse_exited" from="CombatUI/Block_Canvas" to="CombatUI/Block_Canvas" method="_on_Mouse_Leave_Canvas"]

@@ -1,35 +1,28 @@
 extends Node
 
-
-
-
 var Combat_ID_Dict: Dictionary = {}
-
 
 @warning_ignore("unused_signal")
 signal Entities_ID_Loaded(List_of_Entities: Dictionary)
 
 
-
-
-
-
-@warning_ignore("unused_signal")
+#start of player turn
+signal load_enemy_intentions_requested(turn: int)
+signal execute_player_turn
+signal player_action_stack
 signal execute_player_actions(actions: Array[String])
-@warning_ignore("unused_signal")
-signal finished_executing_player_actions
+signal player_turn_ended
 
-@warning_ignore("unused_signal")
+#enemy turn
+signal enemy_action_stack
 signal execute_enemy_actions(actions: Array[String])
-@warning_ignore("unused_signal")
-signal finished_executing_enemy_actions
-
+signal enemy_turn_ended
+signal enemy_action_completed(enemy: Enemy)
 
 @warning_ignore("unused_signal")
 signal player_died
 
-@warning_ignore("unused_signal")
-signal enemy_action_completed(enemy: Enemy)
+
 
 func shake(thing: Node2D, strength: float, duration: float = 0.2):
 	if not thing:

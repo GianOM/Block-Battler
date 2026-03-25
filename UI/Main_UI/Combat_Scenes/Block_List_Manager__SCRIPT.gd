@@ -5,7 +5,7 @@ extends Control
 
 
 func _ready() -> void:
-	COMBATE.finished_executing_player_actions.connect(Reset_All_Placed_Blocks)
+	COMBATE.execute_player_turn.connect(Reset_All_Placed_Blocks)
 	
 	
 	
