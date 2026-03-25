@@ -8,11 +8,12 @@ extends Control
 func _ready() -> void:
 	
 	JOGADOR.Player_Connected_Blocks.connect(_on_block_connection_formed)
+	JOGADOR.Player_Disconnected_Blocks.connect(_on_block_connection_broken)
 	
 	
 func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	
-	var Instruction_String: String = "P1-"
+	var Instruction_String: String = str(Connected_Blocks_Root.get_instance_id()) + "-" + "P1-"
 	
 	
 	match Connected_Blocks_Root.my_block_type:
@@ -32,4 +33,26 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 		
 		
 	list_of_player_instructions.Make_Command_from_Instructions(Instruction_String)
+	
+	
+	
+func _on_block_connection_broken(Connected_Blocks_Root: Universal_Block):
+	
+	
+	var Block_Instance_ID: int = Connected_Blocks_Root.get_instance_id()
+	
+	
+	list_of_player_instructions.Erase_Command_from_ID(Block_Instance_ID)
+	
+	#print(Connected_Blocks_Root.get_instance_id())
+	
+	pass
+	
+	
+	
+	
+	
+	
+	
+	
 	

@@ -7,7 +7,6 @@ enum Block_State{
 	DRAGGING,
 	DROPABLE,
 	PLACED,
-	ATTACHED
 }
 
 enum Block_Type{
@@ -127,6 +126,16 @@ func _on_Player_PRESSED_Left_Click():
 		
 	elif (current_state == Block_State.ONCANVAS):
 		
+		if Child_Blocks.size() > 0:
+			
+			JOGADOR.Player_Disconnected_Blocks.emit(self)
+			
+			Clear_Block_Connections()
+			
+			
+		
+		
+		
 		if is_mouse_on_Canvas:
 		
 			current_state = Block_State.DROPABLE
@@ -149,7 +158,7 @@ func _on_Player_RELEASED_Left_Click():
 		
 		
 	elif current_state == Block_State.DROPABLE:
-		
+		current_state = Block_State.ONCANVAS
 		# Se nao estiver nenhum bloco adjacente, so solta
 		if JOGADOR.current_Function_Attach_Block == null:
 			
@@ -160,8 +169,6 @@ func _on_Player_RELEASED_Left_Click():
 		else:
 			# Se soltarmos proxima a uma regiao de attachment, fazemos o attachment
 			# do atual bloco sendo arrastado ao bloco "attach target"
-			
-			current_state = Block_State.ATTACHED
 			
 			Attach_Function_Block_to_Self(JOGADOR.current_Function_Attach_Block)
 			
@@ -199,6 +206,16 @@ func _on_mouse_exited_area():
 		
 		
 		
+func Clear_Block_Connections():
+	
+	# Debug ONly
+	for child_block in Child_Blocks:
+		print("Removed Connection with : " + child_block.name)
+	
+	
+	Child_Blocks.clear()
+		
+		
 		
 		
 		
@@ -207,6 +224,6 @@ func RESET():
 	current_state = Block_State.ONLIST
 	block_texture.position = Vector2.ZERO
 	
-	Child_Blocks.clear()
+	Clear_Block_Connections()
 		
 	

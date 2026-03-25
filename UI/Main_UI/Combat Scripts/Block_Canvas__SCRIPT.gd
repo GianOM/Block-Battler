@@ -15,7 +15,7 @@ func _ready() -> void:
 	JOGADOR.Player_Dropped_Block_on_Canvas.connect(Drop_Block_on_Canvas_Grid)
 	
 	
-	for i in range(7):
+	for i in range(12):
 		
 		var Temp_Canvas_Grid: Canvas_Grid_Cell = CANVAS_GRID_CELL__SCENE.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 		
