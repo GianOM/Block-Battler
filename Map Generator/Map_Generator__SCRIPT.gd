@@ -14,6 +14,7 @@ var List_of_Positions_Walked: Array[Vector2i]
 var RNG = RandomNumberGenerator.new()
 
 
+@warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		Clear_All_Room()
@@ -82,15 +83,15 @@ func Take_Drunken_Step(input_position: Vector2i) -> Vector2i:
 	
 	match next_step_number:
 		0:#FORWARD STEP
-			drunk_position_after_step += input_position + Vector2i(1,0)
+			drunk_position_after_step = input_position + Vector2i(1,0)
 		1:#BACKWARD STEP
-			drunk_position_after_step += input_position - Vector2i(1,0)
+			drunk_position_after_step = input_position - Vector2i(1,0)
 			
 			
 		2:#LEFT STEP
-			drunk_position_after_step += input_position + Vector2i(0,1)
+			drunk_position_after_step = input_position + Vector2i(0,1)
 		3:#RIGHT STEP
-			drunk_position_after_step += input_position - Vector2i(0,1)
+			drunk_position_after_step = input_position - Vector2i(0,1)
 			
 	if (drunk_position_after_step.distance_to(starter_position)) > 15.0:
 		
