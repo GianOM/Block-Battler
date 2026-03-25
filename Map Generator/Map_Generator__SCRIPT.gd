@@ -51,9 +51,11 @@ func Drunkard_Walk():
 			Instance_Room_on_drunk_position(current_drunk_position)
 			Remaining_Number_of_Placed_Rooms -= 1
 			
-		current_drunk_position = Take_Drunken_Step(current_drunk_position)
+		else:
+			current_drunk_position = New_Walk_Origin()
 			
-		
+			
+		current_drunk_position = Take_Drunken_Step(current_drunk_position)
 	
 	
 func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
@@ -93,19 +95,29 @@ func Take_Drunken_Step(input_position: Vector2i) -> Vector2i:
 		3:#RIGHT STEP
 			drunk_position_after_step = input_position - Vector2i(0,1)
 			
-	if (drunk_position_after_step.distance_to(starter_position)) > 15.0:
-		
-		var next_starter_positon_idx: int = RNG.randi_range(0, List_of_Positions_Walked.size() - 1)
-		
-		starter_position = List_of_Positions_Walked[next_starter_positon_idx]
-		
-		drunk_position_after_step = starter_position
-		print("VOLTE SUA MISEERA")
+	#if (drunk_position_after_step.distance_to(starter_position)) > 15.0:
+		#
+		#drunk_position_after_step = New_Walk_Origin()
 	
 	return drunk_position_after_step
 	
 	
 	
+	
+func New_Walk_Origin() -> Vector2i:
+	
+	var new_walk_origin: Vector2i
+	
+	
+	var next_starter_positon_idx: int = RNG.randi_range(0, List_of_Positions_Walked.size() - 1)
+	starter_position = List_of_Positions_Walked[next_starter_positon_idx]
+	new_walk_origin = starter_position
+	print("VOLTE SUA MISEERA")
+	
+	return new_walk_origin
+	
+	
+
 	
 	
 	
