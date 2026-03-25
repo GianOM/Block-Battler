@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ch2t4yt6uxcwt"]
+
+[ext_resource type="PackedScene" uid="uid://cpod4rbo6iatm" path="res://Assets/Room_Example/Example_Room__MESH.glb" id="1_epdrg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epdrg"]
+cull_mode = 2
+
+[node name="Example_Room__MESH" unique_id=303806992 instance=ExtResource("1_epdrg")]
+
+[node name="Room_Mesh" parent="." index="0" unique_id=475219833]
+surface_material_override/0 = SubResource("StandardMaterial3D_epdrg")
