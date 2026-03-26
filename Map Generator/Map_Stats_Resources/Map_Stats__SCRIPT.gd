@@ -60,7 +60,7 @@ func Get_Random_Room() -> Room_Type:
 		
 		
 		var choosen_int: int = randi_range(0,List_of_Possibilities.size() - 1)
-		print(Room_Type.keys()[choosen_int])
+		#print(Room_Type.keys()[choosen_int])
 		
 		Subtract_Number_of_Possible_Rooms(List_of_Possibilities[choosen_int])
 	
@@ -94,7 +94,8 @@ func Subtract_Number_of_Possible_Rooms(room_type_to_subtract: Room_Type):
 			Number_of_Random_Encounters -= 1
 			
 		_:
-			print("Null Found")
+			#print("")
+			pass
 		
 	
 	

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1y0wi4oqkm70" path="res://Map Generator/Map_Generator__SCRIPT.gd" id="1_j6clm"]
 [ext_resource type="Resource" uid="uid://dsbbcti4jem6x" path="res://Map Generator/Map_Stats_Resources/Test_Map_Stats.tres" id="2_leiis"]
 [ext_resource type="Script" uid="uid://c7lh645dsd7l7" path="res://Map Generator/Map_Camera__SCRIPT.gd" id="3_13nyt"]
+[ext_resource type="Script" uid="uid://dqmwfwwnvg60i" path="res://Map Generator/Rooms_Manager.gd" id="4_id4gy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6clm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,3 +35,81 @@ size = 60.0
 script = ExtResource("3_13nyt")
 
 [node name="Rooms_Root" type="Node3D" parent="." unique_id=556009081]
+script = ExtResource("4_id4gy")
+
+[node name="Map Legend" type="Control" parent="." unique_id=1248758890]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -1060.0
+offset_right = -16.0
+offset_bottom = -294.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Map Legend" unique_id=2008178156]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Starting Room Label" type="Label" parent="Map Legend/VBoxContainer" unique_id=52852205]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Starting Room"
+horizontal_alignment = 1
+
+[node name="Normal Enemy" type="Label" parent="Map Legend/VBoxContainer" unique_id=1097080090]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.212, 0.137, 1)
+theme_override_font_sizes/font_size = 30
+text = "Normal Enemy"
+horizontal_alignment = 1
+
+[node name="Mini Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=477429204]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.286, 0.133, 0.243, 1)
+theme_override_font_sizes/font_size = 30
+text = "Mini Boss"
+horizontal_alignment = 1
+
+[node name="Final Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=988551683]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.47, 0.85, 1)
+theme_override_font_sizes/font_size = 30
+text = "Final Boss"
+horizontal_alignment = 1
+
+[node name="Shop Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=534083769]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.224, 0.353, 0.004, 1)
+theme_override_font_sizes/font_size = 30
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Rest Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=676868087]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.168, 0.141, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rest Room"
+horizontal_alignment = 1
+
+[node name="Random Encounter" type="Label" parent="Map Legend/VBoxContainer" unique_id=1829712324]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.883, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Random Encounter"
+horizontal_alignment = 1
+
+[node name="Nothing" type="Label" parent="Map Legend/VBoxContainer" unique_id=67104631]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Empty"
+horizontal_alignment = 1

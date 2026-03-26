@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 					Mouse_Panning_Speed = position.y / 10000
 					Mouse_Zoom_Speed = position.y / 14
 					
-					print(Mouse_Panning_Speed)
+					#print(Mouse_Panning_Speed)
 					
 				MouseButton.MOUSE_BUTTON_WHEEL_DOWN:
 					position.y += Mouse_Zoom_Speed
@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 					Mouse_Panning_Speed = position.y / 10000
 					Mouse_Zoom_Speed = position.y / 14
 					
-					print(Mouse_Panning_Speed)
+					#print(Mouse_Panning_Speed)
 					
 				MouseButton.MOUSE_BUTTON_LEFT:
 					is_holding_left_click = true

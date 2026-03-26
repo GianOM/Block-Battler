@@ -10,14 +10,14 @@ const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 
 @onready var rooms_root: Node3D = $Rooms_Root
 
-@export var number_of_room: int = 30
+@export var number_of_room: int = 32
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
 @export var selected_Map_Stats: Map_Stats
 
 
-var Current_MatStats: Map_Stats
+var Current_MapStats: Map_Stats
 
 
 
@@ -34,6 +34,11 @@ var RNG = RandomNumberGenerator.new()
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		Clear_All_Room()
+		
+		await rooms_root.Finished_Cleaning_Children
+		
+		print(rooms_root.get_child_count())
+		
 		Drunkard_Walk()
 		
 
@@ -50,9 +55,9 @@ func Clear_All_Room():
 	
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
-	Current_MatStats = selected_Map_Stats.duplicate()
-	for individual_room in rooms_root.get_children():
-		individual_room.queue_free()
+	Current_MapStats = selected_Map_Stats.duplicate()
+	rooms_root.Clear_All_Children()
+	
 	
 func Drunkard_Walk():
 	
@@ -74,18 +79,24 @@ func Drunkard_Walk():
 			
 			
 		current_drunk_position = Take_Drunken_Step(current_drunk_position)
-	
+		
+		
+		
+	rooms_root.Fill_Rooms_Info()
 	
 func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
 	
 	var Global_XYZ_Room_Coordinates: Vector3 = (Vector3(input_drunk_position.x,0,input_drunk_position.y)) * 4
 	
-	var Temp_Scene: Node = EXAMPLE_ROOM__SCENE.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	var Temp_Scene: Node = EXAMPLE_ROOM__SCENE.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
 	
 	rooms_root.add_child(Temp_Scene)
 	
+	
+	
+	Temp_Scene.name = str(input_drunk_position.x) + "," + str(input_drunk_position.y)
 	Temp_Scene.global_position = Global_XYZ_Room_Coordinates
-	Temp_Scene.Set_Room_Type(Current_MatStats.Get_Random_Room())
+	Temp_Scene.Set_Room_Type(Current_MapStats.Get_Random_Room())
 		
 		
 		

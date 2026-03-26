@@ -1,19 +1,46 @@
 extends Node3D
 
 
-const FINAL_BOSS_ROOM_COLOR: Color = Color(1.0, 0.47, 0.85, 1.0)
-const MINI_BOSS_ROOM_COLOR: Color = Color(0.286, 0.133, 0.243)
+
+
+
+
+
+const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
+
 const NORMAL_ENEMY_BOSS_ROOM_COLOR: Color = Color(0.271, 0.212, 0.137, 1.0)
+const MINI_BOSS_ROOM_COLOR: Color = Color(0.286, 0.133, 0.243)
+const FINAL_BOSS_ROOM_COLOR: Color = Color(1.0, 0.47, 0.85, 1.0)
+
 
 const SHOP_ROOM_COLOR: Color = Color(0.224, 0.353, 0.004, 1.0)
 const REST_ROOM_COLOR: Color = Color(0.47, 0.168, 0.141, 1.0)
 const RANDOM_ENCOUNTER_ROOM_COLOR: Color = Color(1.0, 0.883, 0.0, 1.0)
 
-const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
 
+#region Room Stats
+
+var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
+
+
+#endregion
 
 
 @onready var room_mesh: MeshInstance3D = $Room_Mesh
+
+
+func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
+	
+	
+	
+	number_of_adjacents_rooms = quantity_of_adjacents_rooms
+	$"Debug Text".text = str(number_of_adjacents_rooms)
+	
+	
+	
+	
+	
+	pass
 	
 	
 	

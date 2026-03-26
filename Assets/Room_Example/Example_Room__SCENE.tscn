@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cpod4rbo6iatm" path="res://Assets/Room_Example/Example_Room__MESH.glb" id="1_epdrg"]
 [ext_resource type="Script" uid="uid://b0bkvc72ydrae" path="res://Assets/Room_Example/Example_Room__SCRIPT].gd" id="2_3cwcp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epdrg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cwcp"]
 resource_local_to_scene = true
 cull_mode = 2
 
@@ -11,4 +11,11 @@ cull_mode = 2
 script = ExtResource("2_3cwcp")
 
 [node name="Room_Mesh" parent="." index="0" unique_id=451313471]
-surface_material_override/0 = SubResource("StandardMaterial3D_epdrg")
+surface_material_override/0 = SubResource("StandardMaterial3D_3cwcp")
+
+[node name="Debug Text" type="Label3D" parent="." index="1" unique_id=1675207566]
+pixel_size = 0.001
+billboard = 1
+modulate = Color(0, 0, 0, 1)
+text = "Number of Connections"
+font_size = 1200
