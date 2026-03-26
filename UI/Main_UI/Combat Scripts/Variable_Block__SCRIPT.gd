@@ -89,6 +89,9 @@ func _on_Player_PRESSED_Left_Click():
 	if JOGADOR.current_Function_Dragging_Block != null:
 		return
 	
+	
+	block_texture.z_index = 64
+	
 	if current_state == Block_State.DRAGGABLE:
 		
 		current_state = Block_State.DRAGGING
@@ -111,6 +114,9 @@ func _on_Player_PRESSED_Left_Click():
 func _on_Player_RELEASED_Left_Click():
 	
 	JOGADOR.current_Function_Dragging_Block = null
+	
+	
+	block_texture.z_index = 32
 	
 	if current_state == Block_State.DRAGGING:
 		

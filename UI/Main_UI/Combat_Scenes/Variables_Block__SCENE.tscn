@@ -28,7 +28,8 @@ mouse_filter = 2
 script = ExtResource("1_r8pbt")
 
 [node name="VBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245]
-z_index = 2
+z_index = 32
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

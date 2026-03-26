@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://wqhp2ecigkh0"]
 
 [ext_resource type="Script" uid="uid://c1y0wi4oqkm70" path="res://Map Generator/Map_Generator__SCRIPT.gd" id="1_j6clm"]
+[ext_resource type="Resource" uid="uid://dsbbcti4jem6x" path="res://Map Generator/Map_Stats_Resources/Test_Map_Stats.tres" id="2_leiis"]
+[ext_resource type="Script" uid="uid://c7lh645dsd7l7" path="res://Map Generator/Map_Camera__SCRIPT.gd" id="3_13nyt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6clm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +18,7 @@ glow_enabled = true
 
 [node name="MapGeneratorScene" type="Node3D" unique_id=576875877]
 script = ExtResource("1_j6clm")
+selected_Map_Stats = ExtResource("2_leiis")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1505295106]
 environment = SubResource("Environment_13nyt")
@@ -24,9 +27,10 @@ environment = SubResource("Environment_13nyt")
 transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, 0.22298962, 0.11303729, 0.96824497, -0.44752175, 0.8942721, -0.0013358295, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=374191609]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 300, 0)
+[node name="Map_Camera" type="Camera3D" parent="." unique_id=374191609]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 500, 0)
 fov = 10.0
 size = 60.0
+script = ExtResource("3_13nyt")
 
 [node name="Rooms_Root" type="Node3D" parent="." unique_id=556009081]
