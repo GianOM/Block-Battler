@@ -27,6 +27,7 @@ func _ready() -> void:
 	
 
 func start_combat(stats: CharacterStats):
+	get_tree().paused = false
 	setup_all_entities_ids()
 	enemy_attack_pattern.enemy_manager_ref = enemy_manager
 	player_manager.start_battle(stats)
@@ -47,7 +48,7 @@ func setup_all_entities_ids():
 #TODO to be tested
 func _on_enemies_child_order_changed():
 	if enemy_manager.get_child_count() == 0:
-		print("all enemies dead AKA you win")
+		COMBATE.end_of_combat_screen_requested.emit("ANY WINNERS???", EndOfCombatPanel.Type.WIN)
 
 func _on_player_died():
-	print("player deadge AKA you suck")
+	COMBATE.end_of_combat_screen_requested.emit("YOU SUCK", EndOfCombatPanel.Type.LOSE)

@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
 [ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://player_manager.gd" id="14_svxjp"]
+[ext_resource type="Resource" uid="uid://bqr7kbu0atww4" path="res://Entity/Enemy/Glorp/glorp.tres" id="16_tnmra"]
+[ext_resource type="PackedScene" uid="uid://si7fib2yw5gw" path="res://Entity/Enemy/Glorp/glorp_actions.tscn" id="17_7hyad"]
+[ext_resource type="PackedScene" uid="uid://d3fe384wbqlpc" path="res://end_of_combat_panel.tscn" id="18_cqvpo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
 bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
@@ -299,19 +302,26 @@ metadata/_edit_lock_ = true
 position = Vector2(240, 15)
 script = ExtResource("4_y327u")
 
-[node name="Enemy" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
+[node name="Head" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
 position = Vector2(1332, 891)
 stats = ExtResource("3_vbxne")
 
-[node name="Enemy2" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
+[node name="Glorp" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(1016, 802)
-stats = ExtResource("3_vbxne")
+stats = ExtResource("16_tnmra")
+Enemy_Action_Scene = ExtResource("17_7hyad")
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=931567398]
 script = ExtResource("14_svxjp")
 
 [node name="Player" parent="PlayerManager" unique_id=2092398558 instance=ExtResource("5_cns71")]
 position = Vector2(826, 908)
+
+[node name="EndOfCombat" type="CanvasLayer" parent="." unique_id=1552576854]
+layer = 3
+
+[node name="EndOfCombatPanel" parent="EndOfCombat" unique_id=845937158 instance=ExtResource("18_cqvpo")]
+visible = false
 
 [connection signal="mouse_entered" from="CombatUI/Block_Canvas" to="CombatUI/Block_Canvas" method="_on_Mouse_Entered_Canvas"]
 [connection signal="mouse_exited" from="CombatUI/Block_Canvas" to="CombatUI/Block_Canvas" method="_on_Mouse_Leave_Canvas"]

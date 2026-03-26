@@ -13,6 +13,9 @@ func setup_enemy_list():
 		enemy_list.push_back(enemy)
 
 func setup_enemy_intention(enemy: Enemy, index: int):
+	#debug v
+	print(enemy.name + ": strength: " + str(enemy.stats.strength))
+			
 	var enemy_actions: Array[EnemyAction] = enemy.Attack_Pattern_Node.load_actions()
 	enemy.set_intent_ui(enemy_actions[index])
 
@@ -54,30 +57,72 @@ func start_turn():
 func execute_enemy_actions(actions: Array[String]):
 	for i in actions:
 		var action_parameters: PackedStringArray = i.split("-", false)
-		if i.contains("ATT"):
-			var attacking_enemy: Enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
-			var Temp_Node: EnemyAction = attacking_enemy.Attack_Pattern_Node.get_child(0)
-			var target_player: Player = COMBATE.Combat_ID_Dict[action_parameters[-1]]
-			if not target_player:
-				return
-			Temp_Node.perform_action()
-			await Temp_Node.finished_performing_action
+		var Temp_Node
+		var attacking_enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
+		if not attacking_enemy:
+			continue	
+		for j in attacking_enemy.Attack_Pattern_Node.get_child_count():
+			var action_node_name = attacking_enemy.Attack_Pattern_Node.get_child(j).name
+			if i.contains(action_node_name):
+				print(action_node_name)
+				Temp_Node = attacking_enemy.Attack_Pattern_Node.get_child(j)
+				
+				
+		#var Temp_Node = attacking_enemy.Attack_Pattern_Node.get_child(0)
+		
+		
+		var target = COMBATE.Combat_ID_Dict[action_parameters[-1]]
+		if not target:
+			continue
+		Temp_Node.perform_action()
+		await Temp_Node.finished_performing_action
 
-		elif i.contains("DEF"):
-			var attacking_enemy: Enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
-			var Temp_Node: EnemyAction = attacking_enemy.Attack_Pattern_Node.get_child(1)
-			var target_enemy: Enemy = COMBATE.Combat_ID_Dict[action_parameters[-1]]
+		
+
+#func execute_enemy_actions(actions: Array[String]):
+	#for i in actions:
+		#var action_parameters: PackedStringArray = i.split("-", false)
+		#if i.contains("ATT"):
+			#var attacking_enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
+			#if not attacking_enemy:
+				#continue	
+			#var Temp_Node = attacking_enemy.Attack_Pattern_Node.get_child(0)
+			#var target_player = COMBATE.Combat_ID_Dict[action_parameters[-1]]
+			#if not target_player:
+				#continue
+			#Temp_Node.perform_action()
+			#await Temp_Node.finished_performing_action
+#
+		#elif i.contains("DEF"):
+			#var attacking_enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
+			#if not attacking_enemy:
+				#continue
+			#var Temp_Node = attacking_enemy.Attack_Pattern_Node.get_child(1)
+			#var target_enemy = COMBATE.Combat_ID_Dict[action_parameters[-1]]
+			#
+			#if not target_enemy:
+				#return
+			#
+			#Temp_Node.perform_action()
+			#await Temp_Node.finished_performing_action
+		#
+		#elif i.contains("BUFF"):
+			#var attacking_enemy = COMBATE.Combat_ID_Dict[action_parameters[0]]
+			#if not attacking_enemy:
+				#continue
+			#var Temp_Node = attacking_enemy.Attack_Pattern_Node.get_child(1)
+			#var target_enemy = COMBATE.Combat_ID_Dict[action_parameters[-1]]
+			#
+			#if not target_enemy:
+				#return
+			#
+			#Temp_Node.perform_action()
+			#await Temp_Node.finished_performing_action
 			
-			if not target_enemy:
-				return
-			
-			Temp_Node.perform_action()
-			await Temp_Node.finished_performing_action
-	
 func _on_enemy_action_completed(enemy: Enemy):
 	
 	var enemy_tree_index: int = enemy.get_index()
-	print(enemy_tree_index)
+	#print(enemy_tree_index)
 	
 	if enemy_tree_index == get_child_count() - 1:
 		COMBATE.enemy_turn_ended.emit()

@@ -28,16 +28,18 @@ func set_enemy_stats(value: EnemyStats):
 	update_enemy()
 
 func single_enemy_turn():
-	print("tira shield")
+	#print("tira shield")
 	stats.shield = 0
-	if self.name == "Enemy2":
-		print("breakpoint")
+	#if self.name == "Enemy2":
+		#print("breakpoint")
 	COMBATE.enemy_action_stack.emit()
 
 func set_intent_ui(value: EnemyAction):
 	var action = value
 	if action:
-		intent_ui.update_intent(action.intent)
+		#TODO glorp actions have no intent
+		intent_ui.update_intent(action.intent, value, stats.strength)
+		print(action.intent)
 	
 #func update_action():
 	#pass
@@ -66,11 +68,7 @@ func take_damage(damage: int):
 				queue_free()
 	)
 
-func give_shield(value: int):
-	stats.shield += clampi(value, 0, 999)
-	update_stats()
-	
-	
+
 	
 func Set_Entity_ID(input_text: String):
 	

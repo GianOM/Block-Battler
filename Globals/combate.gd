@@ -19,8 +19,10 @@ signal execute_enemy_actions(actions: Array[String])
 signal enemy_turn_ended
 signal enemy_action_completed(enemy: Enemy)
 
-@warning_ignore("unused_signal")
+#combat stuff
 signal player_died
+signal end_of_combat_screen_requested(text: String, type: EndOfCombatPanel.Type)
+
 
 
 

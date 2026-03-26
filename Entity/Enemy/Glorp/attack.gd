@@ -1,24 +1,20 @@
 extends EnemyAction
 
-@export var damage:= 5
+@export var damage:= 10
 
 func perform_action():
-	
 	var player_ref: Player = COMBATE.Combat_ID_Dict[enemies_target_id[0]]
 	var enemy_self_ref: Enemy = COMBATE.Combat_ID_Dict[self_id]
-	
-	
+
 	if not player_ref:
 		return
-		
-	
-	
-		
+
 	var tween:= create_tween().set_trans(Tween.TRANS_QUINT)
 	var start:= enemy_self_ref.global_position
 	var end:= player_ref.global_position + Vector2.RIGHT * 32
 	var damage_effect:= Damage.new()
-	damage_effect.amount = damage
+	damage_effect.amount = damage + enemy_self_ref.stats.strength
+	#intent.value += enemy_self_ref.stats.strength
 	
 	tween.tween_property(enemy_self_ref, "global_position", end, 0.4)
 	tween.tween_callback(damage_effect.execute.bind(player_ref))
@@ -39,21 +35,8 @@ func Setup_Action(ID_SELF: String, ID_ALLIED:Array[String], ID_Enemy: Array[Stri
 	allies_target_id = ID_ALLIED
 	enemies_target_id = ID_Enemy
 	
-	
-	
-	
-	
-	
+
 	action_description = ID_SELF + "-" + "Attack" + "-" + ID_Enemy[0]
 	
 	
 	pass
-
-
-
-#func return_description():
-	##if not enemy or not target:
-		##return
-	##description = str(enemy) + "attacks" + str(target)
-	##print(description)
-	#return description

@@ -39,7 +39,7 @@ func execute_player_actions(actions: Array[String]):
 			# EXEMPLO: P1-ATT-15-E2
 			var target_enemy = COMBATE.Combat_ID_Dict[action_parameters[-1]]
 			if not target_enemy:
-				return
+				continue
 			var damage = Damage.new()
 			damage.amount = action_parameters[-2]
 			damage.execute(target_enemy)
@@ -47,7 +47,7 @@ func execute_player_actions(actions: Array[String]):
 		elif i.contains("DEF"):
 			var target_player: Player = COMBATE.Combat_ID_Dict[action_parameters[-1]]
 			if not target_player:
-				return
+				continue
 			var shield = Shield.new()
 			shield.amount = action_parameters[-2]
 			shield.execute(target_player)

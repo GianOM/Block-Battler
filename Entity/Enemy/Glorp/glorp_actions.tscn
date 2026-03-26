@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://si7fib2yw5gw"]
+
+[ext_resource type="Script" uid="uid://cvop5r8de1sai" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.gd" id="1_x3oo7"]
+[ext_resource type="Script" uid="uid://bx82v2bugom1x" path="res://Entity/Enemy/Glorp/attack.gd" id="2_j306j"]
+[ext_resource type="Script" uid="uid://d3lnjy2v7gxx7" path="res://Entity/Enemy/Glorp/buff.gd" id="3_sjgy5"]
+[ext_resource type="Texture2D" uid="uid://c53pge6r5dv8e" path="res://Assets/sword.jpeg" id="3_x3oo7"]
+[ext_resource type="Script" uid="uid://hlp6pnqoshn5" path="res://Entity/Enemy/Glorp/double_attack.gd" id="4_4b3nu"]
+[ext_resource type="Script" uid="uid://ccy7rh24114ox" path="res://intent.gd" id="4_jywyp"]
+[ext_resource type="Texture2D" uid="uid://df1m6nps04rkg" path="res://Assets/up_arrow.png" id="6_jywyp"]
+
+[sub_resource type="Resource" id="Resource_rsuj7"]
+script = ExtResource("4_jywyp")
+value = "10"
+icon = ExtResource("3_x3oo7")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
+
+[sub_resource type="Resource" id="Resource_2xm6o"]
+script = ExtResource("4_jywyp")
+icon = ExtResource("6_jywyp")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
+
+[sub_resource type="Resource" id="Resource_hdt8t"]
+script = ExtResource("4_jywyp")
+value = "3 x 2"
+icon = ExtResource("3_x3oo7")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
+
+[node name="GlorpActions" type="Node" unique_id=8148060]
+script = ExtResource("1_x3oo7")
+
+[node name="Attack" type="Node" parent="." unique_id=244785921]
+script = ExtResource("2_j306j")
+intent = SubResource("Resource_rsuj7")
+
+[node name="Buff" type="Node" parent="." unique_id=1099837246]
+script = ExtResource("3_sjgy5")
+intent = SubResource("Resource_2xm6o")
+
+[node name="DoubleAttack" type="Node" parent="." unique_id=1604649282]
+script = ExtResource("4_4b3nu")
+intent = SubResource("Resource_hdt8t")

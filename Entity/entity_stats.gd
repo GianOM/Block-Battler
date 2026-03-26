@@ -13,6 +13,11 @@ signal changes_in_stats
 
 var hp: int: set = set_hp
 var shield: int: set = set_shield
+var strength: int: set = set_strength
+
+func set_strength(value: int):
+	strength = clampi(value, 0, 999)
+	changes_in_stats.emit()
 
 func set_hp(value: int):
 	hp = clampi(value, 0, max_hp)
@@ -42,4 +47,5 @@ func create_instance() -> Resource:
 	var instance: EntityStats = self.duplicate()
 	instance.hp = max_hp
 	instance.shield = 0
+	instance.strength = 0
 	return instance
