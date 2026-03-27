@@ -34,8 +34,20 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 	
 	
 	number_of_adjacents_rooms = quantity_of_adjacents_rooms
-	$"Debug Text".text = str(number_of_adjacents_rooms)
+	#$"Debug Text".text = str(number_of_adjacents_rooms)
 	
+	
+	
+	
+	
+	pass
+	
+	
+	
+func Set_Room_Gen_ID(room_gen_id: int):
+	
+	
+	$"Debug Text".text = str(room_gen_id)
 	
 	
 	

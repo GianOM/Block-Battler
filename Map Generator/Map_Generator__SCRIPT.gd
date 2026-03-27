@@ -10,7 +10,7 @@ const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 
 @onready var rooms_root: Node3D = $Rooms_Root
 
-@export var number_of_room: int = 32
+@export var number_of_room: int = 45
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
@@ -52,27 +52,28 @@ func _ready() -> void:
 	
 	
 func Clear_All_Room():
-	
+	number_of_room = 45
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
 	Current_MapStats = selected_Map_Stats.duplicate()
 	rooms_root.Clear_All_Children()
 	
 	
+	
 func Drunkard_Walk():
 	
-	var Remaining_Number_of_Placed_Rooms: int = number_of_room
+ 	
 	var current_drunk_position : Vector2i = starter_position
 	
 	
 	
-	while Remaining_Number_of_Placed_Rooms > 0:
+	while number_of_room > 0:
 		
 		if not List_of_Positions_Walked.has(current_drunk_position):
 			
 			List_of_Positions_Walked.push_back(current_drunk_position)
 			Instance_Room_on_drunk_position(current_drunk_position)
-			Remaining_Number_of_Placed_Rooms -= 1
+			number_of_room -= 1
 			
 		else:
 			current_drunk_position = New_Walk_Origin()
@@ -97,6 +98,7 @@ func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
 	Temp_Scene.name = str(input_drunk_position.x) + "," + str(input_drunk_position.y)
 	Temp_Scene.global_position = Global_XYZ_Room_Coordinates
 	Temp_Scene.Set_Room_Type(Current_MapStats.Get_Random_Room())
+	Temp_Scene.Set_Room_Gen_ID(number_of_room)
 		
 		
 		

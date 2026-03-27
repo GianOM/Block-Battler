@@ -57,7 +57,7 @@ func Clear_All_Children():
 		
 	await get_tree().process_frame
 	
-	
+		
 	Finished_Cleaning_Children.emit()
 	
 	
