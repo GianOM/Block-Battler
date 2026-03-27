@@ -1,5 +1,24 @@
 extends Node
 
+#region EnemyEncounters
+@warning_ignore("unused_signal")
+signal Player_Entered_NormalEnemy_Room
+@warning_ignore("unused_signal")
+signal Player_Entered_MiniBoss_Room
+@warning_ignore("unused_signal")
+signal Player_Entered_FinalBoss_Room
+#endregion
+
+
+
+@warning_ignore("unused_signal")
+signal Player_Entered_Shop_Room
+@warning_ignore("unused_signal")
+signal Player_Entered_Rest_Room
+@warning_ignore("unused_signal")
+signal Player_Entered_RandomEncounter_Room
+
+
 
 signal Traverse_Player_Icon_to_Room3D(room_target: Room3D)
 

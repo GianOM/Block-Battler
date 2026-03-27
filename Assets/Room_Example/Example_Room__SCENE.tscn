@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b0bkvc72ydrae" path="res://Assets/Room_Example/Example_Room__SCRIPT].gd" id="2_3cwcp"]
 [ext_resource type="Script" uid="uid://dcfu3madfsbi8" path="res://Assets/Room_Example/Room_Mouse_Detection_Area__SCRIPT.gd" id="3_6k8cc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txymy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k8cc"]
 resource_local_to_scene = true
 cull_mode = 2
 emission_enabled = true
@@ -16,8 +16,8 @@ size = Vector3(4, 4, 4)
 [node name="Example_Room__MESH" unique_id=303806992 instance=ExtResource("1_epdrg")]
 script = ExtResource("2_3cwcp")
 
-[node name="Room_Mesh" parent="." index="0" unique_id=720867382]
-surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
+[node name="Room_Mesh" parent="." index="0" unique_id=451313471]
+surface_material_override/0 = SubResource("StandardMaterial3D_6k8cc")
 
 [node name="Debug Text" type="Label3D" parent="." index="1" unique_id=1675207566]
 pixel_size = 0.001
