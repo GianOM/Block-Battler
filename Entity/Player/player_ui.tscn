@@ -2,14 +2,29 @@
 
 [ext_resource type="Script" uid="uid://ca52n3145w2xa" path="res://Entity/Player/player_ui.gd" id="1_fj03r"]
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="2_0pd4e"]
+[ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="2_n4or1"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
-size = Vector2(320, 340)
+size = Vector2(130, 102)
 
 [node name="PlayerUI" type="Node2D" unique_id=807532450 groups=["player"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fj03r")
+
+[node name="Variable_Block" parent="." unique_id=919133198 instance=ExtResource("2_n4or1")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -50.0
+offset_right = 66.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332193522]
 
@@ -17,9 +32,29 @@ script = ExtResource("1_fj03r")
 shape = SubResource("RectangleShape2D_wejth")
 
 [node name="PlayerImage" type="Sprite2D" parent="." unique_id=337189531]
-scale = Vector2(2, 2)
 texture = ExtResource("2_0pd4e")
 
 [node name="StatsUI" parent="." unique_id=314053271 instance=ExtResource("3_ruhvp")]
-offset_top = 206.0
-offset_bottom = 273.0
+offset_left = -390.00003
+offset_top = 70.000015
+offset_right = 377.99997
+offset_bottom = 207.00002
+scale = Vector2(0.191, 0.191)
+pivot_offset = Vector2(383, 0)
+
+[node name="ID Debug Text" type="Label" parent="." unique_id=522072491]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_top = -116.0
+offset_right = 28.5
+offset_bottom = -47.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.54239446, 0.9466118, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "E2"
+horizontal_alignment = 1
+vertical_alignment = 1

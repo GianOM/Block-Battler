@@ -4,15 +4,30 @@
 [ext_resource type="Texture2D" uid="uid://c3yyeahg2d01f" path="res://Assets/enemyTest.png" id="1_q8wni"]
 [ext_resource type="PackedScene" uid="uid://phoodvnh828l" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.tscn" id="2_5xlyd"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="2_ivmtt"]
+[ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="3_ciigi"]
 [ext_resource type="PackedScene" uid="uid://ds7ap8xwpvu38" path="res://intent_ui.tscn" id="5_hyep2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
-size = Vector2(320, 340)
+size = Vector2(160, 172)
 
 [node name="EntityUI" type="Node2D" unique_id=807532450 groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5hg7l")
 Enemy_Action_Scene = ExtResource("2_5xlyd")
+
+[node name="Variable_Block" parent="." unique_id=919133198 instance=ExtResource("3_ciigi")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -50.0
+offset_right = 66.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332193522]
 
@@ -20,29 +35,37 @@ Enemy_Action_Scene = ExtResource("2_5xlyd")
 shape = SubResource("RectangleShape2D_wejth")
 
 [node name="EntityImage" type="Sprite2D" parent="." unique_id=337189531]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_q8wni")
 
 [node name="StatsUI" parent="." unique_id=314053271 instance=ExtResource("2_ivmtt")]
-offset_top = 206.0
-offset_bottom = 273.0
+offset_left = -280.0
+offset_top = 86.00003
+offset_right = 280.0
+offset_bottom = 223.00003
+scale = Vector2(0.279, 0.279)
+pivot_offset = Vector2(280, 0)
 
 [node name="ID Debug Text" type="Label" parent="." unique_id=821641641]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
-offset_top = -376.0
-offset_right = 160.0
-offset_bottom = -171.0
+offset_left = -28.5
+offset_top = -212.0
+offset_right = 28.5
+offset_bottom = -143.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 50
 text = "E2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="IntentUI" parent="." unique_id=1127797052 instance=ExtResource("5_hyep2")]
-offset_top = -558.0
-offset_bottom = -516.0
+offset_left = -52.0
+offset_top = -128.0
+offset_right = 53.30005
+offset_bottom = -86.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(52.75, 42)

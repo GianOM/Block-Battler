@@ -3,8 +3,13 @@ extends Node2D
 
 @export var stats: CharacterStats: set = set_character_stats
 
+@onready var variable_block: Variables_Block = $Variable_Block
+
+
 @onready var player_image: Sprite2D = $PlayerImage
 @onready var stats_ui: StatsUI = $StatsUI
+
+@onready var id_debug_text: Label = $"ID Debug Text"
 
 func set_character_stats(value: CharacterStats):
 	stats = value
@@ -36,3 +41,15 @@ func take_damage(damage: int):
 				COMBATE.player_died.emit()
 				queue_free()
 	)
+	
+func Set_Entity_ID(input_text: String):
+	
+	id_debug_text.text = input_text
+	id_debug_text.show()
+	
+	
+	#Attack_Pattern_Node.Set_Self_ID(input_text)
+	variable_block.Set_Block_ID(input_text)
+	
+	
+	

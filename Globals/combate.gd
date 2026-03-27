@@ -6,23 +6,36 @@ var Combat_ID_Dict: Dictionary = {}
 signal Entities_ID_Loaded(List_of_Entities: Dictionary)
 
 
-#start of player turn
+#region start of player turn
+@warning_ignore("unused_signal")
 signal load_enemy_intentions_requested(turn: int)
+@warning_ignore("unused_signal")
 signal execute_player_turn
+@warning_ignore("unused_signal")
 signal player_action_stack
+@warning_ignore("unused_signal")
 signal execute_player_actions(actions: Array[String])
+@warning_ignore("unused_signal")
 signal player_turn_ended
+#endregion
 
-#enemy turn
+#region enemy turn
+@warning_ignore("unused_signal")
 signal enemy_action_stack
+@warning_ignore("unused_signal")
 signal execute_enemy_actions(actions: Array[String])
+@warning_ignore("unused_signal")
 signal enemy_turn_ended
+@warning_ignore("unused_signal")
 signal enemy_action_completed(enemy: Enemy)
+#endregion
 
-#combat stuff
+#region combat stuff
+@warning_ignore("unused_signal")
 signal player_died
+@warning_ignore("unused_signal")
 signal end_of_combat_screen_requested(text: String, type: EndOfCombatPanel.Type)
-
+#endregion
 
 
 

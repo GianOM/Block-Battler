@@ -28,6 +28,7 @@ mouse_filter = 2
 script = ExtResource("1_r8pbt")
 
 [node name="VBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245]
+modulate = Color(1, 1, 1, 0)
 z_index = 32
 z_as_relative = false
 layout_mode = 1

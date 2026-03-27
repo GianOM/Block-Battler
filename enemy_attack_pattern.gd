@@ -26,33 +26,10 @@ func write_single_enemy_intention(enemy: Enemy, counter: int):
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 			label.text = enemy_actions[i]
 			add_child(label)
-
-		
-### Adiciona os labels que serao traduzidos em Instrucoes
-#func enemy_intention(turn: int, enemy: Enemy):
-	#var enemy_actions: Array[EnemyAction] = enemy.Attack_Pattern_Node.load_actions()
-	##var instanced_action_scene = enemy.stats.action_scene.instantiate()
-	#if turn >= enemy_actions.size():
-		#turn %= enemy_actions.size()
-	#for i in enemy_actions.size():
-		#if i == turn:
-			#var label:= Label.new()
-			#label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-			#
-			#enemy.set_intent_ui(enemy_actions[i])
-			#
-			#var new_text = enemy_actions[i].return_description()
-			#label.text = new_text
-			#
-			#add_child(label)
-
+	
 func Clear_All_Instructions():
 	
 	for i in get_child_count():
 		get_child(i).queue_free()
-	#while get_child_count() > 0:
-		#
-		#get_child(0).queue_free()
-		#await get_tree().process_frame
 		
 	

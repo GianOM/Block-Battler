@@ -1,7 +1,11 @@
-class_name Enemy
-extends Node2D
+class_name Enemy extends Node2D
 
 @export var stats: EnemyStats: set = set_enemy_stats
+
+
+
+@onready var variable_block: Variables_Block = $Variable_Block
+
 
 @onready var entity_image: Sprite2D = $EntityImage
 @onready var stats_ui: StatsUI = $StatsUI
@@ -67,8 +71,6 @@ func take_damage(damage: int):
 			if stats.hp <= 0:
 				queue_free()
 	)
-
-
 	
 func Set_Entity_ID(input_text: String):
 	
@@ -77,7 +79,6 @@ func Set_Entity_ID(input_text: String):
 	
 	
 	Attack_Pattern_Node.Set_Self_ID(input_text)
-	
-	
+	variable_block.Set_Block_ID(input_text)
 	
 	

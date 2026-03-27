@@ -40,8 +40,8 @@ func setup_all_entities_ids():
 	for i in player_manager.get_child_count():
 		var player_id_string: String = "P" + str(i+1)
 		Combat_Entities_ID[player_id_string] = player_manager.get_child(i)
-		#TODO player needs an ID setter
-		#player_manager.get_child(i).Set_Entity_ID(player_id_string)
+		player_manager.get_child(i).Set_Entity_ID(player_id_string)
+		
 	COMBATE.Entities_ID_Loaded.emit(Combat_Entities_ID)
 	COMBATE.Combat_ID_Dict = Combat_Entities_ID
 

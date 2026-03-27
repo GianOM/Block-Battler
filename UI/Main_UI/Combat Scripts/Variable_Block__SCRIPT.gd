@@ -14,7 +14,7 @@ enum Block_Type{
 	ALLY
 }
 
-@export var Block_Target: String
+var Block_Target: String
 
 @export var my_block_type: Block_Type
 @export var Possible_Attachment_Sides: Array[String]
@@ -43,7 +43,9 @@ func _ready() -> void:
 	block_texture.Set_Correct_Block_Texture(my_block_type)
 	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
 	
-	Set_Block_ID_Debug(Block_Target)
+	COMBATE.player_turn_ended.connect(RESET)
+	
+	#Set_Block_ID_Debug(Block_Target)
 	
 	
 	
@@ -95,6 +97,8 @@ func _on_Player_PRESSED_Left_Click():
 	if current_state == Block_State.DRAGGABLE:
 		
 		current_state = Block_State.DRAGGING
+		block_texture.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		
 		JOGADOR.current_Function_Dragging_Block = self
 		
 		
@@ -120,7 +124,10 @@ func _on_Player_RELEASED_Left_Click():
 	
 	if current_state == Block_State.DRAGGING:
 		
+		block_texture.modulate = Color(1.0, 1.0, 1.0, 0.0)
+		#block_texture.hide()
 		current_state = Block_State.DRAGGABLE
+		
 		block_texture.position = Vector2.ZERO
 		
 		
@@ -166,10 +173,12 @@ func _on_mouse_exited_area():
 		
 		
 		
-func Set_Block_ID_Debug(input_text: String):
+func Set_Block_ID(input_text: String):
 	
 	block_id.text = input_text
 	block_id.show()
+	
+	Block_Target = input_text
 	
 	
 	
@@ -190,6 +199,7 @@ func Clear_Block_Connections():
 func RESET():
 	current_state = Block_State.ONLIST
 	block_texture.position = Vector2.ZERO
+	block_texture.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	
 	Clear_Block_Connections()
 	

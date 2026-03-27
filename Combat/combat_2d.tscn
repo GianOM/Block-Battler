@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
 [ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="5_p1jwv"]
-[ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="6_tnmra"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
@@ -55,9 +54,9 @@ script = ExtResource("2_mi8d4")
 
 [node name="Block_Canvas" type="Control" parent="CombatUI" unique_id=1247735256]
 layout_mode = 1
-anchor_left = 0.22900002
+anchor_left = 0.097229175
 anchor_right = 1.0001667
-anchor_bottom = 0.41525927
+anchor_bottom = 0.37822223
 offset_left = 0.3199768
 offset_right = -0.32006836
 offset_bottom = -0.480011
@@ -94,7 +93,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Block_Lists" type="Control" parent="CombatUI" unique_id=1326448696]
 z_index = 2
 layout_mode = 1
-anchor_right = 0.22933334
+anchor_right = 0.09808334
 anchor_bottom = 1.0073704
 offset_right = -0.32000732
 offset_bottom = 0.040039063
@@ -114,8 +113,8 @@ mouse_filter = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CombatUI/Block_Lists" unique_id=1499070682]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05500003
-anchor_right = 0.945
+anchor_left = -0.0035106058
+anchor_right = 0.8864894
 anchor_bottom = 0.07875001
 offset_left = -0.2000122
 offset_right = 0.19999695
@@ -167,6 +166,7 @@ Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
 variable_number = 7
 
 [node name="Variables_Title" type="Label" parent="CombatUI/Block_Lists/HBoxContainer" unique_id=1696376482]
+visible = false
 layout_mode = 2
 text = "Variables"
 
@@ -185,28 +185,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="Enemy Block" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("6_tnmra")]
-layout_mode = 2
-Block_Target = "E1"
-Possible_Attachment_Sides = Array[String](["LEFT"])
-
-[node name="Variable_Block2" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=289436907 instance=ExtResource("6_tnmra")]
-layout_mode = 2
-Block_Target = "P1"
-my_block_type = 1
-Possible_Attachment_Sides = Array[String](["LEFT"])
-
-[node name="Enemy 2 Block" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("6_tnmra")]
-layout_mode = 2
-Block_Target = "E2"
-Possible_Attachment_Sides = Array[String](["LEFT"])
-
-[node name="Variable_Block4" parent="CombatUI/Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=955697265 instance=ExtResource("6_tnmra")]
-layout_mode = 2
-Block_Target = "P1"
-my_block_type = 1
-Possible_Attachment_Sides = Array[String](["LEFT"])
-
 [node name="Combat_Stack" type="Control" parent="CombatUI" unique_id=1992638281]
 layout_mode = 1
 anchors_preset = 3
@@ -218,13 +196,14 @@ offset_left = -1480.0
 offset_top = -632.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 1
 script = ExtResource("7_7hyad")
 
 [node name="Player_Stack_Panel" type="Panel" parent="CombatUI/Combat_Stack" unique_id=936130517]
 layout_mode = 0
-offset_left = 19.0
+offset_left = -237.0
 offset_top = 21.0
-offset_right = 169.0
+offset_right = -14.0
 offset_bottom = 599.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CombatUI/Combat_Stack/Player_Stack_Panel" unique_id=1244914441]
@@ -292,22 +271,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CombatBackground" type="Sprite2D" parent="." unique_id=1101945263]
-position = Vector2(592, 419)
+position = Vector2(512, 419)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_mw5lh")
 centered = false
-metadata/_edit_lock_ = true
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=1038297834]
 position = Vector2(240, 15)
 script = ExtResource("4_y327u")
 
 [node name="Head" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
-position = Vector2(1332, 891)
+position = Vector2(1241, 882)
+scale = Vector2(1, 1)
 stats = ExtResource("3_vbxne")
 
 [node name="Glorp" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
-position = Vector2(1016, 802)
+position = Vector2(970, 802)
+scale = Vector2(1, 1)
 stats = ExtResource("16_tnmra")
 Enemy_Action_Scene = ExtResource("17_7hyad")
 
@@ -315,7 +295,7 @@ Enemy_Action_Scene = ExtResource("17_7hyad")
 script = ExtResource("14_svxjp")
 
 [node name="Player" parent="PlayerManager" unique_id=2092398558 instance=ExtResource("5_cns71")]
-position = Vector2(826, 908)
+position = Vector2(765, 898)
 
 [node name="EndOfCombat" type="CanvasLayer" parent="." unique_id=1552576854]
 layer = 3
