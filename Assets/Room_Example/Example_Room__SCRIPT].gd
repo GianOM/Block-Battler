@@ -1,6 +1,6 @@
-extends Node3D
+class_name Room3D extends Node3D
 
-
+signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 
 
 
@@ -78,28 +78,43 @@ func Set_Room_Type(my_room_type: Map_Stats.Room_Type):
 			
 		_:
 			print("Null Found")
+			
+			
+func On_Mouse_Hover():
+	
+	room_mesh.get_surface_override_material(0).set("emission_energy_multiplier", 2)
 	
 	
+func On_Mouse_UnHover():
+	
+	room_mesh.get_surface_override_material(0).set("emission_energy_multiplier", 0)
 	
 	
 func Set_Room_as_Starting_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", STARTER_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
+	
 	
 	
 func Set_Room_as_Enemy_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", NORMAL_ENEMY_BOSS_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 func Set_Room_as_MiniBoss_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", MINI_BOSS_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 func Set_Room_as_FinalBoss_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", FINAL_BOSS_ROOM_COLOR)
-	
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 	
 func Set_Room_as_Rest_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", REST_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 func Set_Room_as_Shop_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", SHOP_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 func Set_Room_as_Random_Encounter():
 	room_mesh.get_surface_override_material(0).set("albedo_color", RANDOM_ENCOUNTER_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
 	
 
 	

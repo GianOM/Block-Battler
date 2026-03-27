@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://c1y0wi4oqkm70" path="res://Map Generator/Map_Generator__SCRIPT.gd" id="1_j6clm"]
 [ext_resource type="Resource" uid="uid://dsbbcti4jem6x" path="res://Map Generator/Map_Stats_Resources/Test_Map_Stats.tres" id="2_leiis"]
 [ext_resource type="Script" uid="uid://c7lh645dsd7l7" path="res://Map Generator/Map_Camera__SCRIPT.gd" id="3_13nyt"]
+[ext_resource type="Script" uid="uid://c4s14tstckvp7" path="res://Map Generator/Player_Icon__SCRIPT.gd" id="4_fow5y"]
 [ext_resource type="Script" uid="uid://dqmwfwwnvg60i" path="res://Map Generator/Rooms_Manager.gd" id="4_id4gy"]
+[ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="5_s6cl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6clm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,9 +19,16 @@ sky = SubResource("Sky_leiis")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fow5y"]
+transparency = 1
+albedo_texture = ExtResource("5_s6cl0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_id4gy"]
+material = SubResource("StandardMaterial3D_fow5y")
+size = Vector2(1, 1)
+
 [node name="MapGeneratorScene" type="Node3D" unique_id=576875877]
 script = ExtResource("1_j6clm")
-selected_Map_Stats = ExtResource("2_leiis")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1505295106]
 environment = SubResource("Environment_13nyt")
@@ -34,8 +43,15 @@ fov = 10.0
 size = 60.0
 script = ExtResource("3_13nyt")
 
-[node name="Rooms_Root" type="Node3D" parent="." unique_id=556009081]
+[node name="Player_Icon" type="MeshInstance3D" parent="." unique_id=549935866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("PlaneMesh_id4gy")
+script = ExtResource("4_fow5y")
+
+[node name="Rooms_Root" type="Node3D" parent="." unique_id=556009081 node_paths=PackedStringArray("Player_Icon")]
 script = ExtResource("4_id4gy")
+selected_Map_Stats = ExtResource("2_leiis")
+Player_Icon = NodePath("../Player_Icon")
 
 [node name="Map Legend" type="Control" parent="." unique_id=1248758890]
 layout_mode = 3

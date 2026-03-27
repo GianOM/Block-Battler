@@ -14,10 +14,7 @@ const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
-@export var selected_Map_Stats: Map_Stats
 
-
-var Current_MapStats: Map_Stats
 
 
 
@@ -55,7 +52,7 @@ func Clear_All_Room():
 	number_of_room = 45
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
-	Current_MapStats = selected_Map_Stats.duplicate()
+	
 	rooms_root.Clear_All_Children()
 	
 	
@@ -97,8 +94,6 @@ func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
 	
 	Temp_Scene.name = str(input_drunk_position.x) + "," + str(input_drunk_position.y)
 	Temp_Scene.global_position = Global_XYZ_Room_Coordinates
-	Temp_Scene.Set_Room_Type(Current_MapStats.Get_Random_Room())
-	Temp_Scene.Set_Room_Gen_ID(number_of_room)
 		
 		
 		
