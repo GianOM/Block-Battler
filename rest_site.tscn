@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bk3cvpo2iy5pv"]
+
+[ext_resource type="Script" uid="uid://cm6khcmkvmigo" path="res://rest_site.gd" id="1_6t6gl"]
+
+[node name="RestSite" type="Control" unique_id=1164207271]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6t6gl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1415831107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2627451, 0, 0, 0.5529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1034472186]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -29.0
+offset_right = 36.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1022751819]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "休憩所"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1050826495]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "マップへ"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

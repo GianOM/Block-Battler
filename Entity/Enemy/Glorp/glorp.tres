@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("1_rcyj3")
 action_scene = ExtResource("1_8fn2i")
-max_hp = 67
+max_hp = 1
 image = ExtResource("2_innlf")
 metadata/_custom_type_script = "uid://djmsrr81siihr"

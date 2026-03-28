@@ -35,6 +35,7 @@ signal enemy_action_completed(enemy: Enemy)
 signal player_died
 @warning_ignore("unused_signal")
 signal end_of_combat_screen_requested(text: String, type: EndOfCombatPanel.Type)
+signal combat_won
 #endregion
 
 

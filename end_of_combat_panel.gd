@@ -8,7 +8,7 @@ enum Type {WIN, LOSE}
 @onready var restart_button: Button = %RestartButton
 
 func _ready() -> void:
-	continue_button.pressed.connect(get_tree().quit)
+	continue_button.pressed.connect(func(): COMBATE.combat_won.emit())
 	restart_button.pressed.connect(get_tree().reload_current_scene)
 	COMBATE.end_of_combat_screen_requested.connect(show_screen)
 

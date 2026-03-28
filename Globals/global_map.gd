@@ -13,14 +13,18 @@ signal Player_Entered_FinalBoss_Room
 
 @warning_ignore("unused_signal")
 signal Player_Entered_Shop_Room
+signal shop_exited
 @warning_ignore("unused_signal")
 signal Player_Entered_Rest_Room
+signal rest_site_exited
 @warning_ignore("unused_signal")
 signal Player_Entered_RandomEncounter_Room
+signal random_encounter_exited
 
+signal combat_reward_exited
 
-
-signal Traverse_Player_Icon_to_Room3D(room_target: Room3D)
+#needs to send;receive room type
+signal go_to_room(room_target: Room3D)
 
 
 var current_hovered_room3d: Array[Room3D]
@@ -30,7 +34,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			if current_hovered_room3d.size() > 0 :
-				Traverse_Player_Icon_to_Room3D.emit(current_hovered_room3d[-1])
+				go_to_room.emit(current_hovered_room3d[-1])
 
 
 

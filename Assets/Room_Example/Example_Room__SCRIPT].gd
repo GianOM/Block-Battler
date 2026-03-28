@@ -29,6 +29,8 @@ var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
 @onready var room_mesh: MeshInstance3D = $Room_Mesh
 
 
+var my_room_type: Map_Stats.Room_Type
+
 func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 	
 	
@@ -56,8 +58,10 @@ func Set_Room_Gen_ID(room_gen_id: int):
 	
 	
 	
-func Set_Room_Type(my_room_type: Map_Stats.Room_Type):
-	match my_room_type:
+func Set_Room_Type(room_type: Map_Stats.Room_Type):
+	my_room_type = room_type
+	
+	match room_type:
 		
 		Map_Stats.Room_Type.STARTING:
 			Set_Room_as_Starting_Room()

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br5df0oqi0lb4"]
+[gd_scene format=3 uid="uid://ces0kvrr5o8ca"]
 
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
 [ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_2d_main.gd" id="1_d2bcc"]
@@ -175,23 +175,19 @@ theme_override_constants/separation = 25
 
 [node name="Enemy Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=12545780 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "E1"
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Variable_Block2" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=289436907 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "P1"
 my_block_type = 1
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Enemy 2 Block" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=36355877 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "E2"
 Possible_Attachment_Sides = Array[String](["LEFT"])
 
 [node name="Variable_Block4" parent="Block_Lists/HBoxContainer/Variables_Title/VBlocks_List" unique_id=955697265 instance=ExtResource("4_3tk0i")]
 layout_mode = 2
-Block_Target = "P1"
 my_block_type = 1
 Possible_Attachment_Sides = Array[String](["LEFT"])
 

@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://oucqgan8c1g1"]
 
 [ext_resource type="Script" uid="uid://dd085wdsme78u" path="res://run.gd" id="1_i0e08"]
+[ext_resource type="PackedScene" uid="uid://wqhp2ecigkh0" path="res://Map Generator/Map_Generator__SCENE.tscn" id="2_i0e08"]
 
 [node name="Run" type="Node" unique_id=124170098]
 script = ExtResource("1_i0e08")
+
+[node name="MapGeneratorScene" parent="." unique_id=576875877 instance=ExtResource("2_i0e08")]
 
 [node name="CurrentScene" type="Node" parent="." unique_id=1343167133]
