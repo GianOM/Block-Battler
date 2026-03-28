@@ -4,13 +4,14 @@ const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 
 
 
+@export var TOTAL_NUMBER_OF_ROOMS: int = 128
 
 
 
 
 @onready var rooms_root: Node3D = $Rooms_Root
 
-@export var number_of_room: int = 45
+var number_of_room: int
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
@@ -49,7 +50,7 @@ func _ready() -> void:
 	
 	
 func Clear_All_Room():
-	number_of_room = 45
+	number_of_room = TOTAL_NUMBER_OF_ROOMS
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
 	

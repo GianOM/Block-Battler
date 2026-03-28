@@ -27,7 +27,9 @@ func Fill_Rooms_Info():
 		#var My_Coordinates: String = individual_Room.name
 		
 		var room_idx: int = individual_Room.get_index()
-		individual_Room.Set_Room_Gen_ID(room_idx)
+		#individual_Room.Set_Room_Gen_ID(room_idx)
+		
+		Total_Number_of_Adjacents_Rooms(individual_Room, List_of_Room)
 		
 		var current_room_type: Map_Stats.Room_Type = Current_MapStats.Get_Random_Room()
 		
@@ -37,31 +39,54 @@ func Fill_Rooms_Info():
 		
 		individual_Room.Set_Room_Type(current_room_type)
 		
-		individual_Room.number_of_adjacents_rooms = Total_Number_of_Adjacents_Rooms(individual_Room, List_of_Room)
 	
-func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]) -> int:
+func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]):
 	
+	#										RIGHT, UP, LEFT, DOWN
+	var Temp_Adjacent_Rooms_Vector: Array[int] = [0,0,0,0]
 	var Total_of_Adjacents_Rooms: int = 0
 	
 	var coordinates_to_search: Vector3 = room_ref.global_position
 	
+	# +GLOBAL X AXIS = RIGHT
+	# -GLOBAL Z AXIS = UP
+	# -GLOBAL X AXIS = LEFT
+	# +GLOBAL Z AXIS = DOWN
+	
 	
 	for my_room in rooms_list:
 		
+		
+		#RIGHT
 		if my_room.global_position == (coordinates_to_search + Vector3(4,0,0)):
 			Total_of_Adjacents_Rooms += 1
+			Temp_Adjacent_Rooms_Vector[0] = 1
 			
-		if my_room.global_position == (coordinates_to_search + Vector3(-4,0,0)):
-			Total_of_Adjacents_Rooms += 1
-			
-		if my_room.global_position == (coordinates_to_search + Vector3(0,0,4)):
-			Total_of_Adjacents_Rooms += 1
-			
+		#UP
 		if my_room.global_position == (coordinates_to_search + Vector3(0,0,-4)):
 			Total_of_Adjacents_Rooms += 1
-	
-	
-	return Total_of_Adjacents_Rooms
+			Temp_Adjacent_Rooms_Vector[1] = 1
+			
+		#LEFT
+		if my_room.global_position == (coordinates_to_search + Vector3(-4,0,0)):
+			Total_of_Adjacents_Rooms += 1
+			Temp_Adjacent_Rooms_Vector[2] = 1
+		
+			
+		#DOWN
+		if my_room.global_position == (coordinates_to_search + Vector3(0,0,4)):
+			Total_of_Adjacents_Rooms += 1
+			Temp_Adjacent_Rooms_Vector[3] = 1
+			
+		
+			
+		
+			
+		
+		
+			
+	room_ref.Adjacent_Rooms_Vector = Temp_Adjacent_Rooms_Vector
+	room_ref.number_of_adjacents_rooms = Total_of_Adjacents_Rooms
 	
 	
 	
