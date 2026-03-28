@@ -1,14 +1,5 @@
 class_name Function_Block extends Universal_Block
 
-enum Block_State{
-	ONLIST,
-	ONCANVAS,
-	DRAGGABLE,
-	DRAGGING,
-	DROPABLE,
-	PLACED,
-}
-
 enum Block_Type{
 	ATTACK,
 	DEFENSE,
@@ -23,6 +14,7 @@ enum Block_Type{
 @onready var block_texture: TextureRect = $FBlock_TEXTURE
 @onready var block_attachment_manager: Attachment_Manager = $FBlock_TEXTURE/Block_Attachment_Manager
 
+var current_grid_cell: Canvas_Grid_Cell
 
 var Child_Blocks: Array[Universal_Block]
 
@@ -132,14 +124,13 @@ func _on_Player_PRESSED_Left_Click():
 			
 			Clear_Block_Connections()
 			
-			
-		
-		
-		
 		if is_mouse_on_Canvas:
 		
 			current_state = Block_State.DROPABLE
 			JOGADOR.current_Function_Dragging_Block = self
+			
+			current_grid_cell.Enable_Canvas_Slot()
+			
 			
 		else:
 			
@@ -163,20 +154,19 @@ func _on_Player_RELEASED_Left_Click():
 		
 		
 	elif current_state == Block_State.DROPABLE:
-		current_state = Block_State.ONCANVAS
 		# Se nao estiver nenhum bloco adjacente, so solta
 		if JOGADOR.current_Function_Attach_Block == null:
 			
-			current_state = Block_State.ONCANVAS
+			#current_state = Block_State.DRAGGABLE
+			#block_texture.position = Vector2.ZERO
 			
 			JOGADOR.Player_Dropped_Block_on_Canvas.emit(self)
 			
 		else:
 			# Se soltarmos proxima a uma regiao de attachment, fazemos o attachment
 			# do atual bloco sendo arrastado ao bloco "attach target"
-			
+			current_state = Block_State.ONCANVAS
 			Attach_Function_Block_to_Self(JOGADOR.current_Function_Attach_Block)
-			
 			JOGADOR.Player_Dropped_Block_on_Canvas.emit(self)
 			
 		
@@ -186,11 +176,8 @@ func _on_mouse_entered_area():
 	
 	
 	if (current_state == Block_State.ONLIST):
-	
 		current_state = Block_State.DRAGGABLE
-		
 	elif (current_state == Block_State.PLACED):
-		
 		current_state = Block_State.ONCANVAS
 	
 	
@@ -198,11 +185,9 @@ func _on_mouse_exited_area():
 	
 	# Se ele nao esta sendo arrastado, nao tiramos ele do Draggable State
 	if current_state == Block_State.DRAGGABLE:
-		
 		current_state = Block_State.ONLIST
 		
 	elif current_state == Block_State.ONCANVAS:
-	
 		current_state = Block_State.PLACED
 		
 		
@@ -216,8 +201,6 @@ func Clear_Block_Connections():
 	# Debug ONly
 	for child_block in Child_Blocks:
 		print("Removed Connection with : " + child_block.name)
-	
-	
 	Child_Blocks.clear()
 		
 		

@@ -1,13 +1,6 @@
 class_name Variables_Block extends Universal_Block
 
-enum Block_State{
-	ONLIST,
-	ONCANVAS,
-	DRAGGABLE,
-	DRAGGING,
-	DROPABLE,
-	PLACED,
-}
+
 
 enum Block_Type{
 	ENEMY,
@@ -27,6 +20,8 @@ var Block_Target: String
 var Parents_Blocks_List: Array[Function_Block]
 
 var current_state: Block_State = Block_State.ONLIST
+
+var current_grid_cell: Canvas_Grid_Cell
 
 
 var is_mouse_on_Canvas: bool = false
@@ -109,6 +104,9 @@ func _on_Player_PRESSED_Left_Click():
 			current_state = Block_State.DROPABLE
 			JOGADOR.current_Function_Dragging_Block = self
 			
+			current_grid_cell.Enable_Canvas_Slot()
+			#current_grid_cell = null
+			
 		else:
 			
 			current_state = Block_State.DRAGGING
@@ -135,6 +133,10 @@ func _on_Player_RELEASED_Left_Click():
 		current_state = Block_State.ONCANVAS
 		# Se nao estiver nenhum bloco adjacente, so solta
 		if JOGADOR.current_Function_Attach_Block == null:
+			
+			#RESET()
+			
+			
 			JOGADOR.Player_Dropped_Block_on_Canvas.emit(self)
 			
 		else:

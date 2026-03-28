@@ -18,11 +18,6 @@ func Reset_All_Placed_Blocks():
 		
 		Temp_F_Block.RESET()
 		
-	for j in range(v_blocks_list.get_child_count()):
-		var Temp_V_Block: Variables_Block = v_blocks_list.get_child(j)
-		
-		Temp_V_Block.RESET()
-		
 		
 	JOGADOR.current_Function_Attach_Block = null
 	JOGADOR.current_Function_Dragging_Block = null

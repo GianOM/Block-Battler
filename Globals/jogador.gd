@@ -25,6 +25,8 @@ signal Player_Disconnected_Blocks(Block_to_Cancel_Connection: Universal_Block)
 @warning_ignore("unused_signal")
 signal Player_Dropped_Block_on_Canvas(Block_on_Canvas: Universal_Block)
 
+var Player_Last_Hovered_Grid_Cell: Array[Canvas_Grid_Cell]
+
 
 
 
