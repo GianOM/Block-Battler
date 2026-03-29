@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d8nrnnbhkp5g"]
+
+[ext_resource type="Script" uid="uid://dbb77ifk5lo28" path="res://Entity/Player/Block_List/List_of_Blocks__SCRIPT.gd" id="1_bqcpp"]
+[ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="1_kw7fr"]
+
+[node name="ExampleBlockListScene" type="Node" unique_id=2015268303]
+script = ExtResource("1_bqcpp")
+
+[node name="Function_Block" parent="." unique_id=919133198 instance=ExtResource("1_kw7fr")]
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 15
+
+[node name="Function_Block2" parent="." unique_id=95082578 instance=ExtResource("1_kw7fr")]
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 10
+
+[node name="Function_Block3" parent="." unique_id=2087339086 instance=ExtResource("1_kw7fr")]
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 12
+
+[node name="Function_Block4" parent="." unique_id=736981521 instance=ExtResource("1_kw7fr")]
+my_block_type = 1
+Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
+variable_number = 7

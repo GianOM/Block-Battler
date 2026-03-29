@@ -174,6 +174,7 @@ func _on_Player_RELEASED_Left_Click():
 
 func _on_mouse_entered_area():
 	
+	COMBATE.ToolTip_Requested.emit(self)
 	
 	if (current_state == Block_State.ONLIST):
 		current_state = Block_State.DRAGGABLE

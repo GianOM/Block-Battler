@@ -26,6 +26,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_mmgtr")
+Block_Tooltip_Description = "Gabagool"
 
 [node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245 node_paths=PackedStringArray("root_F_block")]
 z_index = 32

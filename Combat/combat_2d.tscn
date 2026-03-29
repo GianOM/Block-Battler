@@ -10,10 +10,10 @@
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="4_cqvpo"]
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
-[ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="5_p1jwv"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
+[ext_resource type="Script" uid="uid://cnqc5qctfaiso" path="res://Combat/Blocks_ToolTip.gd" id="11_2jbda"]
 [ext_resource type="PackedScene" uid="uid://phoodvnh828l" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.tscn" id="14_7hyad"]
 [ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://player_manager.gd" id="14_svxjp"]
 [ext_resource type="Texture2D" uid="uid://c3j2rbllr441d" path="res://Assets/scholel.jpg" id="15_2jbda"]
@@ -33,14 +33,20 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.8, 0.8, 0.8, 0.53333336)
 
-[sub_resource type="Resource" id="Resource_smid4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hyad"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jbda"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_7hyad"]
 script = ExtResource("16_drh7v")
 action_scene = ExtResource("14_7hyad")
 max_hp = 1
 image = ExtResource("15_2jbda")
 metadata/_custom_type_script = "uid://djmsrr81siihr"
 
-[sub_resource type="Resource" id="Resource_awe6b"]
+[sub_resource type="Resource" id="Resource_2jbda"]
 script = ExtResource("16_drh7v")
 action_scene = ExtResource("17_7hyad")
 max_hp = 1
@@ -162,28 +168,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="Function_Block" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=919133198 instance=ExtResource("5_p1jwv")]
-layout_mode = 2
-Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
-variable_number = 15
-
-[node name="Function_Block2" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1223105320 instance=ExtResource("5_p1jwv")]
-layout_mode = 2
-my_block_type = 1
-Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
-variable_number = 10
-
-[node name="Function_Block3" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=1227061683 instance=ExtResource("5_p1jwv")]
-layout_mode = 2
-Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
-variable_number = 12
-
-[node name="Function_Block4" parent="CombatUI/Block_Lists/HBoxContainer/Functions_Title/FBlocks_List" unique_id=2100694183 instance=ExtResource("5_p1jwv")]
-layout_mode = 2
-my_block_type = 1
-Possible_Attachment_Sides = Array[String](["RIGHT", "UP"])
-variable_number = 7
-
 [node name="Variables_Title" type="Label" parent="CombatUI/Block_Lists/HBoxContainer" unique_id=1696376482]
 visible = false
 layout_mode = 2
@@ -290,6 +274,56 @@ text = "AAAAAAAA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Block Tooltip" type="Control" parent="CombatUI" unique_id=133945900]
+visible = false
+anchors_preset = 0
+offset_right = 293.0
+offset_bottom = 373.0
+mouse_filter = 1
+script = ExtResource("11_2jbda")
+
+[node name="Time_Hovering_Block" type="Timer" parent="CombatUI/Block Tooltip" unique_id=1321216787]
+
+[node name="Panel" type="Panel" parent="CombatUI/Block Tooltip" unique_id=105791945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_7hyad")
+
+[node name="Black_Panel" type="Panel" parent="CombatUI/Block Tooltip/Panel" unique_id=1890953892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = -3.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jbda")
+
+[node name="ToolTip Text" type="RichTextLabel" parent="CombatUI/Block Tooltip/Panel/Black_Panel" unique_id=1324491633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Attack Block
+
+This Block Deals 15 Damage to a Character"
+
 [node name="CombatBackground" type="Sprite2D" parent="." unique_id=1101945263]
 position = Vector2(320, 419)
 scale = Vector2(0.6, 0.6)
@@ -302,11 +336,11 @@ script = ExtResource("4_y327u")
 
 [node name="Head" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
 position = Vector2(1241, 882)
-stats = SubResource("Resource_smid4")
+stats = SubResource("Resource_7hyad")
 
 [node name="Glorp" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(970, 802)
-stats = SubResource("Resource_awe6b")
+stats = SubResource("Resource_2jbda")
 Enemy_Action_Scene = ExtResource("17_7hyad")
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=931567398]

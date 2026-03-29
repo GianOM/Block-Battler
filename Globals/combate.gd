@@ -7,14 +7,21 @@ signal Entities_ID_Loaded(List_of_Entities: Dictionary)
 
 
 #region start of player turn
+
+@warning_ignore("unused_signal")
+signal Load_Player_FBlocks
+
 @warning_ignore("unused_signal")
 signal load_enemy_intentions_requested(turn: int)
+
 @warning_ignore("unused_signal")
 signal execute_player_turn
 @warning_ignore("unused_signal")
 signal player_action_stack
+
 @warning_ignore("unused_signal")
 signal execute_player_actions(actions: Array[String])
+
 @warning_ignore("unused_signal")
 signal player_turn_ended
 #endregion
@@ -39,7 +46,12 @@ signal combat_won
 #endregion
 
 
+@warning_ignore("unused_signal")
+signal ToolTip_Requested(Block_info: Universal_Block)
 
+
+
+# Perharps move this to inside the Entity Code?
 func shake(thing: Node2D, strength: float, duration: float = 0.2):
 	if not thing:
 		return

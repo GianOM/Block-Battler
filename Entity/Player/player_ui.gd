@@ -11,10 +11,21 @@ extends Node2D
 
 @onready var id_debug_text: Label = $"ID Debug Text"
 
+
+var Player_Block_Lists: Node
+
 func set_character_stats(value: CharacterStats):
 	stats = value
 	if not stats.changes_in_stats.is_connected(update_stats):
 		stats.changes_in_stats.connect(update_stats)
+		
+		
+		
+	Player_Block_Lists = stats.my_block_list.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	add_child(Player_Block_Lists)
+		
+	COMBATE.Load_Player_FBlocks.emit(Player_Block_Lists.duplicate(Node.DuplicateFlags.DUPLICATE_DEFAULT))
+	
 	update_player()
 
 func update_player():

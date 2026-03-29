@@ -20,10 +20,10 @@ func _input(event: InputEvent) -> void:
 					var Mouse_Direction_to_Screen_Center: Vector2 = (event.position - (Screen_Size/2)).normalized()
 					
 					position.y -= Mouse_Zoom_Speed
-					position.x += Mouse_Direction_to_Screen_Center.x * Mouse_Panning_Speed * 25
-					position.z += Mouse_Direction_to_Screen_Center.y * Mouse_Panning_Speed * 25
+					position.x += Mouse_Direction_to_Screen_Center.x * Mouse_Panning_Speed * 35
+					position.z += Mouse_Direction_to_Screen_Center.y * Mouse_Panning_Speed * 35
 					
-					print(Mouse_Direction_to_Screen_Center)
+					#print(Mouse_Direction_to_Screen_Center)
 					
 					
 					
