@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CombatStats" format=3 uid="uid://b286sypjcmboe"]
+
+[ext_resource type="PackedScene" uid="uid://cyatfvtl1yxy2" path="res://combat_presets/normal_1_head.tscn" id="1_b0jig"]
+[ext_resource type="Script" uid="uid://dmmg5m1jarac3" path="res://combat_stats.gd" id="1_p52bi"]
+
+[resource]
+script = ExtResource("1_p52bi")
+weight = 3.0
+min_gold = 10
+max_gold = 30
+enemies = ExtResource("1_b0jig")
+metadata/_custom_type_script = "uid://dmmg5m1jarac3"

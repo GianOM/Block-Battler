@@ -2,6 +2,9 @@ class_name Room3D extends Node3D
 
 signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 
+######
+@export var combat_stats_pool: CombatStatsPool
+@export var combat_stats: CombatStats
 
 const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
 
@@ -116,7 +119,6 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 	
 func Set_Room_Gen_ID(room_gen_id: int):
 	
-	
 	$"Debug Text".text = str(room_gen_id)
 	
 	
@@ -125,17 +127,24 @@ func Set_Room_Gen_ID(room_gen_id: int):
 func Set_Room_Type(room_type: Map_Stats.Room_Type):
 	my_room_type = room_type
 	
+	#  VERY IMPORTANT!!!!!11111
+	combat_stats_pool.setup()
+	
 	match room_type:
 		
 		Map_Stats.Room_Type.STARTING:
 			Set_Room_as_Starting_Room()
 			
 		Map_Stats.Room_Type.NORMAL_ENEMY:
+			combat_stats = combat_stats_pool.get_random_combat_for_tier(CombatStats.Tier.NORMAL)
 			Set_Room_as_Enemy_Room()
 		Map_Stats.Room_Type.MINI_BOSS:
+			combat_stats = combat_stats_pool.get_random_combat_for_tier(CombatStats.Tier.ELITE)
 			Set_Room_as_MiniBoss_Room()
+			
 		Map_Stats.Room_Type.FINAL_BOSS:
 			Set_Room_as_FinalBoss_Room()
+			
 			
 		Map_Stats.Room_Type.SHOP:
 			Set_Room_as_Shop_Room()
@@ -145,7 +154,8 @@ func Set_Room_Type(room_type: Map_Stats.Room_Type):
 			Set_Room_as_Random_Encounter()
 			
 		_:
-			print("Null Found")
+			pass
+			#print("Null Found")
 			
 			
 func On_Mouse_Hover():

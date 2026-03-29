@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://di2qsj5b8jsf6"]
 
 [ext_resource type="Script" uid="uid://cvg2ksajd3b10" path="res://combat_reward.gd" id="1_6o67i"]
+[ext_resource type="PackedScene" uid="uid://bsvglpptebmgf" path="res://reward_button.tscn" id="2_acolj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o67i"]
+bg_color = Color(0, 0, 0, 0.5411765)
 
 [node name="CombatReward" type="Control" unique_id=1164207271]
 layout_mode = 3
@@ -35,16 +39,42 @@ offset_right = 36.0
 offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1022751819]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "戦闘報酬"
+horizontal_alignment = 1
+
+[node name="RewardContainer" type="PanelContainer" parent="VBoxContainer" unique_id=334230209]
+custom_minimum_size = Vector2(750, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6o67i")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RewardContainer" unique_id=1927997455]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rewards" type="VBoxContainer" parent="VBoxContainer/RewardContainer/MarginContainer" unique_id=669003828]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="RewardButton" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" unique_id=2009480242 instance=ExtResource("2_acolj")]
+layout_mode = 2
+
+[node name="RewardButton4" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" unique_id=782438385 instance=ExtResource("2_acolj")]
+layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1050826495]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "マップへ"
+text = "次に"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b0hnhe61v8xy8"]
+
+[ext_resource type="Texture2D" uid="uid://c28phd2ak71on" path="res://Assets/gold_coin.png" id="1_sl5k1"]
+[ext_resource type="Script" uid="uid://bw65qdfix5ime" path="res://gold_ui.gd" id="1_ylbu3"]
+
+[node name="GoldUI" type="HBoxContainer" unique_id=14013112]
+offset_right = 300.0
+offset_bottom = 69.0
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+script = ExtResource("1_ylbu3")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=26136503]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_sl5k1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=2137734147]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50

@@ -7,11 +7,17 @@ const REST_SITE_SCENE:= preload("res://rest_site.tscn")
 const SHOP_SCENE:= preload("res://shop.tscn")
 const RANDOM_ENCOUNTER_SCENE:= preload("res://random_encounter.tscn")
 
+#ui stuff
+@onready var gold_ui: GoldUI = %GoldUI
+
 @onready var current_scene: Node = $CurrentScene
 @onready var map: Node3D = $MapGeneratorScene
 
 
+var run_stats: RunStats
 var player_character: CharacterStats
+
+var last_combat_room: Room3D
 
 func _ready() -> void:
 	#temporary
@@ -22,13 +28,12 @@ func _ready() -> void:
 	_start_run()
 
 func _start_run():
-	COMBATE.combat_won.connect(_change_current_scene.bind(COMBAT_REWARD_SCENE))
-	GlobalMap.combat_reward_exited.connect(_go_to_map)
-	GlobalMap.rest_site_exited.connect(_go_to_map)
-	GlobalMap.shop_exited.connect(_go_to_map)
-	GlobalMap.random_encounter_exited.connect(_go_to_map)
-	GlobalMap.go_to_room.connect(_next_room_from_map)
-
+	#temp
+	run_stats = RunStats.new()
+	
+	_setup_connections()
+	_setup_ui()
+	
 #go to map when you proceed from a room
 func _go_to_map():
 	if current_scene.get_child_count() > 0:
@@ -44,7 +49,7 @@ func _next_room_from_map(room: Room3D):
 	#_change_current_scene(scene which matches the received room type)
 	match room.my_room_type:
 		Map_Stats.Room_Type.NORMAL_ENEMY:
-			_change_current_scene(COMBAT_SCENE)
+			_combat_room_entered(room)
 		Map_Stats.Room_Type.REST:
 			_change_current_scene(REST_SITE_SCENE)
 		Map_Stats.Room_Type.SHOP:
@@ -52,10 +57,18 @@ func _next_room_from_map(room: Room3D):
 		Map_Stats.Room_Type.RANDOMENCOUNTER:
 			_change_current_scene(RANDOM_ENCOUNTER_SCENE)
 		Map_Stats.Room_Type.MINI_BOSS:
-			pass
+			_combat_room_entered(room)
 		Map_Stats.Room_Type.FINAL_BOSS:
 			pass
 	map.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _combat_room_entered(room: Room3D):
+	var combat_scene: Combat = _change_current_scene(COMBAT_SCENE)
+	combat_scene.character_stats = player_character
+	#combat_scene.combat_stats = preload("res://combat_presets/normal_1_head.tres")
+	combat_scene.combat_stats = room.combat_stats
+	last_combat_room = room
+	combat_scene.start_combat()
 
 func _change_current_scene(scene: PackedScene):
 	#combat and event scenes are instantiated under CurrentScreen
@@ -72,3 +85,22 @@ func _change_current_scene(scene: PackedScene):
 	map.hide()
 	
 	return new_scene
+
+func _setup_ui():
+	gold_ui.run_stats = run_stats
+
+func _setup_connections():
+	COMBATE.combat_won.connect(_on_combat_won)
+	GlobalMap.combat_reward_exited.connect(_go_to_map)
+	GlobalMap.rest_site_exited.connect(_go_to_map)
+	GlobalMap.shop_exited.connect(_go_to_map)
+	GlobalMap.random_encounter_exited.connect(_go_to_map)
+	GlobalMap.go_to_room.connect(_next_room_from_map)
+
+func _on_combat_won():
+	var reward_scene:= _change_current_scene(COMBAT_REWARD_SCENE) as CombatReward
+	reward_scene.run_stats = run_stats
+	reward_scene.character_stats = player_character
+	
+	reward_scene.add_gold_reward(last_combat_room.combat_stats.roll_gold_reward())
+	

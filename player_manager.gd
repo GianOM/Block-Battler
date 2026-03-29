@@ -15,6 +15,7 @@ func _ready() -> void:
 	COMBATE.execute_player_turn.connect(execute_player_turn)
 	COMBATE.execute_player_actions.connect(execute_player_actions)
 
+
 func start_battle(character_stats: CharacterStats):
 	character = character_stats
 	#TBD anything else that needs to happen at the start of combat

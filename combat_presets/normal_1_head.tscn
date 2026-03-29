@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cyatfvtl1yxy2"]
+
+[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="1_ijc36"]
+[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="2_k2soy"]
+
+[node name="Normal1Head" type="Node2D" unique_id=206546937]
+
+[node name="Head" parent="." unique_id=807532450 instance=ExtResource("1_ijc36")]
+position = Vector2(1387, 739)
+stats = ExtResource("2_k2soy")

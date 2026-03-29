@@ -3,13 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://cpod4rbo6iatm" path="res://Assets/Room_Example/Example_Room__MESH.glb" id="1_epdrg"]
 [ext_resource type="Script" uid="uid://b0bkvc72ydrae" path="res://Assets/Room_Example/Example_Room__SCRIPT].gd" id="2_3cwcp"]
 [ext_resource type="Script" uid="uid://dcfu3madfsbi8" path="res://Assets/Room_Example/Room_Mouse_Detection_Area__SCRIPT.gd" id="3_6k8cc"]
-[ext_resource type="Material" uid="uid://d5r8qxy5m6u5" path="res://Assets/Room_Example/Room_Example__MAT.tres" id="4_txymy"]
+[ext_resource type="Resource" uid="uid://b1610yg67qspm" path="res://combat_presets/combat_stats_pool.tres" id="3_txymy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uasgi"]
 size = Vector3(4, 4, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uasgi"]
+resource_local_to_scene = true
+cull_mode = 2
+
 [node name="Example_Room__MESH" unique_id=489116009 instance=ExtResource("1_epdrg")]
 script = ExtResource("2_3cwcp")
+combat_stats_pool = ExtResource("3_txymy")
 
 [node name="Mouse_Detection_Area" type="Area3D" parent="." index="0" unique_id=656256440 node_paths=PackedStringArray("Room3D_Root")]
 monitorable = false
@@ -26,25 +31,25 @@ modulate = Color(0, 0, 0, 1)
 text = "Number of Connections"
 font_size = 500
 
-[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=844265642]
+[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=704031595]
 visible = false
-surface_material_override/0 = ExtResource("4_txymy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
 
-[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=1782489684]
+[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=408839077]
 visible = false
-surface_material_override/0 = ExtResource("4_txymy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
 
-[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=1070575704]
+[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=1139231026]
 visible = false
-surface_material_override/0 = ExtResource("4_txymy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
 
-[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=106876080]
+[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=1367405670]
 visible = false
-surface_material_override/0 = ExtResource("4_txymy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
 
-[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=494700610]
+[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=1721788041]
 visible = false
-surface_material_override/0 = ExtResource("4_txymy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
 
 [connection signal="mouse_entered" from="Mouse_Detection_Area" to="Mouse_Detection_Area" method="_on_Player_Mouse_Enter_Area"]
 [connection signal="mouse_exited" from="Mouse_Detection_Area" to="Mouse_Detection_Area" method="_on_Player_Mouse_Leave_Area"]

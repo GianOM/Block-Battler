@@ -11,7 +11,6 @@
 size = Vector2(160, 172)
 
 [node name="EntityUI" type="Node2D" unique_id=807532450 groups=["enemy"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5hg7l")
 Enemy_Action_Scene = ExtResource("2_5xlyd")
 

@@ -6,11 +6,24 @@ var enemy_list : Array[Enemy]
 func _ready() -> void:
 	COMBATE.execute_enemy_actions.connect(execute_enemy_actions)
 	COMBATE.enemy_action_completed.connect(_on_enemy_action_completed)
-	setup_enemy_list()
+	#setup_enemy_list()
 
-func setup_enemy_list():
-	for enemy: Enemy in get_children():
-		enemy_list.push_back(enemy)
+func setup_enemies(combat_stats: CombatStats):
+	if not combat_stats:
+		return
+	for enemy in get_children():
+		enemy.queue_free()
+	var all_new_enemies:= combat_stats.enemies.instantiate()
+	for new_enemy in all_new_enemies.get_children():
+		var new_enemy_child:= new_enemy.duplicate()
+		add_child(new_enemy_child)
+		enemy_list.push_back(new_enemy_child)
+	all_new_enemies.queue_free()
+	
+
+#func setup_enemy_list():
+	#for enemy: Enemy in get_children():
+		#enemy_list.push_back(enemy)
 
 func setup_enemy_intention(enemy: Enemy, index: int):
 	#debug v

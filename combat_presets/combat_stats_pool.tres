@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CombatStatsPool" format=3 uid="uid://b1610yg67qspm"]
+
+[ext_resource type="Script" uid="uid://dmmg5m1jarac3" path="res://combat_stats.gd" id="1_gpshw"]
+[ext_resource type="Script" uid="uid://t0hjxw4wmyas" path="res://combat_stats_pool.gd" id="2_66td7"]
+[ext_resource type="Resource" uid="uid://c7e5jx50g8tgc" path="res://combat_presets/elite_1_glorp_1_head.tres" id="2_dcbrm"]
+[ext_resource type="Resource" uid="uid://bkx7rupdotei2" path="res://combat_presets/elite_2_glorps.tres" id="3_t6yr3"]
+[ext_resource type="Resource" uid="uid://b286sypjcmboe" path="res://combat_presets/normal_1_head.tres" id="4_agqne"]
+[ext_resource type="Resource" uid="uid://bjvtq28iwscah" path="res://combat_presets/normal_2_heads.tres" id="5_jrdym"]
+
+[resource]
+script = ExtResource("2_66td7")
+pool = Array[ExtResource("1_gpshw")]([ExtResource("2_dcbrm"), ExtResource("3_t6yr3"), ExtResource("4_agqne"), ExtResource("5_jrdym")])
+metadata/_custom_type_script = "uid://t0hjxw4wmyas"

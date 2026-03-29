@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dh0rb0wkxoo4r"]
+
+[ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="1_id15p"]
+[ext_resource type="Resource" uid="uid://bqr7kbu0atww4" path="res://Entity/Enemy/Glorp/glorp.tres" id="2_188bm"]
+[ext_resource type="PackedScene" uid="uid://si7fib2yw5gw" path="res://Entity/Enemy/Glorp/glorp_actions.tscn" id="3_8yc6x"]
+
+[node name="Elite2Glorps" type="Node2D" unique_id=916940257]
+
+[node name="Glorp" parent="." unique_id=807532450 instance=ExtResource("1_id15p")]
+position = Vector2(1136, 706)
+stats = ExtResource("2_188bm")
+Enemy_Action_Scene = ExtResource("3_8yc6x")
+
+[node name="Glorp2" parent="." unique_id=1388820356 instance=ExtResource("1_id15p")]
+position = Vector2(1356, 708)
+stats = ExtResource("2_188bm")
+Enemy_Action_Scene = ExtResource("3_8yc6x")

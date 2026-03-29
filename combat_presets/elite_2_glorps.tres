@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CombatStats" format=3 uid="uid://bkx7rupdotei2"]
+
+[ext_resource type="Script" uid="uid://dmmg5m1jarac3" path="res://combat_stats.gd" id="1_ny5rb"]
+[ext_resource type="PackedScene" uid="uid://dh0rb0wkxoo4r" path="res://combat_presets/elite_2_glorps.tscn" id="1_y1usd"]
+
+[resource]
+script = ExtResource("1_ny5rb")
+tier = 1
+tier_int = 1
+weight = 1.0
+min_gold = 60
+max_gold = 90
+enemies = ExtResource("1_y1usd")
+metadata/_custom_type_script = "uid://dmmg5m1jarac3"

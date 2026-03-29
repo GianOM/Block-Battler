@@ -60,7 +60,8 @@ func Clear_All_Room():
 	
 func Drunkard_Walk():
 	
- 	
+	
+	
 	var current_drunk_position : Vector2i = starter_position
 	
 	
