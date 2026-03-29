@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="2_mi8d4"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="3_2lcfi"]
 [ext_resource type="Script" uid="uid://crkp4kmesed5e" path="res://Combat/combat_ui.gd" id="3_cqvpo"]
-[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="3_vbxne"]
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="4_cqvpo"]
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
@@ -15,10 +14,13 @@
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
+[ext_resource type="PackedScene" uid="uid://phoodvnh828l" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.tscn" id="14_7hyad"]
 [ext_resource type="Script" uid="uid://cra1lyy0gdkis" path="res://player_manager.gd" id="14_svxjp"]
-[ext_resource type="Resource" uid="uid://bqr7kbu0atww4" path="res://Entity/Enemy/Glorp/glorp.tres" id="16_tnmra"]
+[ext_resource type="Texture2D" uid="uid://c3j2rbllr441d" path="res://Assets/scholel.jpg" id="15_2jbda"]
+[ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/Enemy/enemy_stats.gd" id="16_drh7v"]
 [ext_resource type="PackedScene" uid="uid://si7fib2yw5gw" path="res://Entity/Enemy/Glorp/glorp_actions.tscn" id="17_7hyad"]
 [ext_resource type="PackedScene" uid="uid://d3fe384wbqlpc" path="res://end_of_combat_panel.tscn" id="18_cqvpo"]
+[ext_resource type="Texture2D" uid="uid://dny8pyrsf05p5" path="res://Assets/glorp.png" id="18_svxjp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6pa"]
 bg_color = Color(0.4045111, 0.40451118, 0.40451103, 1)
@@ -30,6 +32,20 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.8, 0.8, 0.8, 0.53333336)
+
+[sub_resource type="Resource" id="Resource_smid4"]
+script = ExtResource("16_drh7v")
+action_scene = ExtResource("14_7hyad")
+max_hp = 1
+image = ExtResource("15_2jbda")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
+
+[sub_resource type="Resource" id="Resource_awe6b"]
+script = ExtResource("16_drh7v")
+action_scene = ExtResource("17_7hyad")
+max_hp = 1
+image = ExtResource("18_svxjp")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [node name="Combat2DMain" type="Node2D" unique_id=2110802663]
 script = ExtResource("1_h6p6f")
@@ -68,9 +84,9 @@ metadata/_edit_use_anchors_ = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0033783787
-anchor_right = 0.9979731
-anchor_bottom = 1.0
+anchor_left = -0.108482406
+anchor_right = 0.88632435
+anchor_bottom = 1.0098039
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -81,8 +97,10 @@ metadata/_edit_use_anchors_ = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.8864866
-anchor_bottom = 2.4017856
+anchor_left = 0.0020860634
+anchor_top = 0.009803922
+anchor_right = 0.9994199
+anchor_bottom = 1.002451
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 1
@@ -93,8 +111,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Block_Lists" type="Control" parent="CombatUI" unique_id=1326448696]
 z_index = 2
 layout_mode = 1
-anchor_right = 0.09808334
-anchor_bottom = 1.0073704
+anchor_left = 0.9015625
+anchor_right = 0.9996465
+anchor_bottom = 0.999037
 offset_right = -0.32000732
 offset_bottom = 0.040039063
 mouse_filter = 1
@@ -192,8 +211,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1480.0
+offset_left = -1672.0
 offset_top = -632.0
+offset_right = -192.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
@@ -250,9 +270,9 @@ script = ExtResource("9_drh7v")
 [node name="Turn_Ready_Button" type="Button" parent="CombatUI" unique_id=7372755]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1034.0
+offset_left = 842.0
 offset_top = 1011.0
-offset_right = 1274.0
+offset_right = 1082.0
 offset_bottom = 1061.0
 text = "READY"
 
@@ -271,25 +291,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CombatBackground" type="Sprite2D" parent="." unique_id=1101945263]
-position = Vector2(512, 419)
+position = Vector2(320, 419)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_mw5lh")
 centered = false
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=1038297834]
-position = Vector2(240, 15)
+position = Vector2(48, 15)
 script = ExtResource("4_y327u")
 
 [node name="Head" parent="EnemyManager" unique_id=807532450 instance=ExtResource("2_jhj0g")]
 position = Vector2(1241, 882)
-stats = ExtResource("3_vbxne")
+stats = SubResource("Resource_smid4")
 
 [node name="Glorp" parent="EnemyManager" unique_id=844260660 instance=ExtResource("2_jhj0g")]
 position = Vector2(970, 802)
-stats = ExtResource("16_tnmra")
+stats = SubResource("Resource_awe6b")
 Enemy_Action_Scene = ExtResource("17_7hyad")
 
 [node name="PlayerManager" type="Node2D" parent="." unique_id=931567398]
+position = Vector2(-192, 0)
 script = ExtResource("14_svxjp")
 
 [node name="Player" parent="PlayerManager" unique_id=2092398558 instance=ExtResource("5_cns71")]
