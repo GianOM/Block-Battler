@@ -7,6 +7,7 @@ signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 @export var combat_stats: CombatStats
 
 const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
+const NEXT_FLOOR_ROOM_COLOR: Color = Color(0.113, 0.555, 0.87, 1.0)
 
 const NORMAL_ENEMY_BOSS_ROOM_COLOR: Color = Color(0.271, 0.212, 0.137, 1.0)
 const MINI_BOSS_ROOM_COLOR: Color = Color(0.286, 0.133, 0.243)
@@ -138,6 +139,9 @@ func Set_Room_Type(room_type: Map_Stats.Room_Type):
 		Map_Stats.Room_Type.STARTING:
 			Set_Room_as_Starting_Room()
 			
+		Map_Stats.Room_Type.NEXTFLOOR:
+			Set_Room_as_Next_Floor_Room()
+			
 		Map_Stats.Room_Type.NORMAL_ENEMY:
 			combat_stats = combat_stats_pool.get_random_combat_for_tier(CombatStats.Tier.NORMAL)
 			Set_Room_as_Enemy_Room()
@@ -174,6 +178,9 @@ func On_Mouse_UnHover():
 func Set_Room_as_Starting_Room():
 	room_mesh.get_surface_override_material(0).set("albedo_color", STARTER_ROOM_COLOR)
 	room_mesh.get_surface_override_material(0).set("emission", Color(1.0, 1.0, 1.0, 1.0))
+func Set_Room_as_Next_Floor_Room():
+	room_mesh.get_surface_override_material(0).set("albedo_color", NEXT_FLOOR_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", NEXT_FLOOR_ROOM_COLOR)
 	
 	
 	

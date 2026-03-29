@@ -3,10 +3,7 @@ extends Node3D
 const EXAMPLE_ROOM__SCENE = preload("uid://ch2t4yt6uxcwt")
 
 
-
-@export var TOTAL_NUMBER_OF_ROOMS: int = 128
-
-
+@export var selected_Map_Stats: Map_Stats
 
 
 @onready var rooms_root: Node3D = $Rooms_Root
@@ -50,7 +47,7 @@ func _ready() -> void:
 	
 	
 func Clear_All_Room():
-	number_of_room = TOTAL_NUMBER_OF_ROOMS
+	number_of_room = selected_Map_Stats.Total_Number_of_Rooms
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
 	
