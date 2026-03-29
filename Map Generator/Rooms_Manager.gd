@@ -27,7 +27,7 @@ func Fill_Rooms_Info():
 		#var My_Coordinates: String = individual_Room.name
 		
 		var room_idx: int = individual_Room.get_index()
-		#individual_Room.Set_Room_Gen_ID(room_idx)
+		individual_Room.Set_Room_Gen_ID(room_idx)
 		
 		Total_Number_of_Adjacents_Rooms(individual_Room, List_of_Room)
 		

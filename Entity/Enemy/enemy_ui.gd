@@ -1,3 +1,4 @@
+@tool
 class_name Enemy extends Node2D
 
 @export var stats: EnemyStats: set = set_enemy_stats
@@ -25,14 +26,24 @@ func _ready() -> void:
 	
 	
 func set_enemy_stats(value: EnemyStats):
-	stats = value.create_instance()
-	if not stats.changes_in_stats.is_connected(update_stats):
-		stats.changes_in_stats.connect(update_stats)
-		#stats.changes_in_stats.connect(update_action)
-	update_enemy()
+	
+	
+	if Engine.is_editor_hint():
+		stats = value.duplicate(true)
+		entity_image.texture = stats.image
+	else :
+		
+		stats = value.create_instance()
+	
+		if not stats.changes_in_stats.is_connected(update_stats):
+			stats.changes_in_stats.connect(update_stats)
+			#stats.changes_in_stats.connect(update_action)
+		
+		
+		update_enemy()
 
 func single_enemy_turn():
-	#print("tira shield")
+	#remove o shield no começo de cada turno
 	stats.shield = 0
 	#if self.name == "Enemy2":
 		#print("breakpoint")
@@ -56,6 +67,7 @@ func update_enemy():
 		return
 	if not is_inside_tree():
 		await ready
+		
 	entity_image.texture = stats.image
 	update_stats()
 

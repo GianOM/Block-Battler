@@ -1,17 +1,32 @@
 [gd_scene format=3 uid="uid://dh0rb0wkxoo4r"]
 
 [ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="1_id15p"]
-[ext_resource type="Resource" uid="uid://bqr7kbu0atww4" path="res://Entity/Enemy/Glorp/glorp.tres" id="2_188bm"]
 [ext_resource type="PackedScene" uid="uid://si7fib2yw5gw" path="res://Entity/Enemy/Glorp/glorp_actions.tscn" id="3_8yc6x"]
+[ext_resource type="Texture2D" uid="uid://dny8pyrsf05p5" path="res://Assets/glorp.png" id="3_188bm"]
+[ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/Enemy/enemy_stats.gd" id="4_8yc6x"]
+
+[sub_resource type="Resource" id="Resource_v167l"]
+script = ExtResource("4_8yc6x")
+action_scene = ExtResource("3_8yc6x")
+max_hp = 1
+image = ExtResource("3_188bm")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
+
+[sub_resource type="Resource" id="Resource_vv461"]
+script = ExtResource("4_8yc6x")
+action_scene = ExtResource("3_8yc6x")
+max_hp = 1
+image = ExtResource("3_188bm")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [node name="Elite2Glorps" type="Node2D" unique_id=916940257]
 
 [node name="Glorp" parent="." unique_id=807532450 instance=ExtResource("1_id15p")]
 position = Vector2(1136, 706)
-stats = ExtResource("2_188bm")
+stats = SubResource("Resource_v167l")
 Enemy_Action_Scene = ExtResource("3_8yc6x")
 
 [node name="Glorp2" parent="." unique_id=1388820356 instance=ExtResource("1_id15p")]
 position = Vector2(1356, 708)
-stats = ExtResource("2_188bm")
+stats = SubResource("Resource_vv461")
 Enemy_Action_Scene = ExtResource("3_8yc6x")

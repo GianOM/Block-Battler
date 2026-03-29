@@ -22,7 +22,6 @@ const RANDOM_ENCOUNTER_ROOM_COLOR: Color = Color(1.0, 0.883, 0.0, 1.0)
 										#RIGHT, UP, LEFT, DOWN
 										# se for 1, tem uma sala adjacente em uma das posicoes
 var Adjacent_Rooms_Vector: Array[int] = [0,0,0,0]
-
 var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
 
 @onready var room_mesh_4_opens: MeshInstance3D = $Room_Mesh_4_Opens
@@ -30,6 +29,10 @@ var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
 @onready var room_mesh_2_opens_a: MeshInstance3D = $Room_Mesh_2_Opens_A
 @onready var room_mesh_2_opens_b: MeshInstance3D = $Room_Mesh_2_Opens_B
 @onready var room_mesh_1_opens: MeshInstance3D = $Room_Mesh_1_Opens
+
+
+#TODO: Setar o ID da sala
+var Room_ID: int
 
 
 #endregion
@@ -44,7 +47,7 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 	
 	
 	
-	$"Debug Text".text = str(Adjacent_Rooms_Vector)
+	#$"Debug Text".text = str(Adjacent_Rooms_Vector)
 	number_of_adjacents_rooms = quantity_of_adjacents_rooms
 	
 	match number_of_adjacents_rooms:

@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_uasgi"]
 size = Vector3(4, 4, 4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uasgi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txymy"]
 resource_local_to_scene = true
 cull_mode = 2
 
@@ -31,25 +31,25 @@ modulate = Color(0, 0, 0, 1)
 text = "Number of Connections"
 font_size = 500
 
-[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=704031595]
+[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=282844435]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=408839077]
+[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=336753326]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=1139231026]
+[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=1032616980]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=1367405670]
+[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=489416879]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=1721788041]
+[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=941163089]
 visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_uasgi")
+surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
 [connection signal="mouse_entered" from="Mouse_Detection_Area" to="Mouse_Detection_Area" method="_on_Player_Mouse_Enter_Area"]
 [connection signal="mouse_exited" from="Mouse_Detection_Area" to="Mouse_Detection_Area" method="_on_Player_Mouse_Leave_Area"]
