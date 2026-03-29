@@ -9,7 +9,7 @@ signal Entities_ID_Loaded(List_of_Entities: Dictionary)
 #region start of player turn
 
 @warning_ignore("unused_signal")
-signal Load_Player_FBlocks
+signal Load_Player_FBlocks(FBlocks_Root_Node: Node)
 
 @warning_ignore("unused_signal")
 signal load_enemy_intentions_requested(turn: int)

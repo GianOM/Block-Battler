@@ -12,14 +12,16 @@ func _ready() -> void:
 		
 		
 		
-func Setup_all_FBlocks(Block_Lists_Scene: PackedScene):
+func Setup_all_FBlocks(Block_Lists_Root: Node):
 	
-	Block_List_Instance = Block_Lists_Scene.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
-	add_child(Block_List_Instance)
+	Block_Lists_Root.show()
 	
+	for fblock in Block_Lists_Root.get_children():
+		fblock.reparent(f_blocks_list, false)
+		
+	await get_tree().create_timer(0.5).timeout
 	
-	for fblock in Block_List_Instance.get_children():
-		fblock.reparent(f_blocks_list,false)
+	Block_Lists_Root.queue_free()
 	
 	
 	

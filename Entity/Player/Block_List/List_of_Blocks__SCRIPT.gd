@@ -1,4 +1,4 @@
-class_name Player_Block_List extends Node
+class_name Player_Block_List extends Control
 
 
 
