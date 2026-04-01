@@ -85,64 +85,65 @@ grow_vertical = 2
 
 [node name="Starting Room Label" type="Label" parent="Map Legend/VBoxContainer" unique_id=52852205]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/font_size = 30
 text = "Starting Room"
 horizontal_alignment = 1
 
 [node name="Next Floor Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=1069715278]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.113, 0.555, 0.87, 1)
+theme_override_colors/font_color = Color(0.103999995, 0.51000017, 0.8, 1)
 theme_override_font_sizes/font_size = 30
 text = "Next Floor"
 horizontal_alignment = 1
 
 [node name="Normal Enemy" type="Label" parent="Map Legend/VBoxContainer" unique_id=1097080090]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.271, 0.212, 0.137, 1)
+theme_override_colors/font_color = Color(0.8, 0.63013333, 0.408, 1)
 theme_override_font_sizes/font_size = 30
 text = "Normal Enemy"
 horizontal_alignment = 1
 
 [node name="Mini Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=477429204]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.286, 0.133, 0.243, 1)
+theme_override_colors/font_color = Color(0.8, 0.37600002, 0.67986673, 1)
 theme_override_font_sizes/font_size = 30
 text = "Mini Boss"
 horizontal_alignment = 1
 
 [node name="Final Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=988551683]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.47, 0.85, 1)
+theme_override_colors/font_color = Color(0.592, 0.488, 0.8, 1)
 theme_override_font_sizes/font_size = 30
 text = "Final Boss"
 horizontal_alignment = 1
 
 [node name="Shop Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=534083769]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.224, 0.353, 0.004, 1)
+theme_override_colors/font_color = Color(0.5096, 0.8, 0.007999993, 1)
 theme_override_font_sizes/font_size = 30
 text = "Shop"
 horizontal_alignment = 1
 
 [node name="Rest Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=676868087]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.47, 0.168, 0.141, 1)
+theme_override_colors/font_color = Color(0.8, 0.2866667, 0.24000001, 1)
 theme_override_font_sizes/font_size = 30
 text = "Rest Room"
 horizontal_alignment = 1
 
 [node name="Random Encounter" type="Label" parent="Map Legend/VBoxContainer" unique_id=1829712324]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.883, 0, 1)
+theme_override_colors/font_color = Color(0.8, 0.70666665, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Random Encounter"
 horizontal_alignment = 1
 
 [node name="Nothing" type="Label" parent="Map Legend/VBoxContainer" unique_id=67104631]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Empty"
+text = "Not Available"
 horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="Map Legend/VBoxContainer" unique_id=523868842]

@@ -7,16 +7,16 @@ signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 @export var combat_stats: CombatStats
 
 const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
-const NEXT_FLOOR_ROOM_COLOR: Color = Color(0.113, 0.555, 0.87, 1.0)
+const NEXT_FLOOR_ROOM_COLOR: Color = Color(0.104, 0.51, 0.8, 1.0)
 
-const NORMAL_ENEMY_BOSS_ROOM_COLOR: Color = Color(0.271, 0.212, 0.137, 1.0)
-const MINI_BOSS_ROOM_COLOR: Color = Color(0.286, 0.133, 0.243)
-const FINAL_BOSS_ROOM_COLOR: Color = Color(1.0, 0.47, 0.85, 1.0)
+const NORMAL_ENEMY_BOSS_ROOM_COLOR: Color = Color(0.8, 0.63, 0.408, 1.0)
+const MINI_BOSS_ROOM_COLOR: Color = Color(0.8, 0.376, 0.68, 1.0)
+const FINAL_BOSS_ROOM_COLOR: Color = Color(0.592, 0.488, 0.8, 1.0)
 
 
-const SHOP_ROOM_COLOR: Color = Color(0.224, 0.353, 0.004, 1.0)
-const REST_ROOM_COLOR: Color = Color(0.47, 0.168, 0.141, 1.0)
-const RANDOM_ENCOUNTER_ROOM_COLOR: Color = Color(1.0, 0.883, 0.0, 1.0)
+const SHOP_ROOM_COLOR: Color = Color(0.51, 0.8, 0.008, 1.0)
+const REST_ROOM_COLOR: Color = Color(0.8, 0.287, 0.24, 1.0)
+const RANDOM_ENCOUNTER_ROOM_COLOR: Color = Color(0.8, 0.707, 0.0, 1.0)
 
 
 #region Room Stats
@@ -129,12 +129,13 @@ func Write_Debug():
 	$"Debug Text".text = "Visited: " + str(was_visited) + "\n Reachable: " + str(is_reachable)
 	
 	
-	
+	var Temp_Material:StandardMaterial3D = room_mesh_4_opens.get_surface_override_material(0)
 	if not is_reachable:
-		var Temp_Material:StandardMaterial3D = room_mesh_4_opens.get_surface_override_material(0)
-		
-		
 		Temp_Material.albedo_color.v = 0.05
+		
+	elif is_reachable or was_visited:
+		Temp_Material.albedo_color.v = 0.8
+		
 	
 	
 func Set_Room_Gen_ID(room_gen_id: int):

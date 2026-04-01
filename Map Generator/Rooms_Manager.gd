@@ -16,6 +16,19 @@ func _enter_tree() -> void:
 	Current_MapStats = selected_Map_Stats.duplicate()
 	
 
+func _ready() -> void:
+	GlobalMap.go_to_room.connect(_on_Player_Arrived_at_Room3D)
+
+
+func _on_Player_Arrived_at_Room3D(new_player_room: Room3D):
+	new_player_room.was_visited = true
+	
+	Update_Rooms_Reachability()
+	Write_All_Rooms_Debug()
+	
+	
+
+
 
 func Fill_Rooms_Info():
 	
@@ -125,13 +138,9 @@ func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]):
 	
 func Clear_All_Children():
 	
-	
 	Current_MapStats = selected_Map_Stats.duplicate()
 	
-	
 	for room in get_children():
-		
-		#remove_child(room)
 		room.free()
 		
 	await get_tree().process_frame
