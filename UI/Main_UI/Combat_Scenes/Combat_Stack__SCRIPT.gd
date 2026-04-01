@@ -41,12 +41,8 @@ func _on_block_connection_broken(Connected_Blocks_Root: Universal_Block):
 	
 	var Block_Instance_ID: int = Connected_Blocks_Root.get_instance_id()
 	
-	
 	list_of_player_instructions.Erase_Command_from_ID(Block_Instance_ID)
 	
-	#print(Connected_Blocks_Root.get_instance_id())
-	
-	pass
 	
 	
 	

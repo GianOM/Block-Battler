@@ -24,18 +24,25 @@ var is_mouse_on_Canvas: bool = false
 
 func _ready() -> void:
 	
+	_connect_signals()
+	_initialize_block()
+	
+	
+	
+	
+func _connect_signals() -> void:
+	
 	JOGADOR.Left_Click_Pressed.connect(_on_Player_PRESSED_Left_Click)
 	JOGADOR.Left_Click_Released.connect(_on_Player_RELEASED_Left_Click)
 	
 	JOGADOR.Player_Mouse_Entered_Canvas.connect(Set_Block_Dropable)
 	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
+	
+func _initialize_block():
+	
 	block_texture.Set_Correct_Block_Texture(my_block_type)
-	
 	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
-	
-	
-
 	
 	
 @warning_ignore("unused_parameter")
@@ -44,7 +51,7 @@ func _process(delta: float) -> void:
 	#print(name + " -> " + Block_State.keys()[current_state])
 	
 	if (current_state == Block_State.DRAGGING) or (current_state == Block_State.DROPABLE):
-		#																				Centraliza e nao deixa sair da tela
+		#Centraliza e nao deixa sair da tela
 		block_texture.global_position = (get_global_mouse_position() - (size/2)).clamp(Vector2.ZERO, get_viewport().get_visible_rect().size - (size))
 		
 		
@@ -78,6 +85,7 @@ func Attach_Function_Block_to_Self(block_to_attach: Universal_Block):
 		
 	
 		Child_Blocks.append(block_to_attach)
+		block_to_attach.Parents_Blocks_List.append(self)
 		
 		JOGADOR.Player_Connected_Blocks.emit(self)
 	
@@ -147,10 +155,7 @@ func _on_Player_RELEASED_Left_Click():
 	
 	if current_state == Block_State.DRAGGING:
 		
-		current_state = Block_State.DRAGGABLE
-		block_texture.position = Vector2.ZERO
-		
-		#block_texture.z_index = 32
+		RESET()
 		
 		
 	elif current_state == Block_State.DROPABLE:
@@ -197,11 +202,20 @@ func _on_mouse_exited_area():
 		
 		
 		
+func Erase_Block_Connection(block_to_erase: Universal_Block):
+	Child_Blocks.erase(block_to_erase)
+		
+		
+		
+		
 func Clear_Block_Connections():
 	
 	# Debug ONly
 	for child_block in Child_Blocks:
-		print("Removed Connection with : " + child_block.name)
+		if child_block:
+		
+			print("Removed Connection with : " + child_block.name)
+		
 	Child_Blocks.clear()
 		
 		
