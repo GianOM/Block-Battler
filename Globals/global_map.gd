@@ -27,6 +27,11 @@ signal combat_reward_exited
 signal go_to_room(room_target: Room3D)
 
 
+
+
+signal On_new_
+
+
 var current_hovered_room3d: Array[Room3D]
 
 

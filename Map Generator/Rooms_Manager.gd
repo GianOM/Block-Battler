@@ -39,11 +39,33 @@ func Fill_Rooms_Info():
 		
 		individual_Room.Set_Room_Type(current_room_type)
 		
+		
+	Update_Rooms_Reachability()
+	Write_All_Rooms_Debug()
+		
+		
+		
+func Update_Rooms_Reachability():
+	
+	for individual_Room in get_children():
+		if individual_Room.was_visited:
+			for i in range(individual_Room.Adjacent_Rooms_Reference.size()):
+				individual_Room.Adjacent_Rooms_Reference[i].is_reachable = true
+				
+				
+
+
+
+
+func Write_All_Rooms_Debug():
+	for individual_Room in get_children():
+		individual_Room.Write_Debug()
+		
 	
 func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]):
 	
 	#										RIGHT, UP, LEFT, DOWN
-	var Temp_Adjacent_Rooms_Vector: Array[int] = [0,0,0,0]
+	var Temp_Has_Adjacent_Room: Array[int] = [0,0,0,0]
 	var Total_of_Adjacents_Rooms: int = 0
 	
 	var coordinates_to_search: Vector3 = room_ref.global_position
@@ -60,23 +82,32 @@ func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]):
 		#RIGHT
 		if my_room.global_position == (coordinates_to_search + Vector3(4,0,0)):
 			Total_of_Adjacents_Rooms += 1
-			Temp_Adjacent_Rooms_Vector[0] = 1
+			Temp_Has_Adjacent_Room[0] = 1
+			
+			
+			room_ref.Adjacent_Rooms_Reference.append(my_room)
 			
 		#UP
-		if my_room.global_position == (coordinates_to_search + Vector3(0,0,-4)):
+		elif my_room.global_position == (coordinates_to_search + Vector3(0,0,-4)):
 			Total_of_Adjacents_Rooms += 1
-			Temp_Adjacent_Rooms_Vector[1] = 1
+			Temp_Has_Adjacent_Room[1] = 1
+			
+			room_ref.Adjacent_Rooms_Reference.append(my_room)
 			
 		#LEFT
-		if my_room.global_position == (coordinates_to_search + Vector3(-4,0,0)):
+		elif my_room.global_position == (coordinates_to_search + Vector3(-4,0,0)):
 			Total_of_Adjacents_Rooms += 1
-			Temp_Adjacent_Rooms_Vector[2] = 1
+			Temp_Has_Adjacent_Room[2] = 1
+			
+			room_ref.Adjacent_Rooms_Reference.append(my_room)
 		
 			
 		#DOWN
-		if my_room.global_position == (coordinates_to_search + Vector3(0,0,4)):
+		elif my_room.global_position == (coordinates_to_search + Vector3(0,0,4)):
 			Total_of_Adjacents_Rooms += 1
-			Temp_Adjacent_Rooms_Vector[3] = 1
+			Temp_Has_Adjacent_Room[3] = 1
+			
+			room_ref.Adjacent_Rooms_Reference.append(my_room)
 			
 		
 			
@@ -85,7 +116,7 @@ func Total_Number_of_Adjacents_Rooms(room_ref: Node3D, rooms_list: Array[Node]):
 		
 		
 			
-	room_ref.Adjacent_Rooms_Vector = Temp_Adjacent_Rooms_Vector
+	room_ref.Has_Adjacent_Room = Temp_Has_Adjacent_Room
 	room_ref.number_of_adjacents_rooms = Total_of_Adjacents_Rooms
 	
 	

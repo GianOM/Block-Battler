@@ -27,9 +27,10 @@ shape = SubResource("BoxShape3D_uasgi")
 [node name="Debug Text" type="Label3D" parent="." index="1" unique_id=1675207566]
 pixel_size = 0.001
 billboard = 1
-modulate = Color(0, 0, 0, 1)
+no_depth_test = true
 text = "Number of Connections"
-font_size = 500
+font_size = 200
+outline_size = 100
 
 [node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=844265642]
 visible = false

@@ -22,8 +22,11 @@ const RANDOM_ENCOUNTER_ROOM_COLOR: Color = Color(1.0, 0.883, 0.0, 1.0)
 #region Room Stats
 										#RIGHT, UP, LEFT, DOWN
 										# se for 1, tem uma sala adjacente em uma das posicoes
-var Adjacent_Rooms_Vector: Array[int] = [0,0,0,0]
+var Has_Adjacent_Room: Array[int] = [0,0,0,0]
 var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
+
+
+var Adjacent_Rooms_Reference: Array[Room3D]
 
 @onready var room_mesh_4_opens: MeshInstance3D = $Room_Mesh_4_Opens
 @onready var room_mesh_3_opens: MeshInstance3D = $Room_Mesh_3_Opens
@@ -35,6 +38,9 @@ var number_of_adjacents_rooms: int : set = set_number_of_adjacents_room
 #TODO: Setar o ID da sala
 var Room_ID: int
 
+
+var is_reachable: bool = false #usado para saber se podemos entrar nela
+var was_visited: bool = false#usado para saber se o Player ja entrou nela
 
 #endregion
 
@@ -48,14 +54,14 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 	
 	
 	
-	#$"Debug Text".text = str(Adjacent_Rooms_Vector)
+	#$"Debug Text".text = str(Has_Adjacent_Room)
 	number_of_adjacents_rooms = quantity_of_adjacents_rooms
 	
 	match number_of_adjacents_rooms:
 		1:
 			room_mesh_1_opens.show()
 			room_mesh = room_mesh_1_opens
-			match Adjacent_Rooms_Vector:
+			match Has_Adjacent_Room:
 				[1,0,0,0]:
 					pass
 				[0,1,0,0]:
@@ -67,7 +73,7 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 					
 			
 		2:
-			match Adjacent_Rooms_Vector:
+			match Has_Adjacent_Room:
 				[1,0,1,0]:
 					room_mesh_2_opens_a.show()
 					room_mesh = room_mesh_2_opens_a
@@ -98,7 +104,7 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 			room_mesh_3_opens.show()
 			room_mesh = room_mesh_3_opens
 			
-			match Adjacent_Rooms_Vector:
+			match Has_Adjacent_Room:
 				[1,0,1,1]:
 					pass
 				[1,1,0,1]:
@@ -111,14 +117,16 @@ func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
 			room_mesh_4_opens.show()
 			room_mesh = room_mesh_4_opens
 	
-	#$"Debug Text".text = str(number_of_adjacents_rooms)
+	
+	
+func _on_room_visited():
+	was_visited = true
 	
 	
 	
-	
-	
-	pass
-	
+# COLOCAR AQUI TUDO QUE VC QUISER DEBUGAR DAS SALAS
+func Write_Debug():
+	$"Debug Text".text = "Visited: " + str(was_visited) + "\n Reachable: " + str(is_reachable)
 	
 	
 func Set_Room_Gen_ID(room_gen_id: int):
@@ -138,6 +146,8 @@ func Set_Room_Type(room_type: Map_Stats.Room_Type):
 		
 		Map_Stats.Room_Type.STARTING:
 			Set_Room_as_Starting_Room()
+			is_reachable = true
+			_on_room_visited()
 			
 		Map_Stats.Room_Type.NEXTFLOOR:
 			Set_Room_as_Next_Floor_Room()
