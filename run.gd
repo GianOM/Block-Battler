@@ -9,6 +9,7 @@ const RANDOM_ENCOUNTER_SCENE:= preload("res://random_encounter.tscn")
 
 #ui stuff
 @onready var gold_ui: GoldUI = %GoldUI
+@onready var hp_ui: HPUI = %HPUI
 
 @onready var current_scene: Node = $CurrentScene
 @onready var map: Node3D = $MapGeneratorScene
@@ -39,6 +40,7 @@ func _go_to_map():
 	if current_scene.get_child_count() > 0:
 		current_scene.get_child(0).queue_free()
 	
+	
 	map.process_mode = Node.PROCESS_MODE_ALWAYS
 	map.show()
 	
@@ -51,7 +53,7 @@ func _next_room_from_map(room: Room3D):
 		Map_Stats.Room_Type.NORMAL_ENEMY:
 			_combat_room_entered(room)
 		Map_Stats.Room_Type.REST:
-			_change_current_scene(REST_SITE_SCENE)
+			_rest_site_entered()
 		Map_Stats.Room_Type.SHOP:
 			_change_current_scene(SHOP_SCENE)
 		Map_Stats.Room_Type.RANDOMENCOUNTER:
@@ -60,6 +62,7 @@ func _next_room_from_map(room: Room3D):
 			_combat_room_entered(room)
 		Map_Stats.Room_Type.FINAL_BOSS:
 			pass
+	await get_tree().create_timer(0.5).timeout
 	map.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _combat_room_entered(room: Room3D):
@@ -69,6 +72,11 @@ func _combat_room_entered(room: Room3D):
 	combat_scene.combat_stats = room.combat_stats
 	last_combat_room = room
 	combat_scene.start_combat()
+
+func _rest_site_entered():
+	var rest_site:= _change_current_scene(REST_SITE_SCENE) as RestSite
+	rest_site.character_stats = player_character
+	
 
 func _change_current_scene(scene: PackedScene):
 	#combat and event scenes are instantiated under CurrentScreen
@@ -87,6 +95,8 @@ func _change_current_scene(scene: PackedScene):
 	return new_scene
 
 func _setup_ui():
+	player_character.changes_in_stats.connect(hp_ui.update_stats.bind(player_character))
+	hp_ui.update_stats(player_character)
 	gold_ui.run_stats = run_stats
 
 func _setup_connections():

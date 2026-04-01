@@ -11,7 +11,7 @@ theme_override_constants/separation = 30
 script = ExtResource("1_ylbu3")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=26136503]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("1_sl5k1")
 expand_mode = 1
@@ -20,4 +20,4 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="." unique_id=2137734147]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100

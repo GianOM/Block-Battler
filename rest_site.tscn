@@ -42,9 +42,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "休憩所"
 
+[node name="RestButton" type="Button" parent="VBoxContainer" unique_id=1933923017]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "休憩
+完全回復"
+
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1050826495]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "マップへ"
 
+[connection signal="pressed" from="VBoxContainer/RestButton" to="." method="_on_rest_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd085wdsme78u" path="res://run.gd" id="1_i0e08"]
 [ext_resource type="PackedScene" uid="uid://wqhp2ecigkh0" path="res://Map Generator/Map_Generator__SCENE.tscn" id="2_i0e08"]
+[ext_resource type="PackedScene" uid="uid://cktxrcupqy4nm" path="res://Entity/hp_ui.tscn" id="3_u02ey"]
 [ext_resource type="PackedScene" uid="uid://b0hnhe61v8xy8" path="res://gold_ui.tscn" id="3_ypx6g"]
 
 [node name="Run" type="Node" unique_id=124170098]
@@ -12,12 +13,26 @@ script = ExtResource("1_i0e08")
 [node name="CurrentScene" type="Node" parent="." unique_id=1343167133]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1428505533]
+offset = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 500, 0)
+follow_viewport_enabled = true
 
-[node name="GoldUI" parent="UI" unique_id=14013112 instance=ExtResource("3_ypx6g")]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=504156293]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
+offset_left = -375.5
+offset_right = 375.5
+offset_bottom = 137.0
 grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="HPUI" parent="UI/HBoxContainer" unique_id=405616211 instance=ExtResource("3_u02ey")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GoldUI" parent="UI/HBoxContainer" unique_id=14013112 instance=ExtResource("3_ypx6g")]
+unique_name_in_owner = true
+layout_mode = 2

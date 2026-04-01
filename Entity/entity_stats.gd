@@ -37,6 +37,9 @@ func take_damage(damage: int):
 	self.hp -= damage_after_shield
 	#if shield is bigger than dmg, dmg taken would be negative, so... no, it has to be minimum 0
 
+func heal(amount: int):
+	hp += amount
+
 ## this is so that when there are multiple of the same enemy type, 
 ## they are considered different enetities and won't share stat updates. 
 ## e.g.(when one entity takes dmg, other entities of the same type would also take dmg
