@@ -129,6 +129,14 @@ func Write_Debug():
 	$"Debug Text".text = "Visited: " + str(was_visited) + "\n Reachable: " + str(is_reachable)
 	
 	
+	
+	if not is_reachable:
+		var Temp_Material:StandardMaterial3D = room_mesh_4_opens.get_surface_override_material(0)
+		
+		
+		Temp_Material.albedo_color.v = 0.05
+	
+	
 func Set_Room_Gen_ID(room_gen_id: int):
 	
 	$"Debug Text".text = str(room_gen_id)
