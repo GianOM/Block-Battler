@@ -13,6 +13,8 @@ enum Room_Type{
 
 var MY_SEED: RandomNumberGenerator = RandomNumberGenerator.new()
 
+@export_category("Floors Amount")
+
 @export var Number_of_Starting_Points: int = 1
 @export var Number_of_Next_Floor_Rooms: int = 1
 
@@ -25,24 +27,45 @@ var MY_SEED: RandomNumberGenerator = RandomNumberGenerator.new()
 
 @export var Number_of_Random_Encounters: int = 5
 
-
-var Total_Number_of_Rooms: int = 0
-
+@export_category("Floors Balancing")
 
 
-func _init() -> void:
-	Calculate_Total_Number_of_Rooms()
+
+@export var Room_Scaling: int = 2
+
+
+#
+#func _init() -> void:
+	#Calculate_Total_Number_of_Rooms()
 	
 	
-func Calculate_Total_Number_of_Rooms():
+func Calculate_Total_Number_of_Rooms() -> int:
+	
+	var Total_Number_of_Rooms: int = 0
 	
 	Total_Number_of_Rooms += (Number_of_Starting_Points + Number_of_Next_Floor_Rooms +
 								Number_of_Normal_Enemiess + Number_of_Mini_Boss + Number_of_Final_Boss +
 								Number_of_Shops + Number_of_Rests + 
 								Number_of_Random_Encounters)
 	
+	return Total_Number_of_Rooms
 
 
+func Scale_Room_Numbers():
+	
+	
+	Number_of_Starting_Points *= Room_Scaling
+	Number_of_Next_Floor_Rooms *= Room_Scaling
+	
+	Number_of_Normal_Enemiess *= Room_Scaling
+	Number_of_Mini_Boss *= Room_Scaling
+	Number_of_Final_Boss *= Room_Scaling
+	
+	Number_of_Shops *= Room_Scaling
+	Number_of_Rests *= Room_Scaling
+	
+	Number_of_Random_Encounters *= Room_Scaling
+	pass
 
 
 func Get_Random_Room() -> Room_Type:

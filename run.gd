@@ -35,14 +35,26 @@ func _start_run():
 	_setup_connections()
 	_setup_ui()
 	
+	
+	
+func Enable_Map():
+	map.process_mode = Node.PROCESS_MODE_ALWAYS
+	map.show()
+	
+	
+func Disable_Map():
+	map.hide()
+	map.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	
 #go to map when you proceed from a room
 func _go_to_map():
 	if current_scene.get_child_count() > 0:
 		current_scene.get_child(0).queue_free()
+		
+	Enable_Map()
 	
 	
-	map.process_mode = Node.PROCESS_MODE_ALWAYS
-	map.show()
 	
 	
 #needs to receive the room type
@@ -52,25 +64,31 @@ func _next_room_from_map(room: Room3D):
 	match room.my_room_type:
 		Map_Stats.Room_Type.NORMAL_ENEMY:
 			_combat_room_entered(room)
+			Disable_Map()
+			
 		Map_Stats.Room_Type.REST:
 			_rest_site_entered()
+			Disable_Map()
+			
 		Map_Stats.Room_Type.SHOP:
 			_change_current_scene(SHOP_SCENE)
+			Disable_Map()
+			
 		Map_Stats.Room_Type.RANDOMENCOUNTER:
 			_change_current_scene(RANDOM_ENCOUNTER_SCENE)
+			Disable_Map()
+			
 		Map_Stats.Room_Type.MINI_BOSS:
 			_combat_room_entered(room)
+			Disable_Map()
 		Map_Stats.Room_Type.FINAL_BOSS:
 			pass
+			
 		Map_Stats.Room_Type.NEXTFLOOR:
 			GlobalMap.Player_Entered_NextFloor_Room.emit()
 			
 	await get_tree().create_timer(0.5).timeout
 	
-	
-	#map.hide()
-	map.process_mode = Node.PROCESS_MODE_DISABLED
-
 func _combat_room_entered(room: Room3D):
 	var combat_scene: Combat = _change_current_scene(COMBAT_SCENE)
 	combat_scene.character_stats = player_character

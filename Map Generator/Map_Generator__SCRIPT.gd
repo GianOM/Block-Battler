@@ -12,15 +12,7 @@ var number_of_room: int
 @export var starter_position: Vector2i = Vector2i.ZERO
 
 
-
-
-
-
 var List_of_Positions_Walked: Array[Vector2i]
-
-
-
-
 
 var RNG = RandomNumberGenerator.new()
 
@@ -51,7 +43,7 @@ func _ready() -> void:
 	
 	
 func Clear_All_Room():
-	number_of_room = selected_Map_Stats.Total_Number_of_Rooms
+	number_of_room = selected_Map_Stats.Calculate_Total_Number_of_Rooms()
 	List_of_Positions_Walked.clear()
 	starter_position = Vector2i.ZERO
 	
@@ -84,6 +76,8 @@ func Drunkard_Walk():
 		
 		
 	rooms_root.Fill_Rooms_Info()
+	
+	selected_Map_Stats.Scale_Room_Numbers()
 	
 func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
 	
