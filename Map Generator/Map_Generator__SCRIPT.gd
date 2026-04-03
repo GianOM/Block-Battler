@@ -28,21 +28,25 @@ var RNG = RandomNumberGenerator.new()
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		Clear_All_Room()
-		
-		await rooms_root.Finished_Cleaning_Children
-		
-		print(rooms_root.get_child_count())
-		
-		Drunkard_Walk()
+		Generate_New_Floor()
 		
 
 
 
-func _ready() -> void:
+func Generate_New_Floor():
 	
 	Clear_All_Room()
+	await rooms_root.Finished_Cleaning_Children
 	Drunkard_Walk()
+	
+	
+	
+	
+func _ready() -> void:
+	
+	GlobalMap.Player_Entered_NextFloor_Room.connect(Generate_New_Floor)
+	
+	Generate_New_Floor()
 	
 	
 	

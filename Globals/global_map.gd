@@ -7,6 +7,8 @@ signal Player_Entered_NormalEnemy_Room
 signal Player_Entered_MiniBoss_Room
 @warning_ignore("unused_signal")
 signal Player_Entered_FinalBoss_Room
+@warning_ignore("unused_signal")
+signal Player_Entered_NextFloor_Room
 #endregion
 
 
@@ -31,14 +33,24 @@ var current_hovered_room3d: Array[Room3D]
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			if current_hovered_room3d.size() > 0 :
+	if not (event is InputEventMouseButton):
+		return
+		
+	if not (event.button_index == MouseButton.MOUSE_BUTTON_LEFT):
+		return
+		
+	if current_hovered_room3d.size() > 0 :
+		
+		var Temp_Room: Room3D = current_hovered_room3d[-1]
+		
+		if Temp_Room:
+			if Temp_Room.is_reachable:
+				go_to_room.emit(current_hovered_room3d[-1])
 				
-				var Temp_Room: Room3D = current_hovered_room3d[-1]
-				
-				if Temp_Room.is_reachable:
-					go_to_room.emit(current_hovered_room3d[-1])
+		#caso ele seja null
+		else:
+			current_hovered_room3d.remove_at(-1)
+			print("Limpei um Null")
 
 
 

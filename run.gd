@@ -62,7 +62,13 @@ func _next_room_from_map(room: Room3D):
 			_combat_room_entered(room)
 		Map_Stats.Room_Type.FINAL_BOSS:
 			pass
+		Map_Stats.Room_Type.NEXTFLOOR:
+			GlobalMap.Player_Entered_NextFloor_Room.emit()
+			
 	await get_tree().create_timer(0.5).timeout
+	
+	
+	#map.hide()
 	map.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _combat_room_entered(room: Room3D):

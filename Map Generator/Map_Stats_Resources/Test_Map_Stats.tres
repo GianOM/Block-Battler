@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_n37h4")
+Number_of_Next_Floor_Rooms = 8
 Number_of_Shops = 1
 Number_of_Rests = 5
 metadata/_custom_type_script = "uid://tx6lp1rwdros"

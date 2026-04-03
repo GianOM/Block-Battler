@@ -36,3 +36,15 @@ size_flags_vertical = 4
 [node name="GoldUI" parent="UI/HBoxContainer" unique_id=14013112 instance=ExtResource("3_ypx6g")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Floor Label" type="Label" parent="UI" unique_id=422379906]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -247.5
+offset_top = 146.0
+offset_right = 247.5
+offset_bottom = 351.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 150
+text = "Floor 0"
