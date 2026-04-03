@@ -1,8 +1,8 @@
 class_name EnemyAction
 extends Node
 
-@warning_ignore("unused_signal")
-signal finished_performing_action
+#@warning_ignore("unused_signal")
+#signal finished_performing_action
 
 @export var intent: Intent
 

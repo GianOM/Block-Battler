@@ -3,7 +3,6 @@ extends EnemyAction
 @export var damage:= 3
 
 func perform_action():
-	print("teste")
 	var player_ref: Player = COMBATE.Combat_ID_Dict[enemies_target_id[0]]
 	var enemy_self_ref: Enemy = COMBATE.Combat_ID_Dict[self_id]
 
@@ -26,7 +25,7 @@ func perform_action():
 	tween.finished.connect(
 		func(): 
 			COMBATE.enemy_action_completed.emit(enemy_self_ref)
-			finished_performing_action.emit()
+			#finished_performing_action.emit()
 	)
 	
 @warning_ignore("unused_parameter")

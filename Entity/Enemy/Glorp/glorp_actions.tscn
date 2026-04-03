@@ -2,16 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cvop5r8de1sai" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.gd" id="1_x3oo7"]
 [ext_resource type="Script" uid="uid://bx82v2bugom1x" path="res://Entity/Enemy/Glorp/attack.gd" id="2_j306j"]
+[ext_resource type="Texture2D" uid="uid://cwpjmyw8tpiw8" path="res://Assets/sword.png" id="3_jywyp"]
 [ext_resource type="Script" uid="uid://d3lnjy2v7gxx7" path="res://Entity/Enemy/Glorp/buff.gd" id="3_sjgy5"]
-[ext_resource type="Texture2D" uid="uid://c53pge6r5dv8e" path="res://Assets/sword.jpeg" id="3_x3oo7"]
 [ext_resource type="Script" uid="uid://hlp6pnqoshn5" path="res://Entity/Enemy/Glorp/double_attack.gd" id="4_4b3nu"]
 [ext_resource type="Script" uid="uid://ccy7rh24114ox" path="res://intent.gd" id="4_jywyp"]
 [ext_resource type="Texture2D" uid="uid://df1m6nps04rkg" path="res://Assets/up_arrow.png" id="6_jywyp"]
+[ext_resource type="Script" uid="uid://bxvr7jtbn4mqw" path="res://Entity/Enemy/Glorp/debuff.gd" id="7_rsuj7"]
+[ext_resource type="Texture2D" uid="uid://dy4n0q8v7aoul" path="res://Assets/down_arrow.png" id="8_2xm6o"]
 
 [sub_resource type="Resource" id="Resource_rsuj7"]
 script = ExtResource("4_jywyp")
 value = "10"
-icon = ExtResource("3_x3oo7")
+icon = ExtResource("3_jywyp")
 metadata/_custom_type_script = "uid://ccy7rh24114ox"
 
 [sub_resource type="Resource" id="Resource_2xm6o"]
@@ -19,10 +21,15 @@ script = ExtResource("4_jywyp")
 icon = ExtResource("6_jywyp")
 metadata/_custom_type_script = "uid://ccy7rh24114ox"
 
+[sub_resource type="Resource" id="Resource_o0bnj"]
+script = ExtResource("4_jywyp")
+icon = ExtResource("8_2xm6o")
+metadata/_custom_type_script = "uid://ccy7rh24114ox"
+
 [sub_resource type="Resource" id="Resource_hdt8t"]
 script = ExtResource("4_jywyp")
 value = "3 x 2"
-icon = ExtResource("3_x3oo7")
+icon = ExtResource("3_jywyp")
 metadata/_custom_type_script = "uid://ccy7rh24114ox"
 
 [node name="GlorpActions" type="Node" unique_id=8148060]
@@ -34,7 +41,13 @@ intent = SubResource("Resource_rsuj7")
 
 [node name="Buff" type="Node" parent="." unique_id=1099837246]
 script = ExtResource("3_sjgy5")
+strength_buff = 3
 intent = SubResource("Resource_2xm6o")
+
+[node name="Debuff" type="Node" parent="." unique_id=694964190]
+script = ExtResource("7_rsuj7")
+duration = 2
+intent = SubResource("Resource_o0bnj")
 
 [node name="DoubleAttack" type="Node" parent="." unique_id=1604649282]
 script = ExtResource("4_4b3nu")

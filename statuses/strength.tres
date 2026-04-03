@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StrengthStatus" format=3 uid="uid://ccmk1rwcl0aqo"]
+
+[ext_resource type="Script" uid="uid://cudfrm13drlw" path="res://statuses/strength.gd" id="1_2wk56"]
+[ext_resource type="Texture2D" uid="uid://biluut51afmt" path="res://Assets/strength_icon.png" id="1_jqcf5"]
+
+[resource]
+script = ExtResource("1_2wk56")
+id = "strength"
+type = 2
+stack_type = 1
+stacks = 3
+icon = ExtResource("1_jqcf5")
+tooltip = "increases damage dealt"
+metadata/_custom_type_script = "uid://l3676rwfi2jq"

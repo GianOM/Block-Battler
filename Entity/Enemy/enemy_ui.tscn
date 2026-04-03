@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="2_ivmtt"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="3_ciigi"]
 [ext_resource type="PackedScene" uid="uid://ds7ap8xwpvu38" path="res://intent_ui.tscn" id="5_hyep2"]
+[ext_resource type="PackedScene" uid="uid://lunbsufeifk6" path="res://status_manager.tscn" id="7_2cjw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
 size = Vector2(160, 172)
@@ -68,3 +69,10 @@ offset_right = 53.30005
 offset_bottom = -86.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(52.75, 42)
+
+[node name="StatusManager" parent="." unique_id=1492048016 node_paths=PackedStringArray("status_owner") instance=ExtResource("7_2cjw6")]
+offset_left = -86.0
+offset_top = 128.0
+offset_right = -86.0
+offset_bottom = 128.0
+status_owner = NodePath("..")

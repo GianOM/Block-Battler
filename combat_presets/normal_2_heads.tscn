@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://dcecg3adbjm7"]
 
 [ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="1_vhgis"]
-[ext_resource type="Resource" uid="uid://bhl8v5hvbngwb" path="res://Entity/Enemy/TestEnemy/enemy_test.tres" id="2_g6gxr"]
+[ext_resource type="PackedScene" uid="uid://phoodvnh828l" path="res://Entity/Enemy/TestEnemy/test_enemy_actions.tscn" id="2_utbna"]
+[ext_resource type="Texture2D" uid="uid://c3j2rbllr441d" path="res://Assets/scholel.jpg" id="3_gsue1"]
+[ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/Enemy/enemy_stats.gd" id="4_3n1gp"]
+
+[sub_resource type="Resource" id="Resource_hqu5w"]
+script = ExtResource("4_3n1gp")
+action_scene = ExtResource("2_utbna")
+max_hp = 1
+image = ExtResource("3_gsue1")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
+
+[sub_resource type="Resource" id="Resource_1wk5j"]
+script = ExtResource("4_3n1gp")
+action_scene = ExtResource("2_utbna")
+max_hp = 1
+image = ExtResource("3_gsue1")
+metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [node name="Normal2Heads" type="Node2D" unique_id=756958998]
 
 [node name="Head" parent="." unique_id=807532450 instance=ExtResource("1_vhgis")]
 position = Vector2(1125, 643)
-stats = ExtResource("2_g6gxr")
+stats = SubResource("Resource_hqu5w")
 
 [node name="Head2" parent="." unique_id=722162480 instance=ExtResource("1_vhgis")]
 position = Vector2(1326, 705)
-stats = ExtResource("2_g6gxr")
+stats = SubResource("Resource_1wk5j")

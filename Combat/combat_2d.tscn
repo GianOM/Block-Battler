@@ -343,9 +343,10 @@ position = Vector2(970, 802)
 stats = SubResource("Resource_2jbda")
 Enemy_Action_Scene = ExtResource("17_7hyad")
 
-[node name="PlayerManager" type="Node2D" parent="." unique_id=931567398]
+[node name="PlayerManager" type="Node2D" parent="." unique_id=931567398 node_paths=PackedStringArray("player")]
 position = Vector2(-192, 0)
 script = ExtResource("14_svxjp")
+player = NodePath("Player")
 
 [node name="Player" parent="PlayerManager" unique_id=2092398558 instance=ExtResource("5_cns71")]
 position = Vector2(765, 898)

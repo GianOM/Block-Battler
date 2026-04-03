@@ -8,6 +8,7 @@ extends Node2D
 
 @onready var player_image: Sprite2D = $PlayerImage
 @onready var stats_ui: StatsUI = $StatsUI
+@onready var status_manager: StatusManager = $StatusManager
 
 @onready var id_debug_text: Label = $"ID Debug Text"
 

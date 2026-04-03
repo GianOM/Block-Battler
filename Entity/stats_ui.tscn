@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fgtl5i03aaj3"]
 
-[ext_resource type="Texture2D" uid="uid://dpevc13004ix5" path="res://Assets/shield.jpg" id="1_ln25e"]
 [ext_resource type="Script" uid="uid://c1ox1sn20a3t5" path="res://Entity/stats_ui.gd" id="1_wixbg"]
+[ext_resource type="Texture2D" uid="uid://bdaxomhvomyvu" path="res://Assets/shield.png" id="2_aux2p"]
 [ext_resource type="PackedScene" uid="uid://cktxrcupqy4nm" path="res://Entity/hp_ui.tscn" id="3_aux2p"]
 
 [node name="StatsUI" type="HBoxContainer" unique_id=314053271]
@@ -22,7 +22,7 @@ theme_override_constants/separation = 0
 
 [node name="ShieldIcon" type="TextureRect" parent="Shield" unique_id=1581493038]
 layout_mode = 2
-texture = ExtResource("1_ln25e")
+texture = ExtResource("2_aux2p")
 expand_mode = 2
 stretch_mode = 5
 

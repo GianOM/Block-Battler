@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PowerStrengthStatus" format=3 uid="uid://coaq7hrpfy84a"]
+
+[ext_resource type="Texture2D" uid="uid://cr8sly4gad6j7" path="res://Assets/strength_power_icon.png" id="1_gmnau"]
+[ext_resource type="Script" uid="uid://do57b51e5qrgy" path="res://statuses/test_non_stackable_power_strength.gd" id="2_gmnau"]
+
+[resource]
+script = ExtResource("2_gmnau")
+id = "test_strength_power"
+icon = ExtResource("1_gmnau")
+tooltip = "increase strength by 1 at start of turn"
+metadata/_custom_type_script = "uid://l3676rwfi2jq"

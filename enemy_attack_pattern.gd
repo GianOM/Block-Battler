@@ -4,18 +4,19 @@ var enemy_manager_ref: EnemyManager
 
 func _ready() -> void:
 	COMBATE.load_enemy_intentions_requested.connect(write_enemy_intentions)
+	#COMBATE.request_enemy_action.connect(emit_enemy_action)
 
-
-func write_enemy_intentions(turn: int):
+func write_enemy_intentions():
+	Clear_All_Instructions()
 	var enemy_list = enemy_manager_ref.get_children()
 	
 	for enemy in enemy_list:
 		if not enemy:
 			return
-		write_single_enemy_intention(enemy, turn)
+		write_single_enemy_intention(enemy)
 			
-func write_single_enemy_intention(enemy: Enemy, counter: int):
-	
+func write_single_enemy_intention(enemy: Enemy):
+	var counter = COMBATE.turn_count
 	var enemy_actions: Array[String] = enemy_manager_ref.return_intentions_for_single_enemy(enemy)
 	if counter >= enemy_actions.size():
 		counter %= enemy_actions.size()
@@ -26,7 +27,16 @@ func write_single_enemy_intention(enemy: Enemy, counter: int):
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 			label.text = enemy_actions[i]
 			add_child(label)
-	
+
+#func emit_enemy_action(enemy: Enemy, counter: int):
+	#var enemy_actions: Array[String] = enemy_manager_ref.return_intentions_for_single_enemy(enemy)
+	#if counter >= enemy_actions.size():
+		#counter %= enemy_actions.size()
+	#for i in enemy_actions.size():
+		#if i == counter:
+			#COMBATE.single_enemy_action.emit(enemy_actions[i])
+			
+
 func Clear_All_Instructions():
 	
 	for i in get_child_count():

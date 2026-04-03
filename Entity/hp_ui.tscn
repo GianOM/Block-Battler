@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cktxrcupqy4nm"]
 
-[ext_resource type="Texture2D" uid="uid://xa4gy1osondh" path="res://Assets/heart.webp" id="1_o715x"]
 [ext_resource type="Script" uid="uid://ctuagj3h3jmtb" path="res://Entity/hp_ui.gd" id="1_um6kt"]
+[ext_resource type="Texture2D" uid="uid://eudi6mngkpuk" path="res://Assets/heart .png" id="2_um6kt"]
 
 [node name="HPUI" type="HBoxContainer" unique_id=405616211]
 theme_override_constants/separation = 20
@@ -9,7 +9,7 @@ script = ExtResource("1_um6kt")
 
 [node name="HPIcon" type="TextureRect" parent="." unique_id=844812537]
 layout_mode = 2
-texture = ExtResource("1_o715x")
+texture = ExtResource("2_um6kt")
 expand_mode = 2
 stretch_mode = 5
 

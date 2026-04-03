@@ -28,7 +28,7 @@ func perform_action():
 	tween.finished.connect(
 		func(): 
 			COMBATE.enemy_action_completed.emit(enemy_self_ref)
-			finished_performing_action.emit()
+			#finished_performing_action.emit()
 	)
 	
 @warning_ignore("unused_parameter")

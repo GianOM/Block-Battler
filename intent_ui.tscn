@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds7ap8xwpvu38"]
 
 [ext_resource type="Script" uid="uid://05g0a0xlgqs2" path="res://intent_ui.gd" id="1_ap2ar"]
-[ext_resource type="Texture2D" uid="uid://c53pge6r5dv8e" path="res://Assets/sword.jpeg" id="1_d32mu"]
+[ext_resource type="Texture2D" uid="uid://bdaxomhvomyvu" path="res://Assets/shield.png" id="2_ap2ar"]
 
 [node name="IntentUI" type="HBoxContainer" unique_id=1127797052]
 anchors_preset = 5
@@ -18,7 +18,7 @@ script = ExtResource("1_ap2ar")
 [node name="IntentIcon" type="TextureRect" parent="." unique_id=1957649688]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-texture = ExtResource("1_d32mu")
+texture = ExtResource("2_ap2ar")
 expand_mode = 1
 stretch_mode = 5
 

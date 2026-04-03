@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="2_0pd4e"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="2_n4or1"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
+[ext_resource type="PackedScene" uid="uid://lunbsufeifk6" path="res://status_manager.tscn" id="5_4m8mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
 size = Vector2(130, 102)
@@ -58,3 +59,10 @@ theme_override_font_sizes/font_size = 50
 text = "E2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StatusManager" parent="." unique_id=1492048016 node_paths=PackedStringArray("status_owner") instance=ExtResource("5_4m8mu")]
+offset_left = -97.0
+offset_top = 95.0
+offset_right = -97.0
+offset_bottom = 95.0
+status_owner = NodePath("..")

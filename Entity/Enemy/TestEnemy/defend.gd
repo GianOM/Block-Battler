@@ -24,7 +24,7 @@ func perform_action():
 	get_tree().create_timer(0.6, false).timeout.connect(
 		func():
 			COMBATE.enemy_action_completed.emit(enemy_self_ref)
-			finished_performing_action.emit()
+			#finished_performing_action.emit()
 	)
 	
 	
