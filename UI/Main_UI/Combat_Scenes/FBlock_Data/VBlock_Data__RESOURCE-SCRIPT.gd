@@ -1,0 +1,1 @@
+class_name VBlock_Data extends Resource

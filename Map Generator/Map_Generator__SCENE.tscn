@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://c4s14tstckvp7" path="res://Map Generator/Player_Icon__SCRIPT.gd" id="4_fow5y"]
 [ext_resource type="Script" uid="uid://dqmwfwwnvg60i" path="res://Map Generator/Rooms_Manager.gd" id="4_id4gy"]
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="5_s6cl0"]
-[ext_resource type="Script" uid="uid://bjdlnod5p3r81" path="res://map_ui.gd" id="7_o0j4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6clm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,11 +43,13 @@ shadow_normal_bias = 10.0
 directional_shadow_fade_start = 0.0
 directional_shadow_max_distance = 512.0
 
-[node name="Map_Camera" type="Camera3D" parent="." unique_id=374191609]
+[node name="Map_Camera" type="Camera3D" parent="." unique_id=374191609 node_paths=PackedStringArray("Rooms_Root_Ref")]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 500, 0)
 fov = 10.0
 size = 60.0
 script = ExtResource("3_13nyt")
+Rooms_Root_Ref = NodePath("../Rooms_Root")
 
 [node name="Player_Icon" type="MeshInstance3D" parent="." unique_id=549935866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -59,97 +60,3 @@ script = ExtResource("4_fow5y")
 script = ExtResource("4_id4gy")
 selected_Map_Stats = ExtResource("2_leiis")
 Player_Icon = NodePath("../Player_Icon")
-
-[node name="Map Legend" type="Control" parent="." unique_id=1248758890]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -1060.0
-offset_right = -16.0
-offset_bottom = -294.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("7_o0j4e")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Map Legend" unique_id=2008178156]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Starting Room Label" type="Label" parent="Map Legend/VBoxContainer" unique_id=52852205]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_font_sizes/font_size = 30
-text = "Starting Room"
-horizontal_alignment = 1
-
-[node name="Next Floor Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=1069715278]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.103999995, 0.51000017, 0.8, 1)
-theme_override_font_sizes/font_size = 30
-text = "Next Floor"
-horizontal_alignment = 1
-
-[node name="Normal Enemy" type="Label" parent="Map Legend/VBoxContainer" unique_id=1097080090]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.63013333, 0.408, 1)
-theme_override_font_sizes/font_size = 30
-text = "Normal Enemy"
-horizontal_alignment = 1
-
-[node name="Mini Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=477429204]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.37600002, 0.67986673, 1)
-theme_override_font_sizes/font_size = 30
-text = "Mini Boss"
-horizontal_alignment = 1
-
-[node name="Final Boss" type="Label" parent="Map Legend/VBoxContainer" unique_id=988551683]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.592, 0.488, 0.8, 1)
-theme_override_font_sizes/font_size = 30
-text = "Final Boss"
-horizontal_alignment = 1
-
-[node name="Shop Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=534083769]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.5096, 0.8, 0.007999993, 1)
-theme_override_font_sizes/font_size = 30
-text = "Shop"
-horizontal_alignment = 1
-
-[node name="Rest Room" type="Label" parent="Map Legend/VBoxContainer" unique_id=676868087]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.2866667, 0.24000001, 1)
-theme_override_font_sizes/font_size = 30
-text = "Rest Room"
-horizontal_alignment = 1
-
-[node name="Random Encounter" type="Label" parent="Map Legend/VBoxContainer" unique_id=1829712324]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.70666665, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Random Encounter"
-horizontal_alignment = 1
-
-[node name="Nothing" type="Label" parent="Map Legend/VBoxContainer" unique_id=67104631]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Not Available"
-horizontal_alignment = 1
-
-[node name="ReturnButton" type="Button" parent="Map Legend/VBoxContainer" unique_id=523868842]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "return"
-
-[connection signal="pressed" from="Map Legend/VBoxContainer/ReturnButton" to="Map Legend" method="_on_return_button_pressed"]

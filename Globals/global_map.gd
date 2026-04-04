@@ -15,18 +15,25 @@ signal Player_Entered_NextFloor_Room
 
 @warning_ignore("unused_signal")
 signal Player_Entered_Shop_Room
+@warning_ignore("unused_signal")
 signal shop_exited
 @warning_ignore("unused_signal")
 signal Player_Entered_Rest_Room
+@warning_ignore("unused_signal")
 signal rest_site_exited
 @warning_ignore("unused_signal")
 signal Player_Entered_RandomEncounter_Room
+@warning_ignore("unused_signal")
 signal random_encounter_exited
 
+@warning_ignore("unused_signal")
 signal combat_reward_exited
 
 #needs to send;receive room type
 signal go_to_room(room_target: Room3D)
+
+@warning_ignore("unused_signal")
+signal Update_Rooms_Reachability
 
 
 var current_hovered_room3d: Array[Room3D]

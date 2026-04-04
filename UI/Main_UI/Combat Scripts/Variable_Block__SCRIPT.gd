@@ -204,3 +204,10 @@ func RESET():
 	
 	Clear_Block_Connections()
 	
+	
+	if current_grid_cell:
+		
+		current_grid_cell.Enable_Canvas_Slot()
+		
+		pass
+	

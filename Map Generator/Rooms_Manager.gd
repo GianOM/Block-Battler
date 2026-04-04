@@ -17,19 +17,19 @@ func _enter_tree() -> void:
 	
 
 func _ready() -> void:
-	GlobalMap.go_to_room.connect(_on_Player_Arrived_at_Room3D)
+	GlobalMap.Update_Rooms_Reachability.connect(_on_Player_Arrived_at_New_Room3D)
 
 
-func _on_Player_Arrived_at_Room3D(new_player_room: Room3D):
-	new_player_room.was_visited = true
+func _on_Player_Arrived_at_New_Room3D():
+	# Linha 27 setada agora pelo Run.gd, pois ele precisa saber antes de todo mundo
+	# se a room ja foi visitada para gerar o encontro
+	
+	#new_player_room.was_visited = true
 	
 	Update_Rooms_Reachability()
 	Write_All_Rooms_Debug()
 	
 	
-
-
-
 func Fill_Rooms_Info():
 	
 	var List_of_Room: Array[Node] = get_children()

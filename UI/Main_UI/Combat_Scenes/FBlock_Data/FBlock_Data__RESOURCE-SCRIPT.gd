@@ -1,0 +1,1 @@
+class_name FBlock_Data extends Resource

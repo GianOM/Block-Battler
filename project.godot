@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 JOGADOR="*uid://bg6mqy7uhntav"
 COMBATE="*uid://b41dgddiimy4v"
 GlobalMap="*uid://gtw4hp8aptcg"
+UI_Globals="*uid://bi4quq7xtvnio"
 
 [display]
 

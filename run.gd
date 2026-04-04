@@ -41,10 +41,14 @@ func Enable_Map():
 	map.process_mode = Node.PROCESS_MODE_ALWAYS
 	map.show()
 	
+	UI_Globals.Show_Map_UI.emit()
+	
 	
 func Disable_Map():
 	map.hide()
 	map.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	UI_Globals.Hide_Map_UI.emit()
 	
 	
 #go to map when you proceed from a room
@@ -57,10 +61,20 @@ func _go_to_map():
 	
 	
 	
+	
 #needs to receive the room type
 func _next_room_from_map(room: Room3D):
 	#from the room type received, match it to 
 	#_change_current_scene(scene which matches the received room type)
+	
+	# Se ja visitamos a sala, nao repetir o encounter
+	if room.was_visited:
+		return
+		
+	room.was_visited = true
+	
+	GlobalMap.Update_Rooms_Reachability.emit()
+	
 	match room.my_room_type:
 		Map_Stats.Room_Type.NORMAL_ENEMY:
 			_combat_room_entered(room)
@@ -125,6 +139,7 @@ func _setup_ui():
 
 func _setup_connections():
 	COMBATE.combat_won.connect(_on_combat_won)
+	
 	GlobalMap.combat_reward_exited.connect(_go_to_map)
 	GlobalMap.rest_site_exited.connect(_go_to_map)
 	GlobalMap.shop_exited.connect(_go_to_map)

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://jd3bjp7nnopw" path="res://Run_UI__SCRIPT.gd" id="3_dmpsm"]
 [ext_resource type="PackedScene" uid="uid://cktxrcupqy4nm" path="res://Entity/hp_ui.tscn" id="3_u02ey"]
 [ext_resource type="PackedScene" uid="uid://b0hnhe61v8xy8" path="res://gold_ui.tscn" id="3_ypx6g"]
+[ext_resource type="Script" uid="uid://bjdlnod5p3r81" path="res://map_ui.gd" id="6_wqfg2"]
 
 [node name="Run" type="Node" unique_id=124170098]
 script = ExtResource("1_i0e08")
@@ -14,9 +15,6 @@ script = ExtResource("1_i0e08")
 [node name="CurrentScene" type="Node" parent="." unique_id=1343167133]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1428505533]
-offset = Vector2(500, 0)
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 500, 0)
 follow_viewport_enabled = true
 script = ExtResource("3_dmpsm")
 
@@ -24,23 +22,26 @@ script = ExtResource("3_dmpsm")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -247.5
-offset_top = 2.0
-offset_right = 247.5
-offset_bottom = 207.0
+offset_left = -123.5
+offset_top = 24.0
+offset_right = 123.5
+offset_bottom = 127.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 75
 text = "Floor 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBox_Container" type="VBoxContainer" parent="UI" unique_id=150389718]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1905.5
-offset_top = 48.0
-offset_right = -1058.5
-offset_bottom = 422.0
+offset_left = -941.0
+offset_top = 14.0
+offset_right = -94.0
+offset_bottom = 388.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 100
 
 [node name="HPUI" parent="UI/VBox_Container" unique_id=405616211 instance=ExtResource("3_u02ey")]
@@ -51,3 +52,97 @@ size_flags_vertical = 4
 [node name="GoldUI" parent="UI/VBox_Container" unique_id=14013112 instance=ExtResource("3_ypx6g")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Map Legend" type="Control" parent="UI" unique_id=1552121228]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -1060.0
+offset_right = -16.0
+offset_bottom = -294.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("6_wqfg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Map Legend" unique_id=1079892692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Starting Room Label" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=1216876438]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Starting Room"
+horizontal_alignment = 1
+
+[node name="Next Floor Room" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=866612534]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.103999995, 0.51000017, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Next Floor"
+horizontal_alignment = 1
+
+[node name="Normal Enemy" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=1685363720]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.63013333, 0.408, 1)
+theme_override_font_sizes/font_size = 30
+text = "Normal Enemy"
+horizontal_alignment = 1
+
+[node name="Mini Boss" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=28343721]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.37600002, 0.67986673, 1)
+theme_override_font_sizes/font_size = 30
+text = "Mini Boss"
+horizontal_alignment = 1
+
+[node name="Final Boss" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=445197715]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.592, 0.488, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Final Boss"
+horizontal_alignment = 1
+
+[node name="Shop Room" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=1071563211]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5096, 0.8, 0.007999993, 1)
+theme_override_font_sizes/font_size = 30
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Rest Room" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=141171182]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2866667, 0.24000001, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rest Room"
+horizontal_alignment = 1
+
+[node name="Random Encounter" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=1316252792]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.70666665, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Random Encounter"
+horizontal_alignment = 1
+
+[node name="Nothing" type="Label" parent="UI/Map Legend/VBoxContainer" unique_id=959038736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Not Available"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="UI/Map Legend/VBoxContainer" unique_id=458133648]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "return"
+
+[connection signal="pressed" from="UI/Map Legend/VBoxContainer/ReturnButton" to="UI/Map Legend" method="_on_return_button_pressed"]

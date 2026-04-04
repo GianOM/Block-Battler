@@ -9,6 +9,10 @@ var is_holding_left_click: bool = false
 var Screen_Size: Vector2 = DisplayServer.screen_get_size()
 
 
+# Usado para acessar os Rooms e saber se podemos mover baseado na visibilidades
+@export var Rooms_Root_Ref: Node3D
+
+
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
@@ -56,7 +60,7 @@ func _input(event: InputEvent) -> void:
 					is_holding_left_click = false
 					
 	elif event is InputEventMouseMotion:
-		if is_holding_left_click:
+		if is_holding_left_click and Rooms_Root_Ref.is_visible_in_tree():
 			
 			var Mouse_Movement_Velocity: Vector2 = event.get_screen_relative() * Mouse_Panning_Speed
 			
