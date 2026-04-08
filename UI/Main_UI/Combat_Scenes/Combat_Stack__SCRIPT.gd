@@ -16,6 +16,10 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	var Instruction_String: String = str(Connected_Blocks_Root.get_instance_id()) + "-" + "P1-"
 	
 	
+	
+	Connected_Blocks_Root.My_Block_Data.My_Action()
+	
+	
 	match Connected_Blocks_Root.my_block_type:
 		
 		Function_Block.Block_Type.ATTACK:

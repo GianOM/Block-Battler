@@ -1,12 +1,14 @@
-#class_name FBlockPile
-#extends Resource
+class_name FBlockPile
+extends Resource
+
+
+
+signal fblock_pile_size_changed(fblocks_amount)
+
+@export var fblocks_Data: Array[FBlock_Data]
 #
-#signal fblock_pile_size_changed(fblocks_amount)
-#
-#@export var fblocks: Array[Function_Block]
-#
-#func is_empty() -> bool:
-	#return fblocks.is_empty()
+func is_empty() -> bool:
+	return fblocks_Data.is_empty()
 #
 #func add_fblock(block: Function_Block):
 	#fblocks.push_back(block)

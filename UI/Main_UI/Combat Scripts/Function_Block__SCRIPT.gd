@@ -6,6 +6,8 @@ enum Block_Type{
 	LOOP
 }
 
+@export var My_Block_Data: FBlock_Data
+
 @export var my_block_type: Block_Type
 @export var Possible_Attachment_Sides: Array[String]
 
@@ -25,7 +27,7 @@ var is_mouse_on_Canvas: bool = false
 func _ready() -> void:
 	
 	_connect_signals()
-	_initialize_block()
+	_initialize_block(My_Block_Data)
 	
 	
 	
@@ -39,7 +41,7 @@ func _connect_signals() -> void:
 	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
 	
-func _initialize_block():
+func _initialize_block(Block_Data: FBlock_Data):
 	
 	block_texture.Set_Correct_Block_Texture(my_block_type)
 	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)

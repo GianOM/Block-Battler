@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FBlock_Data" format=3 uid="uid://bxaq8chc3gua7"]
+
+[ext_resource type="Script" uid="uid://bhk574ijieyvu" path="res://UI/Main_UI/Combat_Scenes/FBlock_Data/FBlock_Data__RESOURCE-SCRIPT.gd" id="1_ue00p"]
+
+[resource]
+script = ExtResource("1_ue00p")
+metadata/_custom_type_script = "uid://bhk574ijieyvu"
