@@ -9,6 +9,12 @@ signal fblock_pile_size_changed(fblocks_amount)
 #
 func is_empty() -> bool:
 	return fblocks_Data.is_empty()
+	
+	
+	
+func Get_Next_FBLock_Data() -> FBlock_Data:
+	return fblocks_Data.pop_front()
+	#TODO: Good luck killer
 #
 #func add_fblock(block: Function_Block):
 	#fblocks.push_back(block)

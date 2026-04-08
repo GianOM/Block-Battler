@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bwed0118amt63"]
 
 [ext_resource type="Script" uid="uid://chs53ynq2ial5" path="res://UI/Main_UI/Combat Scripts/Function_Block__SCRIPT.gd" id="1_mmgtr"]
-[ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="2_si617"]
 [ext_resource type="Script" uid="uid://cw0luhlqu7i0w" path="res://UI/Main_UI/Combat Scripts/FBlock_Texture__SCRIPT.gd" id="3_p4yei"]
 [ext_resource type="Script" uid="uid://dasvl2e1y5vig" path="res://UI/Main_UI/Combat Scripts/FBlock_Attachment__SCRIPT.gd" id="4_bel2v"]
 
@@ -26,6 +25,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_mmgtr")
+variable_number = 15
 Block_Tooltip_Description = "Gabagool"
 
 [node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245 node_paths=PackedStringArray("root_F_block")]
@@ -38,7 +38,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_si617")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_p4yei")

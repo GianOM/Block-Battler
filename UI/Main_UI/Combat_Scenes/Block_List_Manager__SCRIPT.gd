@@ -5,23 +5,39 @@ extends Control
 
 var Block_List_Instance: Node
 
+
+@export var Teste_Pile: FBlockPile
+
+
+const FUNCTION_BLOCK__SCENE = preload("uid://bwed0118amt63")
+
 func _ready() -> void:
 	COMBATE.execute_player_turn.connect(Reset_All_Placed_Blocks)
-	COMBATE.Load_Player_FBlocks.connect(Setup_all_FBlocks)
+	Setup_all_FBlocks(Teste_Pile)
+	#COMBATE.Load_Player_FBlocks.connect(Setup_all_FBlocks)
 		
 		
 		
 		
-func Setup_all_FBlocks(Block_Lists_Root: Node):
+func Setup_all_FBlocks(FBlock_Player_Pile: FBlockPile):
 	
-	Block_Lists_Root.show()
-	
-	for fblock in Block_Lists_Root.get_children():
-		fblock.reparent(f_blocks_list, false)
+	while not FBlock_Player_Pile.is_empty():
+		var Temp_FBLock_Data: FBlock_Data = FBlock_Player_Pile.Get_Next_FBLock_Data()
 		
-	await get_tree().create_timer(0.5).timeout
+		var Temp_FBlock: Function_Block = FUNCTION_BLOCK__SCENE.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+		
+		f_blocks_list.add_child(Temp_FBlock)
+		
+		Temp_FBlock.My_Block_Data = Temp_FBLock_Data
 	
-	Block_Lists_Root.queue_free()
+	#Block_Lists_Root.show()
+	#
+	#for fblock in Block_Lists_Root.get_children():
+		#fblock.reparent(f_blocks_list, false)
+		#
+	#await get_tree().create_timer(0.5).timeout
+	#
+	#Block_Lists_Root.queue_free()
 	
 	
 	

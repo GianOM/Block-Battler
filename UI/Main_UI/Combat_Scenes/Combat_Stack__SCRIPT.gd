@@ -20,12 +20,12 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	#Connected_Blocks_Root.My_Block_Data.My_Action()
 	
 	
-	match Connected_Blocks_Root.my_block_type:
+	match Connected_Blocks_Root.My_Block_Data.my_block_type:
 		
-		Function_Block.Block_Type.ATTACK:
+		FBlock_Data.Block_Type.ATTACK:
 			Instruction_String += "ATT-" + str(Connected_Blocks_Root.variable_number) + "-"
 			
-		Function_Block.Block_Type.DEFENSE:
+		FBlock_Data.Block_Type.DEFENSE:
 			Instruction_String += "DEF-" + str(Connected_Blocks_Root.variable_number) + "-"
 	
 	

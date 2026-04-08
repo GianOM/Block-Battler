@@ -1,16 +1,8 @@
 class_name Function_Block extends Universal_Block
 
-enum Block_Type{
-	ATTACK,
-	DEFENSE,
-	LOOP
-}
 
-@export var My_Block_Data: FBlock_Data
 
-@export var my_block_type: Block_Type
-@export var Possible_Attachment_Sides: Array[String]
-
+var My_Block_Data: FBlock_Data : set = initialize_block_data
 @export var variable_number: int
 
 @onready var block_texture: TextureRect = $FBlock_TEXTURE
@@ -27,7 +19,7 @@ var is_mouse_on_Canvas: bool = false
 func _ready() -> void:
 	
 	_connect_signals()
-	_initialize_block(My_Block_Data)
+	#_initialize_block(My_Block_Data)
 	
 	
 	
@@ -41,10 +33,12 @@ func _connect_signals() -> void:
 	JOGADOR.Player_Mouse_Left_Canvas.connect(Set_Block_Dragging)
 	
 	
-func _initialize_block(Block_Data: FBlock_Data):
+func initialize_block_data(Block_Data: FBlock_Data):
 	
-	block_texture.Set_Correct_Block_Texture(my_block_type)
-	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
+	block_texture.Set_Correct_Block_Texture(Block_Data)
+	block_attachment_manager.Set_Up_Block_Sides(Block_Data.attachment_sides)
+	
+	My_Block_Data = Block_Data
 	
 	
 @warning_ignore("unused_parameter")
@@ -64,14 +58,14 @@ func _process(delta: float) -> void:
 func Check_Blocks_Compatibility(block_to_test: Universal_Block) -> bool:
 	
 	
-	if self.Possible_Attachment_Sides.has("UP") and block_to_test.Possible_Attachment_Sides.has("DOWN"):
+	if My_Block_Data.attachment_sides.has("UP") and block_to_test.Possible_Attachment_Sides.has("DOWN"):
 		return true
-	elif self.Possible_Attachment_Sides.has("DOWN") and block_to_test.Possible_Attachment_Sides.has("UP"):
+	elif My_Block_Data.attachment_sides.has("DOWN") and block_to_test.Possible_Attachment_Sides.has("UP"):
 		return true
 		
-	elif self.Possible_Attachment_Sides.has("RIGHT") and block_to_test.Possible_Attachment_Sides.has("LEFT"):
+	elif My_Block_Data.attachment_sides.has("RIGHT") and block_to_test.Possible_Attachment_Sides.has("LEFT"):
 		return true
-	elif self.Possible_Attachment_Sides.has("LEFT") and block_to_test.Possible_Attachment_Sides.has("RIGHT"):
+	elif My_Block_Data.attachment_sides.has("LEFT") and block_to_test.Possible_Attachment_Sides.has("RIGHT"):
 		return true
 	
 	

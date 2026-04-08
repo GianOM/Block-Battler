@@ -3,7 +3,7 @@ extends EntityStats
 
 #TBD... energy, starting array of func blocks etc
 
-@export var my_block_list: PackedScene
+@export var starter_pile: FBlockPile
 
 func create_instance() -> Resource:
 	var instance: CharacterStats = self.duplicate()

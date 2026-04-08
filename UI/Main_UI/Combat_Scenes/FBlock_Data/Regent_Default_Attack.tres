@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_ue00p")
+attachment_sides = Array[String](["RIGHT"])
 metadata/_custom_type_script = "uid://bhk574ijieyvu"

@@ -24,12 +24,12 @@ func set_character_stats(value: CharacterStats):
 		
 		
 		
-	Player_Block_Lists = stats.my_block_list.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
-	add_child(Player_Block_Lists)
-	
-	Player_Block_Lists.hide()
-	
-	COMBATE.Load_Player_FBlocks.emit(Player_Block_Lists.duplicate(Node.DuplicateFlags.DUPLICATE_DEFAULT))
+	#Player_Block_Lists = stats.my_block_list.instantiate(PackedScene.GEN_EDIT_STATE_MAIN_INHERITED)
+	#add_child(Player_Block_Lists)
+	#
+	#Player_Block_Lists.hide()
+	#
+	#COMBATE.Load_Player_FBlocks.emit(Player_Block_Lists.duplicate(Node.DuplicateFlags.DUPLICATE_DEFAULT))
 	
 	update_player()
 

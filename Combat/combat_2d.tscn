@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="4_cqvpo"]
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
+[ext_resource type="Resource" uid="uid://cnsd002sy6vef" path="res://Teste_Pile.tres" id="7_2jbda"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
@@ -124,6 +125,7 @@ offset_right = -0.32000732
 offset_bottom = 0.040039063
 mouse_filter = 1
 script = ExtResource("4_cqvpo")
+Teste_Pile = ExtResource("7_2jbda")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CombatUI/Block_Lists" unique_id=106744607]
