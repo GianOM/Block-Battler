@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="2_n4or1"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
 [ext_resource type="PackedScene" uid="uid://lunbsufeifk6" path="res://status_manager.tscn" id="5_4m8mu"]
+[ext_resource type="PackedScene" uid="uid://dewx2tlagh5e1" path="res://modifier_stuff/modifier_manager.tscn" id="6_ko7a4"]
+[ext_resource type="PackedScene" uid="uid://1mxv51oom368" path="res://modifier_stuff/modifier.tscn" id="7_e5fu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wejth"]
 size = Vector2(130, 102)
@@ -66,3 +68,10 @@ offset_top = 95.0
 offset_right = -97.0
 offset_bottom = 95.0
 status_owner = NodePath("..")
+
+[node name="ModifierManager" parent="." unique_id=1783041888 instance=ExtResource("6_ko7a4")]
+
+[node name="DMGDealt" parent="ModifierManager" unique_id=1310749391 instance=ExtResource("7_e5fu7")]
+
+[node name="DMGTaken" parent="ModifierManager" unique_id=1963427332 instance=ExtResource("7_e5fu7")]
+type = 1

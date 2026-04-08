@@ -12,13 +12,13 @@ func perform_action():
 	if not player_ref and not enemy_self_ref:
 		return
 	
-	var status_effect := StatusEffect.new()
-	var strength_effect := STRENGTH.duplicate()
-	strength_effect.stacks = strength_buff
-	status_effect.status = strength_effect
-	status_effect.execute(enemy_self_ref)
-	
-	enemy_self_ref.stats.strength += strength_buff
+	#var status_effect := StatusEffect.new()
+	#var strength_effect := STRENGTH.duplicate()
+	#strength_effect.stacks = strength_buff
+	#status_effect.status = strength_effect
+	#status_effect.execute(enemy_self_ref)
+	#
+	#enemy_self_ref.stats.strength += strength_buff
 	
 	get_tree().create_timer(0.6, false).timeout.connect(
 		func():

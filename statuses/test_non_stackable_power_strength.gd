@@ -5,7 +5,6 @@ const STRENGTH_STATUS = preload("res://statuses/strength.tres")
 
 var stacks_per_turn:= 1
 
-#TODO needs testing
 func apply_status(target: Node):
 	var status_effect:= StatusEffect.new()
 	var strength:= STRENGTH_STATUS.duplicate()

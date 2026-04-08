@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kon8bb86ihma"]
+
+[ext_resource type="Script" uid="uid://dxyhkoj8mt7og" path="res://modifier_stuff/modifier_value.gd" id="1_mcq71"]
+
+[node name="ModifierValue" type="Node" unique_id=1341799471]
+script = ExtResource("1_mcq71")
