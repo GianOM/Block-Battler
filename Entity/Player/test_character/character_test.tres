@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3x7nytorcn74" path="res://Entity/Player/character_stats.gd" id="1_ip7nh"]
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="1_xb36m"]
-[ext_resource type="Resource" uid="uid://cnsd002sy6vef" path="res://Entity/Player/test_character/character_test_start_pile.tres" id="3_1akbq"]
+[ext_resource type="Resource" uid="uid://cnsd002sy6vef" path="res://Teste_Pile.tres" id="3_1akbq"]
 
 [resource]
 script = ExtResource("1_ip7nh")

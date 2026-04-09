@@ -63,7 +63,7 @@ signal ToolTip_Requested(Block_info: Universal_Block)
 
 var turn_count: int
 
-# Perharps move this to inside the Entity Code?
+# TBD: Perharps move this to inside the Entity Code?
 func shake(thing: Node2D, strength: float, duration: float = 0.2):
 	if not thing:
 		return

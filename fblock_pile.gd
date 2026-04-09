@@ -10,6 +10,9 @@ signal fblock_pile_size_changed(fblocks_amount)
 func is_empty() -> bool:
 	return fblocks_Data.is_empty()
 	
+func size() -> int:
+	return fblocks_Data.size()
+	
 	
 	
 func Get_Next_FBLock_Data() -> FBlock_Data:
