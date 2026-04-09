@@ -2,6 +2,7 @@ class_name Function_Block extends Universal_Block
 
 
 
+
 var My_Block_Data: FBlock_Data : set = initialize_block_data
 @export var variable_number: int
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 	_connect_signals()
 	#_initialize_block(My_Block_Data)
 	
-	
+
 	
 	
 func _connect_signals() -> void:
@@ -34,6 +35,8 @@ func _connect_signals() -> void:
 	
 	
 func initialize_block_data(Block_Data: FBlock_Data):
+	if not is_node_ready():
+		await ready
 	
 	block_texture.Set_Correct_Block_Texture(Block_Data)
 	block_attachment_manager.Set_Up_Block_Sides(Block_Data.attachment_sides)

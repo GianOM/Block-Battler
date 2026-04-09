@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_2d_main.gd" id="1_h6p6f"]
 [ext_resource type="Texture2D" uid="uid://bl0px0faeujld" path="res://Assets/combat_background.webp" id="1_mw5lh"]
-[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_2lcfi"]
 [ext_resource type="PackedScene" uid="uid://x8rog21xhvtb" path="res://Entity/Enemy/enemy_ui.tscn" id="2_jhj0g"]
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="2_mi8d4"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="3_2lcfi"]
@@ -10,7 +9,6 @@
 [ext_resource type="Script" uid="uid://4ggdd8pkk765" path="res://UI/Main_UI/Combat_Scenes/Block_List_Manager__SCRIPT.gd" id="4_cqvpo"]
 [ext_resource type="Script" uid="uid://cho15qjcio22r" path="res://enemy_manager.gd" id="4_y327u"]
 [ext_resource type="PackedScene" uid="uid://d01l83i313sux" path="res://Entity/Player/player_ui.tscn" id="5_cns71"]
-[ext_resource type="Resource" uid="uid://cnsd002sy6vef" path="res://Teste_Pile.tres" id="7_2jbda"]
 [ext_resource type="Script" uid="uid://v7oombf38ke1" path="res://UI/Main_UI/Combat_Scenes/Combat_Stack__SCRIPT.gd" id="7_7hyad"]
 [ext_resource type="Script" uid="uid://k8hpaeahc042" path="res://UI/Main_UI/Combat_Scenes/Player_Instructions__SCRIPT.gd" id="8_2jbda"]
 [ext_resource type="Script" uid="uid://cc5kk7jlaf8er" path="res://enemy_attack_pattern.gd" id="9_drh7v"]
@@ -56,7 +54,6 @@ metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [node name="Combat2DMain" type="Node2D" unique_id=2110802663]
 script = ExtResource("1_h6p6f")
-character_stats = ExtResource("2_2lcfi")
 
 [node name="CombatUI" type="Control" parent="." unique_id=632087552]
 z_index = 1
@@ -116,6 +113,7 @@ columns = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Block_Lists" type="Control" parent="CombatUI" unique_id=1326448696]
+unique_name_in_owner = true
 z_index = 2
 layout_mode = 1
 anchor_left = 0.9015625
@@ -125,7 +123,6 @@ offset_right = -0.32000732
 offset_bottom = 0.040039063
 mouse_filter = 1
 script = ExtResource("4_cqvpo")
-Teste_Pile = ExtResource("7_2jbda")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CombatUI/Block_Lists" unique_id=106744607]

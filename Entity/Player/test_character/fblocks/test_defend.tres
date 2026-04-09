@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://4yxperi8kaos"]
+
+[ext_resource type="Script" uid="uid://d4jos6kai21vl" path="res://Entity/Player/test_character/fblocks/test_defend.gd" id="1_hl4l7"]
+
+[resource]
+script = ExtResource("1_hl4l7")
+id = "test_defend"
+my_block_type = 1
+attachment_sides = Array[String](["RIGHT"])
+tooltip = "Shields, obviously 4Head"
+metadata/_custom_type_script = "uid://bhk574ijieyvu"

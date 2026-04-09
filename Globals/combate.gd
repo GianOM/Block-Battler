@@ -51,6 +51,12 @@ signal end_of_combat_screen_requested(text: String, type: EndOfCombatPanel.Type)
 signal combat_won
 #endregion
 
+@warning_ignore("unused_signal")
+signal fblock_played(fblock: FBlock_Data)
+@warning_ignore("unused_signal")
+signal done_setting_up_fblocks
+
+var list_of_fblocks_played: Array[FBlock_Data]
 
 @warning_ignore("unused_signal")
 signal ToolTip_Requested(Block_info: Universal_Block)

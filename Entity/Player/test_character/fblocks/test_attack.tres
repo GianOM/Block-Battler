@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://dni7bxl637sv0"]
+
+[ext_resource type="Script" uid="uid://420hgrkqjecy" path="res://Entity/Player/test_character/fblocks/test_attack.gd" id="1_30han"]
+
+[resource]
+script = ExtResource("1_30han")
+id = "test_attack"
+attachment_sides = Array[String](["RIGHT"])
+tooltip = "Attacks, duh"
+metadata/_custom_type_script = "uid://bhk574ijieyvu"

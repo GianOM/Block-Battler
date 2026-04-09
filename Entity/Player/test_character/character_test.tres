@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://d2csc061pex2h"]
+
+[ext_resource type="Script" uid="uid://d3x7nytorcn74" path="res://Entity/Player/character_stats.gd" id="1_ip7nh"]
+[ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="1_xb36m"]
+[ext_resource type="Resource" uid="uid://cnsd002sy6vef" path="res://Entity/Player/test_character/character_test_start_pile.tres" id="3_1akbq"]
+
+[resource]
+script = ExtResource("1_ip7nh")
+starter_pile = ExtResource("3_1akbq")
+max_hp = 50
+image = ExtResource("1_xb36m")
+metadata/_custom_type_script = "uid://d3x7nytorcn74"

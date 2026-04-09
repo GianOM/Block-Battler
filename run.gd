@@ -23,7 +23,7 @@ var last_combat_room: Room3D
 func _ready() -> void:
 	#temporary
 	if not player_character:
-		var test_character:= load("res://Entity/Player/character_test.tres")
+		var test_character:= load("res://Entity/Player/test_character/character_test.tres")
 		player_character = test_character.create_instance()
 	
 	_start_run()

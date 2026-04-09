@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnninu33w5f3x" path="res://UI/Main_UI/Combat Scripts/Combat_Input__SCRIPT.gd" id="1_1k6pa"]
 [ext_resource type="Script" uid="uid://g4jcpooxx5rs" path="res://combat_2d_main.gd" id="1_d2bcc"]
-[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/character_test.tres" id="2_jjm1q"]
+[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/test_character/character_test.tres" id="2_jjm1q"]
 [ext_resource type="PackedScene" uid="uid://bwed0118amt63" path="res://UI/Main_UI/Combat_Scenes/Function_Block__SCENE.tscn" id="3_1k6pa"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="4_3tk0i"]
 [ext_resource type="Script" uid="uid://5yjik0p0rekt" path="res://UI/Main_UI/Combat Scripts/Block_Canvas__SCRIPT.gd" id="4_yeubn"]

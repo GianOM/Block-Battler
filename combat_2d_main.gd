@@ -13,6 +13,7 @@ extends Node2D
 @onready var enemy_manager: EnemyManager = $EnemyManager
 @onready var player_manager: PlayerManager = $PlayerManager
 @onready var enemy_attack_pattern: VBoxContainer = %EnemyAttackPattern
+@onready var block_lists: Control = $CombatUI/Block_Lists
 
 #temp
 @onready var player = player_manager.get_child(0)
@@ -34,12 +35,18 @@ func start_combat():
 	
 	#testing
 	player.stats = character_stats
+	
 	enemy_manager.setup_enemies(combat_stats)
+	
 	#mlk pqp como eu odeio godot
 	await get_tree().create_timer(0.01).timeout
 	
 	setup_all_entities_ids()
 	enemy_attack_pattern.enemy_manager_ref = enemy_manager
+	block_lists.character_stats = character_stats
+	#character_stats.draw_pile = character_stats.run_pile
+	
+	#block_lists.fblock_pile = character_stats.draw_pile
 	player_manager.start_battle(character_stats)
 
 func setup_all_entities_ids():
