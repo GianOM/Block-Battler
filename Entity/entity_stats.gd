@@ -32,7 +32,6 @@ func take_damage(damage: int):
 		return
 		
 	var damage_after_shield = clampi(damage - shield, 0, 9999999)
-	
 	self.shield = clampi(shield - damage, 0, 9999999) # v
 	self.hp -= damage_after_shield
 	#if shield is bigger than dmg, dmg taken would be negative, so... no, it has to be minimum 0

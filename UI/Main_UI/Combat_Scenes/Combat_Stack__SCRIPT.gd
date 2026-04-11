@@ -15,9 +15,9 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	
 	COMBATE.list_of_fblocks_played.push_back(Connected_Blocks_Root.My_Block_Data)
 	
-	var Instruction_String: String = str(Connected_Blocks_Root.get_instance_id()) + "-" + "P1-"
+	var Instruction_String: String = Connected_Blocks_Root.My_Block_Data.id + "-" + "P1-"
 	
-	Instruction_String += Connected_Blocks_Root.My_Block_Data.id + "-" + str(Connected_Blocks_Root.variable_number) + "-"
+	Instruction_String += str(Connected_Blocks_Root.variable_number) + "-"
 	
 	#Connected_Blocks_Root.My_Block_Data.My_Action()
 	

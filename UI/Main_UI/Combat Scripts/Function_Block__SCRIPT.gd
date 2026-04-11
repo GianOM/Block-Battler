@@ -43,6 +43,8 @@ func initialize_block_data(Block_Data: FBlock_Data):
 	
 	My_Block_Data = Block_Data
 	
+	My_Block_Data.id = str(get_instance_id())
+	
 	
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:

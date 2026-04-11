@@ -60,20 +60,25 @@ func execute_player_turn():
 	COMBATE.player_action_stack.emit()
 	
 
-func execute_player_actions(actions: Array[String]):
+func execute_player_actions(list_of_actions: Array[String]):
 	
-	for i in actions:
-		var action_parameters: PackedStringArray = i.split("-", false)
+	for action in list_of_actions:
+		var action_parameters: PackedStringArray = action.split("-", false)
 		
 		var source = COMBATE.Combat_ID_Dict[action_parameters[1]]
-		var action = action_parameters[2]
+		var action_instruction = action_parameters[2]
 		var target = COMBATE.Combat_ID_Dict[action_parameters[-1]]
 		
-		if not source or not target or not action:
+		if not source or not target or not action_instruction:
 			continue
+			
+		
 		
 		for j in COMBATE.list_of_fblocks_played.size():
-			if COMBATE.list_of_fblocks_played[j].id == action:
+			
+			var Current_Combat_Block: FBlock_Data = COMBATE.list_of_fblocks_played[j]
+			
+			if Current_Combat_Block.id == action_parameters[0]:
 				COMBATE.list_of_fblocks_played[j].play(target)
 		
 		
