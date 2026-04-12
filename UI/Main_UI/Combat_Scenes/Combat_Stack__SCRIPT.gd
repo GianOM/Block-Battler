@@ -45,7 +45,7 @@ func _on_block_connection_formed(Connected_Blocks_Root: Universal_Block):
 	
 func _on_block_connection_broken(Connected_Blocks_Root: Universal_Block):
 	
-	for i in COMBATE.list_of_fblocks_played.size() - 1:
+	for i in COMBATE.list_of_fblocks_played.size():
 		if Connected_Blocks_Root.My_Block_Data.id == COMBATE.list_of_fblocks_played[i].id:
 			COMBATE.list_of_fblocks_played.remove_at(i)
 	
