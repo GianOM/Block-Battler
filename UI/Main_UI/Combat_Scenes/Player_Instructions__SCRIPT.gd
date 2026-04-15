@@ -20,8 +20,6 @@ func Erase_Command_from_ID(instruction_id_to_free: int):
 		
 		var child_instruction: String = instruction.text.split("-",false)[0]
 		
-		
-		
 		if child_instruction == str(instruction_id_to_free):
 			instruction.queue_free()
 			return

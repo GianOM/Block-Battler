@@ -117,6 +117,7 @@ func _on_Player_PRESSED_Left_Click():
 		return
 	
 	block_texture.z_index = 64
+	COMBATE.ToolTip_Hide_Requested.emit()
 	
 	
 	if current_state == Block_State.DRAGGABLE:
@@ -189,6 +190,8 @@ func _on_mouse_entered_area():
 	
 	
 func _on_mouse_exited_area():
+	
+	COMBATE.ToolTip_Hide_Requested.emit()
 	
 	# Se ele nao esta sendo arrastado, nao tiramos ele do Draggable State
 	if current_state == Block_State.DRAGGABLE:

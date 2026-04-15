@@ -60,6 +60,8 @@ var list_of_fblocks_played: Array[FBlock_Data]
 
 @warning_ignore("unused_signal")
 signal ToolTip_Requested(Block_info: Universal_Block)
+@warning_ignore("unused_signal")
+signal ToolTip_Hide_Requested
 
 var turn_count: int
 

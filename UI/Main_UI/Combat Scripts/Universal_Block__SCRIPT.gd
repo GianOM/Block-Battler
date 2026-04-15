@@ -11,8 +11,4 @@ enum Block_State{
 
 
 
-@export_multiline var Block_Tooltip_Description: String
-
-
-
 ## Classe pai do FBlock e VBlock
