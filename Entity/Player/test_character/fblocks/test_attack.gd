@@ -1,6 +1,6 @@
 extends FBlock_Data
 
-var base_dmg:= 50
+var base_dmg:= 25
 
 func do_fblock_actions(target: Node):
 	var damage:= Damage.new()

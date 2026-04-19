@@ -14,7 +14,7 @@ var Last_Hovered_Grid_Cells: Array[Canvas_Grid_Cell]
 func _ready() -> void:
 	
 	JOGADOR.Player_Dropped_Block_on_Canvas.connect(Drop_Block_on_Canvas_Grid)
-	
+	COMBATE.enemy_turn_ended.connect(_on_enemy_turn_ended)
 	
 	for i in range(12):
 		
@@ -25,6 +25,10 @@ func _ready() -> void:
 		Temp_Canvas_Grid.Player_Hovering_Cell.connect(_on_Player_HOVERED_a_Grid_Cell)
 		Temp_Canvas_Grid.Player_Unhovered_Cell.connect(_on_Player_UNHOVERED_a_Grid_Cell)
 		
+		
+func _on_enemy_turn_ended():
+	for Temp_Canvas_Grid in block_grid.get_children():
+		Temp_Canvas_Grid.Cooldown()
 		
 		
 func _on_Player_HOVERED_a_Grid_Cell(ptr_Grid_Cell: Canvas_Grid_Cell):
