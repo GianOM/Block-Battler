@@ -5,17 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://c3j2rbllr441d" path="res://Assets/scholel.jpg" id="3_gsue1"]
 [ext_resource type="Script" uid="uid://djmsrr81siihr" path="res://Entity/Enemy/enemy_stats.gd" id="4_3n1gp"]
 
-[sub_resource type="Resource" id="Resource_hqu5w"]
+[sub_resource type="Resource" id="Resource_utbna"]
 script = ExtResource("4_3n1gp")
 action_scene = ExtResource("2_utbna")
-max_hp = 1
+max_hp = 60
 image = ExtResource("3_gsue1")
 metadata/_custom_type_script = "uid://djmsrr81siihr"
 
-[sub_resource type="Resource" id="Resource_1wk5j"]
+[sub_resource type="Resource" id="Resource_gsue1"]
 script = ExtResource("4_3n1gp")
 action_scene = ExtResource("2_utbna")
-max_hp = 1
+max_hp = 60
 image = ExtResource("3_gsue1")
 metadata/_custom_type_script = "uid://djmsrr81siihr"
 
@@ -23,8 +23,8 @@ metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [node name="Head" parent="." unique_id=807532450 instance=ExtResource("1_vhgis")]
 position = Vector2(1125, 643)
-stats = SubResource("Resource_hqu5w")
+stats = SubResource("Resource_utbna")
 
 [node name="Head2" parent="." unique_id=722162480 instance=ExtResource("1_vhgis")]
 position = Vector2(1326, 705)
-stats = SubResource("Resource_1wk5j")
+stats = SubResource("Resource_gsue1")

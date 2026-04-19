@@ -181,12 +181,13 @@ func _on_Player_RELEASED_Left_Click():
 
 func _on_mouse_entered_area():
 	
-	COMBATE.ToolTip_Requested.emit(self)
-	
 	if (current_state == Block_State.ONLIST):
 		current_state = Block_State.DRAGGABLE
+		COMBATE.ToolTip_Requested.emit(self)
+		
 	elif (current_state == Block_State.PLACED):
 		current_state = Block_State.ONCANVAS
+		COMBATE.ToolTip_Requested.emit(self)
 	
 	
 func _on_mouse_exited_area():

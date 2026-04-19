@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_hl4l7")
-id = "test_defend"
 my_block_type = 1
 attachment_sides = Array[String](["RIGHT"])
 tooltip = "Shields, obviously 4Head"
+temp_block_color = Color(0, 0, 1, 1)
 metadata/_custom_type_script = "uid://bhk574ijieyvu"

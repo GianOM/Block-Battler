@@ -18,14 +18,23 @@ func _ready() -> void:
 func _on_Tooltip_Requested(block_to_display_info: Universal_Block):
 	
 	tool_tip_text.text = block_to_display_info.My_Block_Data.tooltip
-	global_position = block_to_display_info.global_position
-	global_position.x -= size.x * 1.2
+	
+	match block_to_display_info.current_state:
+		
+		Universal_Block.Block_State.DRAGGABLE:
+			global_position = block_to_display_info.block_texture.global_position
+			global_position.x -= 132 * 2.5
+			
+		Universal_Block.Block_State.ONCANVAS:
+			global_position = block_to_display_info.block_texture.global_position
+			global_position.x += 132 * 1.0
+	
+	
+	
 	show()
 	
 	
 func _on_ToolTip_Hide_Requested():
+	
 	hide()
 	
-	
-	
-	pass

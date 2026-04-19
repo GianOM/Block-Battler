@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Lone_Wolf" format=3 uid="uid://d07q20t6jla1"]
+
+[ext_resource type="Script" uid="uid://dmwdba37aqq10" path="res://Entity/Player/test_character/fblocks/Lone Wolf Block/Lone_Wolf__BLOCK-DATA.gd" id="1_c5rv2"]
+
+[resource]
+script = ExtResource("1_c5rv2")
+attachment_sides = Array[String](["RIGHT"])
+tooltip = "If there's only one enemy alive, deals 20 damage, else deals 5"
+temp_block_color = Color(0.7632298, 0.3595673, 3.85046e-07, 1)
+metadata/_custom_type_script = "uid://dmwdba37aqq10"

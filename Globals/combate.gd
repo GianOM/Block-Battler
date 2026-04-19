@@ -65,6 +65,13 @@ signal ToolTip_Hide_Requested
 
 var turn_count: int
 
+func Clear_Enemies_Dict():
+	for key in Combat_ID_Dict.keys():
+		if Combat_ID_Dict[key] == null:
+			Combat_ID_Dict.erase(key)
+
+
+
 # TBD: Perharps move this to inside the Entity Code?
 func shake(thing: Node2D, strength: float, duration: float = 0.2):
 	if not thing:

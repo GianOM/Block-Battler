@@ -14,14 +14,17 @@ func Set_Correct_Block_Texture(my_block_data: FBlock_Data):
 		FBlock_Data.Block_Type.ATTACK:
 			
 			texture = ATTACK_BLOCK_TEXTURE
-			
 			details_text.text = "ATT - " + str(root_F_block.variable_number)
+			
+			self_modulate = my_block_data.temp_block_color
 			
 		FBlock_Data.Block_Type.DEFENSE:
 			
 			texture = DEFENSE_BLOCK_TEXTURE
 			
 			details_text.text = "DEF - " + str(root_F_block.variable_number)
+			
+			self_modulate = my_block_data.temp_block_color
 			
 		FBlock_Data.Block_Type.LOOP:
 			

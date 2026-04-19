@@ -7,4 +7,5 @@ script = ExtResource("1_30han")
 id = "test_attack"
 attachment_sides = Array[String](["RIGHT"])
 tooltip = "Attacks, duh"
+temp_block_color = Color(1, 0, 0, 1)
 metadata/_custom_type_script = "uid://bhk574ijieyvu"

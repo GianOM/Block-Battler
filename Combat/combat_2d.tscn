@@ -41,14 +41,14 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="Resource" id="Resource_tnmra"]
 script = ExtResource("16_drh7v")
 action_scene = ExtResource("14_7hyad")
-max_hp = 1
+max_hp = 60
 image = ExtResource("15_2jbda")
 metadata/_custom_type_script = "uid://djmsrr81siihr"
 
 [sub_resource type="Resource" id="Resource_7hyad"]
 script = ExtResource("16_drh7v")
 action_scene = ExtResource("17_7hyad")
-max_hp = 1
+max_hp = 60
 image = ExtResource("18_svxjp")
 metadata/_custom_type_script = "uid://djmsrr81siihr"
 
@@ -275,6 +275,7 @@ vertical_alignment = 1
 
 [node name="Block Tooltip" type="Control" parent="CombatUI" unique_id=133945900]
 visible = false
+z_index = 128
 anchors_preset = 0
 offset_right = 293.0
 offset_bottom = 373.0

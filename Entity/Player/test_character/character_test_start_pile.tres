@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bhk574ijieyvu" path="res://UI/Main_UI/Combat_Scenes/FBlock_Data/FBlock_Data__RESOURCE-SCRIPT.gd" id="1_y6csu"]
 [ext_resource type="Resource" uid="uid://dni7bxl637sv0" path="res://Entity/Player/test_character/fblocks/test_attack.tres" id="2_vpqnq"]
+[ext_resource type="Resource" uid="uid://d07q20t6jla1" path="res://Entity/Player/test_character/fblocks/Lone Wolf Block/Lone_Wolf__RESOURCE.tres" id="3_dsm73"]
 [ext_resource type="Resource" uid="uid://4yxperi8kaos" path="res://Entity/Player/test_character/fblocks/test_defend.tres" id="3_j2vl4"]
 [ext_resource type="Script" uid="uid://bxjqigx8qkgve" path="res://resources/fblock_pile.gd" id="4_ytdps"]
 
 [resource]
 script = ExtResource("4_ytdps")
-fblocks_Data = Array[ExtResource("1_y6csu")]([ExtResource("2_vpqnq"), ExtResource("2_vpqnq"), ExtResource("3_j2vl4")])
+fblocks_Data = Array[ExtResource("1_y6csu")]([ExtResource("2_vpqnq"), ExtResource("2_vpqnq"), ExtResource("3_dsm73"), ExtResource("3_j2vl4")])
 metadata/_custom_type_script = "uid://bxjqigx8qkgve"

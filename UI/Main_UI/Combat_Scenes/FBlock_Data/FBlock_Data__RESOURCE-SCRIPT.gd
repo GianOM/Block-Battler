@@ -13,6 +13,8 @@ enum Block_Type{
 
 @export_multiline var tooltip: String
 
+@export var temp_block_color: Color
+
 func play(target: Node):
 	
 	COMBATE.fblock_played.emit(self)
