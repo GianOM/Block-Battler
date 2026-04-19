@@ -1,14 +1,10 @@
 class_name Variables_Block extends Universal_Block
 
-enum Block_Type{
-	ENEMY,
-	ALLY
-}
+
 var current_state: Block_State = Block_State.ONLIST
 var Block_Target: String
 
-@export var my_block_type: Block_Type
-@export var Possible_Attachment_Sides: Array[String]
+@export var My_Block_Data: VBlock_Data
 
 @onready var block_texture: TextureRect = $VBlock_TEXTURE
 @onready var block_attachment_manager: Attachment_Manager = $VBlock_TEXTURE/Block_Attachment_Manager
@@ -28,7 +24,7 @@ var is_mouse_on_Canvas: bool = false
 func _ready() -> void:
 	
 	_connect_signals()
-	_initialize_block()
+	initialize_block_data()
 	
 	
 func _connect_signals() -> void:
@@ -41,10 +37,17 @@ func _connect_signals() -> void:
 	
 	COMBATE.player_turn_ended.connect(RESET)
 	
-func _initialize_block():
 	
-	block_texture.Set_Correct_Block_Texture(my_block_type)
-	block_attachment_manager.Set_Up_Block_Sides(Possible_Attachment_Sides)
+	
+func initialize_block_data():
+	if not is_node_ready():
+		await ready
+		
+	
+	block_texture.Set_Correct_Block_Texture(My_Block_Data)
+	block_attachment_manager.Set_Up_Block_Sides(My_Block_Data.attachment_sides)
+	
+	My_Block_Data.id = str(get_instance_id())
 	
 	
 	

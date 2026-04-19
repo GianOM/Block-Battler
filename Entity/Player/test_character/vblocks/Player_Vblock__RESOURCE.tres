@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="VBlock_Data" format=3 uid="uid://eqpflgkr5hk6"]
+
+[ext_resource type="Script" uid="uid://bgbidlr5fddpb" path="res://UI/Main_UI/Combat_Scenes/FBlock_Data/VBlock_Data__RESOURCE-SCRIPT.gd" id="1_radit"]
+
+[resource]
+script = ExtResource("1_radit")
+attachment_sides = Array[String](["LEFT"])
+metadata/_custom_type_script = "uid://bgbidlr5fddpb"

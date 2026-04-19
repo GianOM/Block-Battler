@@ -63,14 +63,14 @@ func _process(delta: float) -> void:
 func Check_Blocks_Compatibility(block_to_test: Universal_Block) -> bool:
 	
 	
-	if My_Block_Data.attachment_sides.has("UP") and block_to_test.Possible_Attachment_Sides.has("DOWN"):
+	if My_Block_Data.attachment_sides.has("UP") and block_to_test.My_Block_Data.attachment_sides.has("DOWN"):
 		return true
-	elif My_Block_Data.attachment_sides.has("DOWN") and block_to_test.Possible_Attachment_Sides.has("UP"):
+	elif My_Block_Data.attachment_sides.has("DOWN") and block_to_test.My_Block_Data.attachment_sides.has("UP"):
 		return true
 		
-	elif My_Block_Data.attachment_sides.has("RIGHT") and block_to_test.Possible_Attachment_Sides.has("LEFT"):
+	elif My_Block_Data.attachment_sides.has("RIGHT") and block_to_test.My_Block_Data.attachment_sides.has("LEFT"):
 		return true
-	elif My_Block_Data.attachment_sides.has("LEFT") and block_to_test.Possible_Attachment_Sides.has("RIGHT"):
+	elif My_Block_Data.attachment_sides.has("LEFT") and block_to_test.My_Block_Data.attachment_sides.has("RIGHT"):
 		return true
 	
 	

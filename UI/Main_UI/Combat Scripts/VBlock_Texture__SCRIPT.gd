@@ -6,10 +6,10 @@ const ALLY_BLOCK = preload("uid://c5akcc2ltwatx")
 
 
 
-func Set_Correct_Block_Texture(my_block_type: Variables_Block.Block_Type):
-	match my_block_type:
-		Variables_Block.Block_Type.ENEMY:
+func Set_Correct_Block_Texture(my_block_data: VBlock_Data):
+	match my_block_data.my_block_type:
+		VBlock_Data.Block_Type.ENEMY:
 			texture = ENEMY_BLOCK
 			
-		Variables_Block.Block_Type.ALLY:
+		VBlock_Data.Block_Type.PLAYER:
 			texture = ALLY_BLOCK

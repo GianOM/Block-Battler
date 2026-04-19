@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ca52n3145w2xa" path="res://Entity/Player/player_ui.gd" id="1_fj03r"]
 [ext_resource type="Texture2D" uid="uid://ck7jh1n1d4nca" path="res://Assets/characterTest.png" id="2_0pd4e"]
 [ext_resource type="PackedScene" uid="uid://d3jqcet8wnrkw" path="res://UI/Main_UI/Combat_Scenes/Variables_Block__SCENE.tscn" id="2_n4or1"]
+[ext_resource type="Resource" uid="uid://eqpflgkr5hk6" path="res://Entity/Player/test_character/vblocks/Player_Vblock__RESOURCE.tres" id="3_e5fu7"]
 [ext_resource type="PackedScene" uid="uid://fgtl5i03aaj3" path="res://Entity/stats_ui.tscn" id="3_ruhvp"]
 [ext_resource type="PackedScene" uid="uid://lunbsufeifk6" path="res://status_manager.tscn" id="5_4m8mu"]
 [ext_resource type="PackedScene" uid="uid://dewx2tlagh5e1" path="res://modifier_stuff/modifier_manager.tscn" id="6_ko7a4"]
@@ -26,8 +27,7 @@ offset_right = 66.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-my_block_type = 1
-Possible_Attachment_Sides = Array[String](["LEFT"])
+My_Block_Data = ExtResource("3_e5fu7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332193522]
 
