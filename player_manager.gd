@@ -29,6 +29,7 @@ func start_battle(character_stats: CharacterStats):
 	character.draw_pile = character.run_pile.duplicate(true)
 	character.discard_pile = FBlockPile.new()
 	player.status_manager.statuses_applied.connect(_on_statuses_applied)
+	setup_fblocks(character.draw_pile.size())
 	#TBD anything else that needs to happen at the start of combat
 	#e.g. duplicating the block pools if necessary etc
 	start_turn()
@@ -45,12 +46,14 @@ func add_single_fblock():
 	block_lists.add_fblock(character.draw_pile.Get_Next_FBLock_Data())
 
 func setup_fblocks(amount: int):
-	var tween:= create_tween()
+	#var tween:= create_tween()
+	#for i in range(amount):
+		#tween.tween_callback(add_single_fblock)
+	#tween.finished.connect(
+		#func(): COMBATE.done_setting_up_fblocks.emit()
+	#)
 	for i in range(amount):
-		tween.tween_callback(add_single_fblock)
-	tween.finished.connect(
-		func(): COMBATE.done_setting_up_fblocks.emit()
-	)
+		add_single_fblock()
 
 
 #on ready button pressed AKA end player turn
@@ -138,7 +141,8 @@ func execute_player_actions(list_of_actions: Array[String]):
 func _on_statuses_applied(type: Status.Type):
 	match type:
 		Status.Type.START_OF_TURN:
-			setup_fblocks(character.draw_pile.size())
+			#setup_fblocks(character.draw_pile.size())
+			pass
 		Status.Type.END_OF_TURN:
 			#discard stuff
 			pass

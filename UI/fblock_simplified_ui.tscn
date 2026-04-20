@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dgam1x3ojy0yl"]
+
+[ext_resource type="Texture2D" uid="uid://mvby122lvlaf" path="res://UI/Main_UI/Combat_UI_Assets/Function_Blocks_Icons/Attack_Block.png" id="1_15ayn"]
+[ext_resource type="Script" uid="uid://cpmyciu2l6ctv" path="res://UI/fblock_simplified_ui.gd" id="1_qifgm"]
+[ext_resource type="Resource" uid="uid://dni7bxl637sv0" path="res://Entity/Player/test_character/fblocks/test_attack.tres" id="2_52u74"]
+[ext_resource type="Script" uid="uid://cw0luhlqu7i0w" path="res://UI/Main_UI/Combat Scripts/FBlock_Texture__SCRIPT.gd" id="2_stre5"]
+
+[node name="FunctionBlockSimpleUI" type="Button" unique_id=1405480524]
+custom_minimum_size = Vector2(132, 100)
+offset_right = 132.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qifgm")
+fblock = ExtResource("2_52u74")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=53528355]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 100.0
+
+[node name="FBlockUI" type="Control" parent="CenterContainer" unique_id=919133198]
+custom_minimum_size = Vector2(132, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FBlock_TEXTURE" type="TextureRect" parent="CenterContainer/FBlockUI" unique_id=1678770245]
+unique_name_in_owner = true
+z_index = 32
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_15ayn")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_stre5")
+
+[node name="Details Text" type="RichTextLabel" parent="CenterContainer/FBlockUI/FBlock_TEXTURE" unique_id=103245503]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -27.0
+offset_right = 98.0
+offset_bottom = -4.0
+grow_vertical = 0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/FBlockUI" to="." method="_on_f_block_ui_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/FBlockUI" to="." method="_on_f_block_ui_mouse_exited"]

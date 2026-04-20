@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvg2ksajd3b10" path="res://combat_reward.gd" id="1_6o67i"]
 [ext_resource type="PackedScene" uid="uid://bsvglpptebmgf" path="res://reward_button.tscn" id="2_acolj"]
+[ext_resource type="Resource" uid="uid://d2csc061pex2h" path="res://Entity/Player/test_character/character_test.tres" id="2_ksryn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o67i"]
 bg_color = Color(0, 0, 0, 0.5411765)
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_6o67i")
+character_stats = ExtResource("2_ksryn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1415831107]
 layout_mode = 1

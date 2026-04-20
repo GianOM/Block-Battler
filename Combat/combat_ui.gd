@@ -12,6 +12,7 @@ func _ready() -> void:
 	#COMBATE.enemy_action_stack.connect(start_enemy_action_stack)
 	COMBATE.player_turn_ended.connect(_on_player_turn_ended)
 	COMBATE.enemy_turn_ended.connect(_on_enemy_turn_ended)
+	
 
 func _on_player_turn_ended():
 	turn_label.text = "Enemy Turn"

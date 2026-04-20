@@ -27,7 +27,7 @@ mouse_filter = 2
 script = ExtResource("1_mmgtr")
 variable_number = 15
 
-[node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245 node_paths=PackedStringArray("root_F_block")]
+[node name="FBlock_TEXTURE" type="TextureRect" parent="." unique_id=1678770245]
 z_index = 32
 z_as_relative = false
 layout_mode = 1
@@ -40,7 +40,6 @@ mouse_filter = 2
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("3_p4yei")
-root_F_block = NodePath("..")
 
 [node name="Details Text" type="RichTextLabel" parent="FBlock_TEXTURE" unique_id=103245503]
 layout_mode = 1
@@ -49,10 +48,9 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = -27.0
-offset_right = 71.0
+offset_right = 105.0
 offset_bottom = -4.0
 grow_vertical = 0
-text = "ATT - 15"
 
 [node name="Mouse_Detection_Area" type="Area2D" parent="FBlock_TEXTURE" unique_id=2002274141]
 

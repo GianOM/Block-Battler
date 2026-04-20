@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://q4bbyfykir3o"]
+
+[ext_resource type="Script" uid="uid://bse57e5l4gq2d" path="res://UI/fblock_reward.gd" id="1_000vw"]
+[ext_resource type="PackedScene" uid="uid://dgam1x3ojy0yl" path="res://UI/fblock_simplified_ui.tscn" id="1_ya5wb"]
+[ext_resource type="Script" uid="uid://bhk574ijieyvu" path="res://UI/Main_UI/Combat_Scenes/FBlock_Data/FBlock_Data__RESOURCE-SCRIPT.gd" id="2_8tifr"]
+[ext_resource type="Resource" uid="uid://4yxperi8kaos" path="res://Entity/Player/test_character/fblocks/test_defend.tres" id="3_5dpm8"]
+[ext_resource type="Resource" uid="uid://dni7bxl637sv0" path="res://Entity/Player/test_character/fblocks/test_attack.tres" id="4_0qios"]
+
+[node name="FBlockReward" type="ColorRect" unique_id=1428035938]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5137255)
+script = ExtResource("1_000vw")
+rewards = Array[ExtResource("2_8tifr")]([ExtResource("3_5dpm8"), ExtResource("3_5dpm8"), ExtResource("4_0qios")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=512353423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -113.5
+offset_right = 202.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="FBlocks" type="HBoxContainer" parent="VBoxContainer" unique_id=1090803902]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="FunctionBlockSimpleUI" parent="VBoxContainer/FBlocks" unique_id=1405480524 instance=ExtResource("1_ya5wb")]
+layout_mode = 2
+
+[node name="FunctionBlockSimpleUI2" parent="VBoxContainer/FBlocks" unique_id=10679333 instance=ExtResource("1_ya5wb")]
+layout_mode = 2
+
+[node name="FunctionBlockSimpleUI3" parent="VBoxContainer/FBlocks" unique_id=1550779683 instance=ExtResource("1_ya5wb")]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="VBoxContainer" unique_id=1161422472]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Skip"

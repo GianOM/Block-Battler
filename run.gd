@@ -152,4 +152,4 @@ func _on_combat_won():
 	reward_scene.character_stats = player_character
 	
 	reward_scene.add_gold_reward(last_combat_room.combat_stats.roll_gold_reward())
-	
+	reward_scene.add_fblock_reward()

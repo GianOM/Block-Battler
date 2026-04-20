@@ -53,8 +53,8 @@ signal combat_won
 
 @warning_ignore("unused_signal")
 signal fblock_played(fblock: FBlock_Data)
-@warning_ignore("unused_signal")
-signal done_setting_up_fblocks
+#@warning_ignore("unused_signal")
+#signal done_setting_up_fblocks
 
 var list_of_fblocks_played: Array[FBlock_Data]
 

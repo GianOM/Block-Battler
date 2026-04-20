@@ -4,6 +4,7 @@ extends EntityStats
 #TBD... energy, starting array of func blocks etc
 
 @export var starter_pile: FBlockPile
+@export var obtainable_fblocks: FBlockPile
 
 var run_pile: FBlockPile
 var draw_pile: FBlockPile
