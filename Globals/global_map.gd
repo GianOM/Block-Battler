@@ -58,12 +58,15 @@ func _input(event: InputEvent) -> void:
 		
 		if Temp_Room:
 			
+			if not Temp_Room.is_reachable:
+				return
 			
-			if Temp_Room.is_reachable and Temp_Room.my_room_type != Map_Stats.Room_Type.UNDEFINED :
+			if (Temp_Room.my_room_type != Map_Stats.Room_Type.UNDEFINED):
 				
 				go_to_room.emit(current_hovered_room3d[-1])
 				
 			else:
+				
 				Ask_Player_to_Select_Room_Type.emit(current_hovered_room3d[-1])
 				
 				

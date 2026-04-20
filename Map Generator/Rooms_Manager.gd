@@ -18,22 +18,16 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	GlobalMap.Update_Rooms_Reachability.connect(_on_Player_Arrived_at_New_Room3D)
-	
-	#GlobalMap.Player_Selected_a_Room_Type.connect(Player_Set_Room_Type)
+	GlobalMap.Player_Selected_a_Room_Type.connect(_on_Player_Selected_Room_Type)
 	
 
 
-#func Player_Set_Room_Type(player_selected_room_type: Map_Stats.Room_Type):
-	#
-	#
-	#
-	#GlobalMap.current_hovered_room3d[-1]
-	#
-	#
-	#
-	#
-	#
-	#pass
+func _on_Player_Selected_Room_Type(player_selected_room_type: Map_Stats.Room_Type):
+	
+	
+	Current_MapStats.Get_Room_from_Map_Stats(player_selected_room_type)
+	GlobalMap.Fill_Legend_Buttons_Option.emit(Current_MapStats)
+	
 
 
 func _on_Player_Arrived_at_New_Room3D():
@@ -63,13 +57,13 @@ func Fill_Rooms_Info():
 		# A primeira sala é sempre a Sala Inicial
 		if room_idx == 0:
 			Player_Icon.move_player_icon_to_room(individual_Room)
-			individual_Room.Set_Room_Type(Current_MapStats.Get_Starting_Room())
+			individual_Room.Set_Room_Type(Current_MapStats.Get_Room_from_Map_Stats(Map_Stats.Room_Type.STARTING))
 			
 		elif room_idx == (List_of_Room.size() - 1):
-			individual_Room.Set_Room_Type(Current_MapStats.Get_Final_Boss_Room())
-		
-		
-		individual_Room.Set_Room_Type(Map_Stats.Room_Type.UNDEFINED)
+			individual_Room.Set_Room_Type(Current_MapStats.Get_Room_from_Map_Stats(Map_Stats.Room_Type.FINAL_BOSS))
+			
+		else:
+			individual_Room.Set_Room_Type(Map_Stats.Room_Type.UNDEFINED)
 		
 	
 	Update_Rooms_Reachability()

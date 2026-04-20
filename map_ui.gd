@@ -45,10 +45,16 @@ func Fill_Room_Options(my_map_stats: Map_Stats):
 		final_boss.disabled = true
 	
 	shop_room.text = "Shop Room\n" + str(my_map_stats.Number_of_Shops)
+	if my_map_stats.Number_of_Shops == 0:
+		shop_room.disabled = true
 	
 	rest_room.text = "Rest Room\n" + str(my_map_stats.Number_of_Rests)
+	if my_map_stats.Number_of_Rests == 0:
+		rest_room.disabled = true
 	
 	random_encounter.text = "Random Encounter\n" + str(my_map_stats.Number_of_Random_Encounters)
+	if my_map_stats.Number_of_Random_Encounters == 0:
+		random_encounter.disabled = true
 	
 	nothing.text = "Not Available\n" + str(my_map_stats.Calculate_Total_Number_of_Rooms())
 	
@@ -83,12 +89,11 @@ func _on_Room_Button_Pressed(room_type: Map_Stats.Room_Type):
 	if not intermezzo_screen.is_visible_in_tree():
 		return
 		
+		
+		
 	intermezzo_screen.hide()
 	Temp_Room.Set_Room_Type(room_type)
-	
-	
-	
-	#GlobalMap.Player_Selected_a_Room_Type.emit(room_type)
+	GlobalMap.Player_Selected_a_Room_Type.emit(room_type)
 	
 	
 	

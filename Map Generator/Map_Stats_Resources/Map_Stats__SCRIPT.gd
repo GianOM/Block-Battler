@@ -113,15 +113,9 @@ func Get_Random_Room() -> Room_Type:
 	return 999
 	
 	
-	
-func Get_Starting_Room() -> int:
-	Subtract_Number_of_Possible_Rooms(Room_Type.STARTING)
-	return Room_Type.STARTING
-	
-	
-func Get_Final_Boss_Room() -> int:
-	Subtract_Number_of_Possible_Rooms(Room_Type.FINAL_BOSS)
-	return Room_Type.FINAL_BOSS
+func Get_Room_from_Map_Stats(selected_room_type: Room_Type) -> int:
+	Subtract_Number_of_Possible_Rooms(selected_room_type)
+	return selected_room_type
 	
 	
 	
