@@ -52,7 +52,10 @@ func _input(event: InputEvent) -> void:
 		var Temp_Room: Room3D = current_hovered_room3d[-1]
 		
 		if Temp_Room:
-			if Temp_Room.is_reachable:
+			
+			
+			if Temp_Room.is_reachable and Temp_Room.my_room_type :
+				
 				go_to_room.emit(current_hovered_room3d[-1])
 				
 		#caso ele seja null

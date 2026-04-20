@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 	
 	
+	
 func Fill_Room_Options(my_map_stats: Map_Stats):
 	
 	starting_room_label.text = "Starting Room\n" + str(my_map_stats.Number_of_Starting_Points)
@@ -36,6 +37,47 @@ func Fill_Room_Options(my_map_stats: Map_Stats):
 	random_encounter.text = "Random Encounter\n" + str(my_map_stats.Number_of_Random_Encounters)
 	
 	nothing.text = "Not Available\n" + str(my_map_stats.Calculate_Total_Number_of_Rooms())
+	
+	
+	
+func Connect_Rooms_Buttons():
+	
+	starting_room_label.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.STARTING))
+	
+	next_floor_room.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.NEXTFLOOR))
+	
+	normal_enemy.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.NORMAL_ENEMY))
+	
+	mini_boss.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.MINI_BOSS))
+	
+	final_boss.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.FINAL_BOSS))
+	
+	shop_room.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.SHOP))
+	
+	rest_room.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.REST))
+	
+	random_encounter.pressed.connect(_on_Room_Button_Pressed.bind(Map_Stats.Room_Type.RANDOMENCOUNTER))
+	
+	
+	pass
+	
+	
+	
+func _on_Room_Button_Pressed(room_type_id: Map_Stats.Room_Type):
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	pass
+	
+	
 	
 
 

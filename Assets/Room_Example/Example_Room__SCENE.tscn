@@ -11,6 +11,7 @@ size = Vector3(4, 4, 4)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txymy"]
 resource_local_to_scene = true
 cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Example_Room__MESH" unique_id=489116009 instance=ExtResource("1_epdrg")]
 script = ExtResource("2_3cwcp")

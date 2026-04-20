@@ -36,11 +36,9 @@ func Fill_Rooms_Info():
 	
 	for individual_Room in List_of_Room:
 		
-		#var My_Coordinates: String = individual_Room.name
-		
 		var room_idx: int = individual_Room.get_index()
-		individual_Room.Set_Room_Gen_ID(room_idx)
 		
+		individual_Room.Set_Room_Gen_ID(room_idx)
 		Total_Number_of_Adjacents_Rooms(individual_Room, List_of_Room)
 		
 		#var current_room_type: Map_Stats.Room_Type = Current_MapStats.Get_Random_Room()
@@ -55,6 +53,9 @@ func Fill_Rooms_Info():
 			individual_Room.Set_Room_Type(Current_MapStats.Get_Final_Boss_Room())
 		
 		
+		
+		
+	
 	Update_Rooms_Reachability()
 	Write_All_Rooms_Debug()
 	

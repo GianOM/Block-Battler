@@ -8,9 +8,7 @@ signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 
 
 
-
-
-const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
+const STARTER_ROOM_COLOR: Color = Color(0.899, 0.395, 0.153, 1.0)
 const NEXT_FLOOR_ROOM_COLOR: Color = Color(0.104, 0.51, 0.8, 1.0)
 
 const NORMAL_ENEMY_BOSS_ROOM_COLOR: Color = Color(0.8, 0.63, 0.408, 1.0)
@@ -50,13 +48,9 @@ var was_visited: bool = false#usado para saber se o Player ja entrou nela
 
 
 @onready var room_mesh: MeshInstance3D
-
-
 var my_room_type: Map_Stats.Room_Type
 
 func set_number_of_adjacents_room(quantity_of_adjacents_rooms: int):
-	
-	
 	
 	#$"Debug Text".text = str(Has_Adjacent_Room)
 	number_of_adjacents_rooms = quantity_of_adjacents_rooms
@@ -134,6 +128,12 @@ func Write_Debug():
 	
 	
 	var Temp_Material:StandardMaterial3D = room_mesh_4_opens.get_surface_override_material(0)
+	
+	if my_room_type == Map_Stats.Room_Type.UNDEFINED or my_room_type == Map_Stats.Room_Type.STARTING:
+		return
+	
+	
+	
 	if not is_reachable:
 		Temp_Material.albedo_color.v = 0.05
 		
