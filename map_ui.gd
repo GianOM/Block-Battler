@@ -11,9 +11,19 @@ extends Control
 @onready var nothing: Button = $VBoxContainer/Nothing
 @onready var return_button: Button = $VBoxContainer/ReturnButton
 
+@onready var intermezzo_screen: Panel = $"Intermezzo Screen"
+
+
+
+var Temp_Room: Room3D
 
 func _ready() -> void:
+	
+	Connect_Rooms_Buttons()
+	
+	
 	GlobalMap.Fill_Legend_Buttons_Option.connect(Fill_Room_Options)
+	GlobalMap.Ask_Player_to_Select_Room_Type.connect(Reveal_Intermezzo)
 	
 	
 	
@@ -21,6 +31,8 @@ func _ready() -> void:
 func Fill_Room_Options(my_map_stats: Map_Stats):
 	
 	starting_room_label.text = "Starting Room\n" + str(my_map_stats.Number_of_Starting_Points)
+	if my_map_stats.Number_of_Starting_Points == 0:
+		starting_room_label.disabled = true
 	
 	next_floor_room.text = "Next Floor\n" + str(my_map_stats.Number_of_Next_Floor_Rooms)
 	
@@ -29,6 +41,8 @@ func Fill_Room_Options(my_map_stats: Map_Stats):
 	mini_boss.text = "Mini Boss\n" + str(my_map_stats.Number_of_Mini_Boss)
 	
 	final_boss.text = "Final Boss\n" + str(my_map_stats.Number_of_Final_Boss)
+	if my_map_stats.Number_of_Final_Boss == 0:
+		final_boss.disabled = true
 	
 	shop_room.text = "Shop Room\n" + str(my_map_stats.Number_of_Shops)
 	
@@ -63,20 +77,28 @@ func Connect_Rooms_Buttons():
 	
 	
 	
-func _on_Room_Button_Pressed(room_type_id: Map_Stats.Room_Type):
+func _on_Room_Button_Pressed(room_type: Map_Stats.Room_Type):
+	
+	
+	if not intermezzo_screen.is_visible_in_tree():
+		return
+		
+	intermezzo_screen.hide()
+	Temp_Room.Set_Room_Type(room_type)
+	
+	
+	
+	#GlobalMap.Player_Selected_a_Room_Type.emit(room_type)
 	
 	
 	
 	
 	
 	
+func Reveal_Intermezzo(room_to_set_type: Room3D):
 	
-	
-	
-	
-	
-	pass
-	
+	intermezzo_screen.show()
+	Temp_Room = room_to_set_type
 	
 	
 

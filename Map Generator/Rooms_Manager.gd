@@ -18,6 +18,22 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	GlobalMap.Update_Rooms_Reachability.connect(_on_Player_Arrived_at_New_Room3D)
+	
+	#GlobalMap.Player_Selected_a_Room_Type.connect(Player_Set_Room_Type)
+	
+
+
+#func Player_Set_Room_Type(player_selected_room_type: Map_Stats.Room_Type):
+	#
+	#
+	#
+	#GlobalMap.current_hovered_room3d[-1]
+	#
+	#
+	#
+	#
+	#
+	#pass
 
 
 func _on_Player_Arrived_at_New_Room3D():
@@ -53,7 +69,7 @@ func Fill_Rooms_Info():
 			individual_Room.Set_Room_Type(Current_MapStats.Get_Final_Boss_Room())
 		
 		
-		
+		individual_Room.Set_Room_Type(Map_Stats.Room_Type.UNDEFINED)
 		
 	
 	Update_Rooms_Reachability()

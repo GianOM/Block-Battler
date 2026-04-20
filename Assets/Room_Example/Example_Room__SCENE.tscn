@@ -33,23 +33,23 @@ text = "Number of Connections"
 font_size = 200
 outline_size = 100
 
-[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=844265642]
+[node name="Room_Mesh_4_Opens" parent="." index="2" unique_id=433668981]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=1782489684]
+[node name="Room_Mesh_3_Opens" parent="." index="3" unique_id=53485546]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=1070575704]
+[node name="Room_Mesh_2_Opens_A" parent="." index="4" unique_id=687168282]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=106876080]
+[node name="Room_Mesh_1_Opens" parent="." index="5" unique_id=1789344869]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 
-[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=494700610]
+[node name="Room_Mesh_2_Opens_B" parent="." index="6" unique_id=2123532408]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_txymy")
 

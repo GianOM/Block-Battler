@@ -33,6 +33,12 @@ signal combat_reward_exited
 #needs to send;receive room type
 signal go_to_room(room_target: Room3D)
 
+signal Ask_Player_to_Select_Room_Type(room_target: Room3D)
+
+
+@warning_ignore("unused_signal")
+signal Player_Selected_a_Room_Type(my_room_type: Map_Stats.Room_Type)
+
 @warning_ignore("unused_signal")
 signal Update_Rooms_Reachability
 
@@ -43,7 +49,6 @@ var current_hovered_room3d: Array[Room3D]
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventMouseButton):
 		return
-		
 	if not (event.button_index == MouseButton.MOUSE_BUTTON_LEFT):
 		return
 		
@@ -54,9 +59,13 @@ func _input(event: InputEvent) -> void:
 		if Temp_Room:
 			
 			
-			if Temp_Room.is_reachable and Temp_Room.my_room_type :
+			if Temp_Room.is_reachable and Temp_Room.my_room_type != Map_Stats.Room_Type.UNDEFINED :
 				
 				go_to_room.emit(current_hovered_room3d[-1])
+				
+			else:
+				Ask_Player_to_Select_Room_Type.emit(current_hovered_room3d[-1])
+				
 				
 		#caso ele seja null
 		else:
