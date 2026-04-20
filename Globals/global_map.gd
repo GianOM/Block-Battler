@@ -11,8 +11,6 @@ signal Player_Entered_FinalBoss_Room
 signal Player_Entered_NextFloor_Room
 #endregion
 
-
-
 @warning_ignore("unused_signal")
 signal Player_Entered_Shop_Room
 @warning_ignore("unused_signal")
@@ -25,6 +23,9 @@ signal rest_site_exited
 signal Player_Entered_RandomEncounter_Room
 @warning_ignore("unused_signal")
 signal random_encounter_exited
+
+@warning_ignore("unused_signal")
+signal Fill_Legend_Buttons_Option(Current_Map_Stats: Map_Stats)
 
 @warning_ignore("unused_signal")
 signal combat_reward_exited

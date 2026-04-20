@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c321f1hu1wcc1"]
+
+[ext_resource type="Script" uid="uid://bjdlnod5p3r81" path="res://map_ui.gd" id="1_t6sfe"]
+
+[node name="Map Legend" type="Control" unique_id=1032946904]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -1060.0
+offset_right = -16.0
+offset_bottom = -81.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_t6sfe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=442001500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Starting Room Label" type="Button" parent="VBoxContainer" unique_id=715913400]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Starting Room
+0/0"
+
+[node name="Next Floor Room" type="Button" parent="VBoxContainer" unique_id=852796797]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.103999995, 0.51000017, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Next Floor
+1/2"
+
+[node name="Normal Enemy" type="Button" parent="VBoxContainer" unique_id=799373065]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.63013333, 0.408, 1)
+theme_override_font_sizes/font_size = 30
+text = "Normal Enemy
+99/99"
+
+[node name="Mini Boss" type="Button" parent="VBoxContainer" unique_id=1136162363]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.37600002, 0.67986673, 1)
+theme_override_font_sizes/font_size = 30
+text = "Mini Boss
+2/2"
+
+[node name="Final Boss" type="Button" parent="VBoxContainer" unique_id=117788400]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.592, 0.488, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+text = "Final Boss
+0/1"
+
+[node name="Shop Room" type="Button" parent="VBoxContainer" unique_id=1574186014]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5096, 0.8, 0.007999993, 1)
+theme_override_font_sizes/font_size = 30
+text = "Shop
+99/99"
+
+[node name="Rest Room" type="Button" parent="VBoxContainer" unique_id=301193296]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.2866667, 0.24000001, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rest Room
+99/99"
+
+[node name="Random Encounter" type="Button" parent="VBoxContainer" unique_id=616927461]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.70666665, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Random Encounter"
+
+[node name="Nothing" type="Button" parent="VBoxContainer" unique_id=1910119188]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Not Available"
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1668266457]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "return"
+
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -6,6 +6,10 @@ signal Player_is_Hovering_Me(Room_Hovered: Room3D)
 @export var combat_stats_pool: CombatStatsPool
 @export var combat_stats: CombatStats
 
+
+
+
+
 const STARTER_ROOM_COLOR: Color = Color(0.0, 0.0, 0.0, 1.0)
 const NEXT_FLOOR_ROOM_COLOR: Color = Color(0.104, 0.51, 0.8, 1.0)
 
@@ -192,6 +196,13 @@ func On_Mouse_Hover():
 func On_Mouse_UnHover():
 	
 	room_mesh.get_surface_override_material(0).set("emission_energy_multiplier", 0)
+	
+	
+	
+func Set_Room_as_Undefined():
+	room_mesh.get_surface_override_material(0).set("albedo_color", STARTER_ROOM_COLOR)
+	room_mesh.get_surface_override_material(0).set("emission", Color(0.0, 0.0, 0.0, 1.0))
+	
 	
 	
 func Set_Room_as_Starting_Room():

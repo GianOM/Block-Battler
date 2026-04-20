@@ -1,6 +1,7 @@
 class_name Map_Stats extends Resource
 
 enum Room_Type{
+	UNDEFINED, #Room antes do Player escolher
 	STARTING,
 	NEXTFLOOR,
 	NORMAL_ENEMY,
@@ -106,13 +107,21 @@ func Get_Random_Room() -> Room_Type:
 		
 		var choosen_int: int = randi_range(0,List_of_Possibilities.size() - 1)
 		#print(Room_Type.keys()[choosen_int])
-		
 		Subtract_Number_of_Possible_Rooms(List_of_Possibilities[choosen_int])
-	
-	
 		return List_of_Possibilities[choosen_int]
 		
 	return 999
+	
+	
+	
+func Get_Starting_Room() -> int:
+	Subtract_Number_of_Possible_Rooms(Room_Type.STARTING)
+	return Room_Type.STARTING
+	
+	
+func Get_Final_Boss_Room() -> int:
+	Subtract_Number_of_Possible_Rooms(Room_Type.FINAL_BOSS)
+	return Room_Type.FINAL_BOSS
 	
 	
 	

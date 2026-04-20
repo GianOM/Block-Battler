@@ -23,7 +23,6 @@ func _ready() -> void:
 func _on_Player_Arrived_at_New_Room3D():
 	# Linha 27 setada agora pelo Run.gd, pois ele precisa saber antes de todo mundo
 	# se a room ja foi visitada para gerar o encontro
-	
 	#new_player_room.was_visited = true
 	
 	Update_Rooms_Reachability()
@@ -44,17 +43,22 @@ func Fill_Rooms_Info():
 		
 		Total_Number_of_Adjacents_Rooms(individual_Room, List_of_Room)
 		
-		var current_room_type: Map_Stats.Room_Type = Current_MapStats.Get_Random_Room()
+		#var current_room_type: Map_Stats.Room_Type = Current_MapStats.Get_Random_Room()
 		
 		
-		if current_room_type == Map_Stats.Room_Type.STARTING:
+		# A primeira sala é sempre a Sala Inicial
+		if room_idx == 0:
 			Player_Icon.move_player_icon_to_room(individual_Room)
-		
-		individual_Room.Set_Room_Type(current_room_type)
+			individual_Room.Set_Room_Type(Current_MapStats.Get_Starting_Room())
+			
+		elif room_idx == (List_of_Room.size() - 1):
+			individual_Room.Set_Room_Type(Current_MapStats.Get_Final_Boss_Room())
 		
 		
 	Update_Rooms_Reachability()
 	Write_All_Rooms_Debug()
+	
+	GlobalMap.Fill_Legend_Buttons_Option.emit(Current_MapStats)
 		
 		
 		

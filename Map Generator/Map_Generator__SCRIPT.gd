@@ -76,8 +76,7 @@ func Drunkard_Walk():
 		
 		
 	rooms_root.Fill_Rooms_Info()
-	
-	selected_Map_Stats.Scale_Room_Numbers()
+	selected_Map_Stats.Scale_Room_Numbers() #Aumenta o numero de salas para o proximo Floor
 	
 func Instance_Room_on_drunk_position(input_drunk_position: Vector2i):
 	
